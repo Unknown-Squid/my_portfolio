@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import TsParticles from "./tsparticles";
 import next from "next";
+import Image from "next/image";
 
 export default function Home() {
 
@@ -208,7 +209,7 @@ export default function Home() {
       }
     
     }
-  }, [navBar]);
+  }, [navBar, letterU, letterS]);
 
   return (
     <div className="h-full w-full flex flex-col">
@@ -217,13 +218,13 @@ export default function Home() {
               <div id="header" className="h-full w-full text-neutral-200">
                 <div className="w-full lg:h-1/3 lg:justify-end md:h-1/3 md:justify-end sm:h-1/3 sm:justify-end h-1/4 font-bold flex flex-col items-center justify-center relative">
                   <h1 className="web absolute mt-10 lg:text-6xl md:text-6xl sm:text-6xl text-3xl flex justify-center">WEB</h1>
-                  <img src="/capture.png" className="capture"/>
+                  <Image alt="capture" rc="/capture.png" className="capture"/>
                   <h1 className="developer absolute ml-2 lg:text-6xl md:text-6xl sm:text-6xl text-3xl flex justify-center">EVELOPER</h1>  
                 </div>
                 <div className="w-full h-1/2 flex flex-col ">
                     <div className="w-full h-5/6 text-center flex flex-col items-center justify-start">
                         <div className="lg:w-1/4 md:w-1/2 sm:w-1/2 w-3/4 flex flex-col items-center justify-center mt-10 relative">
-                          <h2 className="lg:text-4xl text-xl"> Hi <span className="emoji2 lg:text-2xl md:text-2xl sm:text-2xl"></span><span className="emoji1 lg:text-lg md:text-sm sm:text-sm text-sm w-1/2 h-1/2"></span>&nbsp;&nbsp;&nbsp;, I'm <i>Gerald Fegalan</i></h2>
+                          <h2 className="lg:text-4xl text-xl"> Hi <span className="emoji2 lg:text-2xl md:text-2xl sm:text-2xl"></span><span className="emoji1 lg:text-lg md:text-sm sm:text-sm text-sm w-1/2 h-1/2"></span>&nbsp;&nbsp;&nbsp;, I&apos;m <i>Gerald Fegalan</i></h2>
                           <h3 className="lg:text-2xl text-sm">An aspiring web developer who can do front-end and back-end.</h3>
                         </div>                       
                         <div className="lg:h-2/5  md:h-2/5  sm:h-2/5  h-2/5 w-full mt-10 relative flex text-center justify-center">
@@ -241,7 +242,7 @@ export default function Home() {
                         </q>
                         <div id="moveDown" className="relative flex justify-center mt-10 ">
                           <a href="#page2" className="text-white font-bold hover:text-blue-600">mo&nbsp;&nbsp;&nbsp;&nbsp;e down</a>
-                          <img src="move down.PNG" className="moveDown"/>
+                          <Image alt="moveDown" src="move down.PNG" className="moveDown"/>
                         </div>
                     </div>  
                   </div>
@@ -317,8 +318,8 @@ export default function Home() {
 
               <div className="w-full lg:h-1/3 md:h-1/3 sm:h-1/3 h-1/2 flex justify-center items-center">
                 <div className="flex items-center justify-center w-full lg:w-5/6 h-1/2">
-                  <p className="text-justify text-xs lg:mb-10 md:mb-10 sm:mb-10 lg:text-sm md:text-sm sm:text-sm">Hello, if you're searching for a skilled programmer, you can depend on me. My name is Fritz Gerald Fegalan, I'm a 
-                    front-end and back-end web developer. However, my coding abilities aren't just restricted to web development; I can also 
+                  <p className="text-justify text-xs lg:mb-10 md:mb-10 sm:mb-10 lg:text-sm md:text-sm sm:text-sm">Hello, if you&apos;re searching for a skilled programmer, you can depend on me. My name is Fritz Gerald Fegalan, I&apos;m a 
+                    front-end and back-end web developer. However, my coding abilities aren&apos;t just restricted to web development; I can also 
                     create basic projects and applications in other languages. <br/><br/>My hobbies are playing sports, watching movies and also coding stuff, I love
                     coding and I want to dive in the world of technologies where I can learn many things and how things works.
                   </p>
@@ -385,18 +386,18 @@ export default function Home() {
                   <div  className="h-full lg:w-1/2 md:w-1/2 sm:w-1/2 w-full flex flex-col justify-center items-center p-2">
                     <p>OTHERS</p>
                     <div className="w-full h-full flex flex-wrap items-center justify-center gap-2">
-                      <img src="vbNet.png" className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-fit"/>
-                      <img src="cSharp.png" className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-cover"/>
-                      <img src="c++.png" className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-contain"/>
-                      <img src="python.png" className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-contain"/>
-                      <img src="php.png" className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-fit"/>
-                      <img src="mysql.png" className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-contain"/>
-                      <img src="mit.png" className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-contain"/>
-                      <img src="arduino.png" className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-contain"/>
+                      <Image alt="vbNet" src="vbNet.png" className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-fit"/>
+                      <Image alt="cSharp" src="cSharp.png" className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-cover"/>
+                      <Image alt="c++" src="c++.png" className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-contain"/>
+                      <Image alt="python" src="python.png" className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-contain"/>
+                      <Image alt="php" src="php.png" className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-fit"/>
+                      <Image alt="mysql" src="mysql.png" className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-contain"/>
+                      <Image alt="mit.png" src="mit.png" className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-contain"/>
+                      <Image alt="arduino" src="arduino.png" className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-contain"/>
                       <p className="text-neutral-200 w-full font-bold">Designing</p>
-                      <img src="canva.png" className="w-1/5 lg:h-1/6 md:h-1/6 sm:h-1/6 h-2/3 object-contain "/>
-                      <img src="figma.png" className="w-1/5 lg:h-1/6 md:h-1/6 sm:h-1/6 h-2/3 object-contain"/>
-                      <img src="ibisPaint.png" className="w-1/5 lg:h-1/6 md:h-1/6 sm:h-1/6 h-2/3 object-contain"/>
+                      <Image alt="canva" src="canva.png" className="w-1/5 lg:h-1/6 md:h-1/6 sm:h-1/6 h-2/3 object-contain "/>
+                      <Image alt="figma" src="figma.png" className="w-1/5 lg:h-1/6 md:h-1/6 sm:h-1/6 h-2/3 object-contain"/>
+                      <Image alt="ibisPaint" src="ibisPaint.png" className="w-1/5 lg:h-1/6 md:h-1/6 sm:h-1/6 h-2/3 object-contain"/>
                     </div>                   
                   </div>
 
@@ -414,7 +415,7 @@ export default function Home() {
               </div>
               <div id="gallery">
                 <div type="button" id="project1" className={`myProject absolute bg-white`}>
-                  <img src="" />
+                  <Image alt="project1" src="" />
                   <div className="showMoreCont">
                     <h4>Coming Soon</h4>
                     <button type="button" name="project1" onClick={showProject1} className="comingSoon" disabled>.....</button>
@@ -422,7 +423,7 @@ export default function Home() {
                 </div>
 
                 <div type="button" id="project2" className={`myProject absolute bg-white`}>
-                  <img src="" />
+                  <Image alt="project2" src="" />
                   <div className="showMoreCont">
                     <h4>Coming Soon</h4>
                     <button type="button" name="project2" onClick={showProject2} className="comingSoon" disabled>.....</button>
@@ -430,7 +431,7 @@ export default function Home() {
                 </div>
 
                 <div type="button" id="project3" className={`myProject absolute bg-white`}>
-                  <img src="" />
+                  <Image alt="project3" src="" />
                   <div className="showMoreCont">
                     <h4>Coming Soon</h4>
                     <button type="button" name="project3" onClick={showProject3} className="comingSoon" disabled>.....</button>
@@ -438,7 +439,7 @@ export default function Home() {
                 </div>
 
                 <div type="button" id="project4" className={`myProject absolute bg-white`}>
-                  <img src="" />
+                  <Image alt="project4" src="" />
                   <div className="showMoreCont">
                     <h4>Coming Soon</h4>
                     <button type="button" name="project4" onClick={showProject4} className="comingSoon" disabled>.....</button>
@@ -446,7 +447,7 @@ export default function Home() {
                 </div>
 
                 <div type="button" id="project5" className={`myProject absolute bg-white`}>
-                  <img src="carGame.PNG" />
+                  <Image alt="project5" src="carGame.PNG" />
                   <div className="showMoreCont">
                     <h4>Simple Car Game (python)</h4>
                     <button type="button" name="project5" onClick={showProject5} className="showMoreButton"></button>
@@ -454,7 +455,7 @@ export default function Home() {
                 </div> 
 
                 <div type="button" id="project6" className={`myProject absolute bg-white`}>
-                  <img  src="simpleAttendanceChecker.PNG" />
+                  <Image alt="project6" src="simpleAttendanceChecker.PNG" />
                   <div className="showMoreCont">
                     <h4>Simple Attendance Checker (c#)</h4>
                     <button type="button" name="project6" onClick={showProject6} className="showMoreButton"></button>
@@ -462,7 +463,7 @@ export default function Home() {
                 </div> 
 
                 <div type="button" id="project7" className={`myProject absolute bg-white`}>
-                  <img src="moodTank.PNG" />
+                  <Image alt="project7" src="moodTank.PNG" />
                   <div className="showMoreCont">
                     <h4>Mood Tank (arduino)</h4>
                     <button type="button" name="project7" onClick={showProject7} className="showMoreButton"></button>
@@ -470,7 +471,7 @@ export default function Home() {
                 </div> 
 
                 <div type="button" id="project8" className={`myProject absolute bg-white`}>
-                  <img src="Capstone.PNG" />
+                  <Image alt="project8" src="Capstone.PNG" />
                   <div className="showMoreCont">
                     <h4>Attendance Checker (javascript, html, css)</h4>
                     <button type="button" name="project8" onClick={showProject8} className="showMoreButton"></button>
@@ -512,7 +513,7 @@ export default function Home() {
               </video>
               <div className="h-2/5 w-full flex flex-col justify-center items-center bg-slate-500 z-10">
                 <h1 className="w-full text-center "> Attendance Checker </h1>
-                <p className="w-full mb-10 ml-10">This is mood tank for changing the mood of a person, it's pars divided by;
+                <p className="w-full mb-10 ml-10">This is mood tank for changing the mood of a person, it&apos;s pars divided by;
                   <br/> * Sound Sensor for controling the light
                   <br/> * Light Sensor for controling the light
                   <br/> * Buttons for Switching Sensors
@@ -528,7 +529,7 @@ export default function Home() {
           <div id="project6Cont" className=" w-full h-full justify-center items-center absolute z-10">
 
             <div className="lg:w-2/5 lg:h-3/4 md:w-2/5 md:h-3/4 sm:w-2/5 sm:h-3/4 w-full h-4/5 text-white flex flex-col items-end bg-black">
-              <img src="simpleAttendanceChecker.PNG" className="h-3/5 w-full object-fit"/>
+              <Image alt="simpleAttendanceChecker" src="simpleAttendanceChecker.PNG" className="h-3/5 w-full object-fit"/>
               <div className="h-2/5 w-full flex flex-col justify-center items-center bg-slate-500 z-10">
                 <h1 className="w-full text-center "> Attendance Checker </h1>
                 <p className="w-full mb-10 ml-10">This is a sumple attendance checker application made in vb.net, it has this following features;
@@ -554,7 +555,7 @@ export default function Home() {
                   <br/> * after start, you need to enter your name
                   <br/> * after entering your name choose your map
                   <br/> * after choosing the map choose your car
-                  <br/> * at the start there's a guide what to do
+                  <br/> * at the start there&apos;s a guide what to do
                   <br/> * hold gas to start the race and to accelerate
                   <br/> * hold break to deccelerate
                   <br/> * if your car touch the finish line first you win otherwise you lose
@@ -587,7 +588,7 @@ export default function Home() {
 
               <div className="gap-2 place-content-center">
                 <div className="socialLinkLogo flex items-center gap-2 p-1">
-                  <img src="twitter.png" className=" lg:w-1/3 lg:h-full md:w-1/3 md:h-full sm:w-1/3 sm:h-full w-1/6 h-1/6 bg-black object-contain"/>
+                  <Image alt="twitter" src="twitter.png" className=" lg:w-1/3 lg:h-full md:w-1/3 md:h-full sm:w-1/3 sm:h-full w-1/6 h-1/6 bg-black object-contain"/>
                   <p className="twitter">TWITTER</p>
                 </div>
                 <a href="https://x.com/FegalanGerald">@geraldfegalan</a>
@@ -595,7 +596,7 @@ export default function Home() {
 
               <div className="gap-2 place-content-center">
                 <div className="socialLinkLogo flex items-center gap-2 p-1">
-                  <img src="instagram.png" className="lg:w-1/3 lg:h-full md:w-1/3 md:h-full sm:w-1/3 sm:h-full w-1/6 h-1/6 object-contain"/>
+                  <Image alt="instagram" src="instagram.png" className="lg:w-1/3 lg:h-full md:w-1/3 md:h-full sm:w-1/3 sm:h-full w-1/6 h-1/6 object-contain"/>
                   <p className="instagram">INSTAGRAM</p>
                 </div>
                 <a href="https://www.instagram.com/gerald.fegalan">@f_e_g_g_y</a>
@@ -603,21 +604,21 @@ export default function Home() {
 
               <div className="gap-2 place-content-center"> 
                 <div className="socialLinkLogo flex items-center gap-2 p-1">
-                  <img src="facebook.png" className="lg:w-1/3 lg:h-full md:w-1/3 md:h-full sm:w-1/3 sm:h-full w-1/6 h-1/6 object-contain"/>
+                  <Image alt="facebook" src="facebook.png" className="lg:w-1/3 lg:h-full md:w-1/3 md:h-full sm:w-1/3 sm:h-full w-1/6 h-1/6 object-contain"/>
                   <p className="facebook">FACEBOOK</p>
                 </div>
                 <a href="https://www.facebook.com/bhozs.fritz.1">gerald fegalan</a>
               </div>
               <div className="gap-2 place-content-center">
                 <div className="socialLinkLogo flex items-center gap-2 p-1">
-                  <img src="github.png" className="lg:w-1/3 lg:h-full md:w-1/3 md:h-full sm:w-1/3 sm:h-full w-1/6 h-1/6 object-contain"/>
+                  <Image alt="github" src="github.png" className="lg:w-1/3 lg:h-full md:w-1/3 md:h-full sm:w-1/3 sm:h-full w-1/6 h-1/6 object-contain"/>
                   <p className="github">GITHUB</p>
                 </div>
                 <a href="https://github.com/Unknown-Squid">UnkownSquid</a>
               </div>
               <div className="gap-2 place-content-center">
                 <div className="socialLinkLogo flex items-center gap-2 p-1">
-                  <img src="email.png" className="lg:w-1/3 lg:h-full md:w-1/3 md:h-full sm:w-1/3 sm:h-full w-1/6 h-1/6 object-contain"/>
+                  <Image alt="email" src="email.png" className="lg:w-1/3 lg:h-full md:w-1/3 md:h-full sm:w-1/3 sm:h-full w-1/6 h-1/6 object-contain"/>
                   <p className="email">E-MAIL</p>
                 </div>
                 <a href="gerald.fegalan@gmail.com">gerald.fegalan@gmail.com</a>
