@@ -218,7 +218,7 @@ export default function Home() {
               <div id="header" className="h-full w-full text-neutral-200">
                 <div className="w-full lg:h-1/3 lg:justify-end md:h-1/3 md:justify-end sm:h-1/3 sm:justify-end h-1/4 font-bold flex flex-col items-center justify-center relative">
                   <h1 className="web absolute mt-10 lg:text-6xl md:text-6xl sm:text-6xl text-3xl flex justify-center">WEB</h1>
-                  <Image alt="capture" rc="/capture.png" className="capture"/>
+                  <Image  width={100} height={100} alt="capture" src="/capture.png" className="capture"/>
                   <h1 className="developer absolute ml-2 lg:text-6xl md:text-6xl sm:text-6xl text-3xl flex justify-center">EVELOPER</h1>  
                 </div>
                 <div className="w-full h-1/2 flex flex-col ">
@@ -233,7 +233,7 @@ export default function Home() {
                           <div className="box3"></div>
                           <div className="vidCont h-full lg:w-1/6 md:w-1/6 sm:w-1/6 w-1/3 flex justify-center">
                             <video className="h-full w-full object-cover" autoPlay muted loop>
-                              <source src="squid.mp4" type="video/mp4"/>
+                              <source src="/squid.mp4" type="video/mp4"/>
                             </video>
                           </div>
                        </div>
@@ -242,7 +242,7 @@ export default function Home() {
                         </q>
                         <div id="moveDown" className="relative flex justify-center mt-10 ">
                           <a href="#page2" className="text-white font-bold hover:text-blue-600">mo&nbsp;&nbsp;&nbsp;&nbsp;e down</a>
-                          <Image alt="moveDown" src="move down.PNG" className="moveDown"/>
+                          <Image width={100} height={100} className="moveDown" alt="moveDown" src="/move down.PNG"/>
                         </div>
                     </div>  
                   </div>
@@ -253,7 +253,7 @@ export default function Home() {
         {navBar ? <div className={`navBar h-12 w-full text-neutral-200`}>
             <div className="relative h-full w-1/2 flex justify-center items-center">
                 <video onClick={() => window.location.href = "/"} className="logo lg:w-1/5 md:w-1/3 sm:w-1/2 h-3/4 object-cover" autoPlay muted loop>
-                  <source src="logo.mp4" type="video/mp4"/>
+                  <source src="/logo.mp4" type="video/mp4"/>
                 </video>
                 <div onClick={() => window.location.href = "/"} className="logoTitle w-1/4 flex justify-center items-center absolute gap-2 text-xs font-bold">
                   <div className="flex">
@@ -386,21 +386,21 @@ export default function Home() {
                   <div  className="h-full lg:w-1/2 md:w-1/2 sm:w-1/2 w-full flex flex-col justify-center items-center p-2">
                     <p>OTHERS</p>
                     <div className="w-full h-full flex flex-wrap items-center justify-center gap-2">
-                      <Image alt="vbNet" src="vbNet.png" className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-fit"/>
-                      <Image alt="cSharp" src="cSharp.png" className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-cover"/>
-                      <Image alt="c++" src="c++.png" className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-contain"/>
-                      <Image alt="python" src="python.png" className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-contain"/>
-                      <Image alt="php" src="php.png" className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-fit"/>
-                      <Image alt="mysql" src="mysql.png" className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-contain"/>
-                      <Image alt="mit.png" src="mit.png" className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-contain"/>
-                      <Image alt="arduino" src="arduino.png" className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-contain"/>
+                      <Image alt="vbNet" src="/vbNet.png" width={100} height={100} className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-cover techStackImage"/>
+                      <Image alt="cSharp" src="/cSharp.png" width={100} height={100} className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-cover techStackImage"/>
+                      <Image alt="c++" src="/c++.png" width={100} height={100} className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-contain techStackImage"/>
+                      <Image alt="python" src="/python.png" width={100} height={100} className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-contain techStackImage"/>
+                      <Image alt="php" src="/php.png" width={100} height={100} className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-fit techStackImage"/>
+                      <Image alt="php" src="/php.png" width={100} height={100} className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-contain techStackImage"/>
+                      <Image alt="mysql" src="/mysql.png" width={100} height={100} className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-contain techStackImage"/>
+                      <Image alt="mit.png" src="/mit.png" width={100} height={100} className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-contain techStackImage"/>
+                      <Image alt="arduino" src="/arduino.png" width={100} height={100} className="w-1/6 lg:h-1/6 md:h-1/6 sm:h-1/6 h-1/2 object-contain techStackImage"/>
                       <p className="text-neutral-200 w-full font-bold">Designing</p>
-                      <Image alt="canva" src="canva.png" className="w-1/5 lg:h-1/6 md:h-1/6 sm:h-1/6 h-2/3 object-contain "/>
-                      <Image alt="figma" src="figma.png" className="w-1/5 lg:h-1/6 md:h-1/6 sm:h-1/6 h-2/3 object-contain"/>
-                      <Image alt="ibisPaint" src="ibisPaint.png" className="w-1/5 lg:h-1/6 md:h-1/6 sm:h-1/6 h-2/3 object-contain"/>
+                      <Image alt="canva" src="/canva.png" width={100} height={100} className="w-1/5 lg:h-1/6 md:h-1/6 sm:h-1/6 h-2/3 object-contain techStackImage"/>
+                      <Image alt="figma" src="/figma.png" width={100} height={100} className="w-1/5 lg:h-1/6 md:h-1/6 sm:h-1/6 h-2/3 object-contain techStackImage"/>
+                      <Image alt="ibisPaint" src="/ibisPaint.png" width={100} height={100} className="w-1/5 lg:h-1/6 md:h-1/6 sm:h-1/6 h-2/3 object-contain techStackImage"/>                
                     </div>                   
                   </div>
-
                 </fieldset>
             </div>
 
@@ -415,7 +415,7 @@ export default function Home() {
               </div>
               <div id="gallery">
                 <div type="button" id="project1" className={`myProject absolute bg-white`}>
-                  <Image alt="project1" src="" />
+                  <Image width={500} height={500} alt="project1" src="/" className="galleryImage"/>
                   <div className="showMoreCont">
                     <h4>Coming Soon</h4>
                     <button type="button" name="project1" onClick={showProject1} className="comingSoon" disabled>.....</button>
@@ -423,7 +423,7 @@ export default function Home() {
                 </div>
 
                 <div type="button" id="project2" className={`myProject absolute bg-white`}>
-                  <Image alt="project2" src="" />
+                  <Image width={500} height={500} alt="project2" src="/" className="galleryImage"/>
                   <div className="showMoreCont">
                     <h4>Coming Soon</h4>
                     <button type="button" name="project2" onClick={showProject2} className="comingSoon" disabled>.....</button>
@@ -431,7 +431,7 @@ export default function Home() {
                 </div>
 
                 <div type="button" id="project3" className={`myProject absolute bg-white`}>
-                  <Image alt="project3" src="" />
+                  <Image width={500} height={500} alt="project3" src="/" className="galleryImage"/>
                   <div className="showMoreCont">
                     <h4>Coming Soon</h4>
                     <button type="button" name="project3" onClick={showProject3} className="comingSoon" disabled>.....</button>
@@ -439,7 +439,7 @@ export default function Home() {
                 </div>
 
                 <div type="button" id="project4" className={`myProject absolute bg-white`}>
-                  <Image alt="project4" src="" />
+                  <Image width={500} height={500} alt="project4" src="/" className="galleryImage"/>
                   <div className="showMoreCont">
                     <h4>Coming Soon</h4>
                     <button type="button" name="project4" onClick={showProject4} className="comingSoon" disabled>.....</button>
@@ -447,7 +447,7 @@ export default function Home() {
                 </div>
 
                 <div type="button" id="project5" className={`myProject absolute bg-white`}>
-                  <Image alt="project5" src="carGame.PNG" />
+                  <Image width={500} height={500} alt="project5" src="/carGame.PNG" className="galleryImage"/>
                   <div className="showMoreCont">
                     <h4>Simple Car Game (python)</h4>
                     <button type="button" name="project5" onClick={showProject5} className="showMoreButton"></button>
@@ -455,7 +455,7 @@ export default function Home() {
                 </div> 
 
                 <div type="button" id="project6" className={`myProject absolute bg-white`}>
-                  <Image alt="project6" src="simpleAttendanceChecker.PNG" />
+                  <Image alt="project6" width={500} height={500} src="/simpleAttendanceChecker.PNG" className="galleryImage"/>
                   <div className="showMoreCont">
                     <h4>Simple Attendance Checker (c#)</h4>
                     <button type="button" name="project6" onClick={showProject6} className="showMoreButton"></button>
@@ -463,7 +463,7 @@ export default function Home() {
                 </div> 
 
                 <div type="button" id="project7" className={`myProject absolute bg-white`}>
-                  <Image alt="project7" src="moodTank.PNG" />
+                  <Image alt="project7"  width={500} height={500} src="/moodTank.PNG" className="galleryImage"/>
                   <div className="showMoreCont">
                     <h4>Mood Tank (arduino)</h4>
                     <button type="button" name="project7" onClick={showProject7} className="showMoreButton"></button>
@@ -471,7 +471,7 @@ export default function Home() {
                 </div> 
 
                 <div type="button" id="project8" className={`myProject absolute bg-white`}>
-                  <Image alt="project8" src="Capstone.PNG" />
+                  <Image alt="project8" width={500} height={500} src="/Capstone.PNG" className="galleryImage"/>
                   <div className="showMoreCont">
                     <h4>Attendance Checker (javascript, html, css)</h4>
                     <button type="button" name="project8" onClick={showProject8} className="showMoreButton"></button>
@@ -485,7 +485,7 @@ export default function Home() {
 
             <div className="lg:w-2/5 lg:h-3/4 md:w-2/5 md:h-3/4 sm:w-2/5 sm:h-3/4 w-full h-4/5 text-white flex flex-col items-end bg-black">
               <video id="project8Vid" className="h-3/5 w-full object-fit" loop muted>
-                  <source src="capstone.mp4" type="video/mp4"/>
+                  <source src="/capstone.mp4" type="video/mp4"/>
               </video>
               <div className="h-2/5 w-full flex flex-col justify-center items-center bg-slate-500 z-10">
                 <h1 className="w-full text-center "> Attendance Checker </h1>
@@ -509,7 +509,7 @@ export default function Home() {
 
             <div className="lg:w-2/5 lg:h-3/4 md:w-2/5 md:h-3/4 sm:w-2/5 sm:h-3/4 w-full h-4/5 text-white flex flex-col items-end bg-black">
               <video id="project7Vid" className="h-3/5 w-full object-fit" loop>
-                  <source src="moodTank.mp4" type="video/mp4"/>
+                  <source src="/moodTank.mp4" type="video/mp4"/>
               </video>
               <div className="h-2/5 w-full flex flex-col justify-center items-center bg-slate-500 z-10">
                 <h1 className="w-full text-center "> Attendance Checker </h1>
@@ -529,7 +529,9 @@ export default function Home() {
           <div id="project6Cont" className=" w-full h-full justify-center items-center absolute z-10">
 
             <div className="lg:w-2/5 lg:h-3/4 md:w-2/5 md:h-3/4 sm:w-2/5 sm:h-3/4 w-full h-4/5 text-white flex flex-col items-end bg-black">
-              <Image alt="simpleAttendanceChecker" src="simpleAttendanceChecker.PNG" className="h-3/5 w-full object-fit"/>
+              <div  className="h-3/5 w-full object-fit relative">
+                <Image alt="simpleAttendanceChecker" src="/simpleAttendanceChecker.PNG" fill/>
+              </div>
               <div className="h-2/5 w-full flex flex-col justify-center items-center bg-slate-500 z-10">
                 <h1 className="w-full text-center "> Attendance Checker </h1>
                 <p className="w-full mb-10 ml-10">This is a sumple attendance checker application made in vb.net, it has this following features;
@@ -546,7 +548,7 @@ export default function Home() {
 
             <div className="lg:w-2/5 lg:h-3/4 md:w-2/5 md:h-3/4 sm:w-2/5 sm:h-3/4 w-full h-4/5 text-white flex flex-col items-end bg-black">
               <video id="project5Vid" className="h-3/5 w-full object-fit" loop muted>
-                  <source src="carGame.mp4" type="video/mp4"/>
+                  <source src="/carGame.mp4" type="video/mp4"/>
               </video>
               <div className="h-2/5 w-full flex flex-col justify-end items-center bg-slate-500 z-10">
                 <h1 className="w-full text-center "> Simple Car Game </h1>
@@ -573,7 +575,7 @@ export default function Home() {
           <div id="avatar" className="lg:h-full md:h-full sm:h-full h-1/2 lg:w-1/2 md:w-1/2 sm:w-1/2 w-full flex items-center justify-center ">
               <div className="lg:w-1/3 md:w-1/3 sm:w-1/3 w-0 h-full"></div>
               <video className="w-1/3 h-3/4 object-contain" autoPlay muted loop>
-                  <source src="avatar.mp4" type="video/mp4"/>
+                  <source src="/avatar.mp4" type="video/mp4"/>
               </video>
               <div className="w-1/3 h-3/4 p-5 text-neutral-200 flex justify-center items-center">
                 <div className="w-full h-1/3 flex-col contactMeCont text-center">
@@ -588,7 +590,7 @@ export default function Home() {
 
               <div className="gap-2 place-content-center">
                 <div className="socialLinkLogo flex items-center gap-2 p-1">
-                  <Image alt="twitter" src="twitter.png" className=" lg:w-1/3 lg:h-full md:w-1/3 md:h-full sm:w-1/3 sm:h-full w-1/6 h-1/6 bg-black object-contain"/>
+                  <Image alt="twitter" src="/twitter.png" width={100} height={100} className="lg:w-1/3 lg:h-full md:w-1/3 md:h-full sm:w-1/3 sm:h-full w-1/6 h-1/6 bg-black object-contain"/>
                   <p className="twitter">TWITTER</p>
                 </div>
                 <a href="https://x.com/FegalanGerald">@geraldfegalan</a>
@@ -596,7 +598,7 @@ export default function Home() {
 
               <div className="gap-2 place-content-center">
                 <div className="socialLinkLogo flex items-center gap-2 p-1">
-                  <Image alt="instagram" src="instagram.png" className="lg:w-1/3 lg:h-full md:w-1/3 md:h-full sm:w-1/3 sm:h-full w-1/6 h-1/6 object-contain"/>
+                  <Image alt="instagram" src="/instagram.png" width={100} height={100} className="lg:w-1/3 lg:h-full md:w-1/3 md:h-full sm:w-1/3 sm:h-full w-1/6 h-1/6 object-contain"/>
                   <p className="instagram">INSTAGRAM</p>
                 </div>
                 <a href="https://www.instagram.com/gerald.fegalan">@f_e_g_g_y</a>
@@ -604,21 +606,21 @@ export default function Home() {
 
               <div className="gap-2 place-content-center"> 
                 <div className="socialLinkLogo flex items-center gap-2 p-1">
-                  <Image alt="facebook" src="facebook.png" className="lg:w-1/3 lg:h-full md:w-1/3 md:h-full sm:w-1/3 sm:h-full w-1/6 h-1/6 object-contain"/>
+                  <Image alt="facebook" src="/facebook.png" width={100} height={100} className="lg:w-1/3 lg:h-full md:w-1/3 md:h-full sm:w-1/3 sm:h-full w-1/6 h-1/6 object-contain"/>
                   <p className="facebook">FACEBOOK</p>
                 </div>
                 <a href="https://www.facebook.com/bhozs.fritz.1">gerald fegalan</a>
               </div>
               <div className="gap-2 place-content-center">
                 <div className="socialLinkLogo flex items-center gap-2 p-1">
-                  <Image alt="github" src="github.png" className="lg:w-1/3 lg:h-full md:w-1/3 md:h-full sm:w-1/3 sm:h-full w-1/6 h-1/6 object-contain"/>
+                  <Image alt="github" src="/github.png" width={100} height={100} className="lg:w-1/3 lg:h-full md:w-1/3 md:h-full sm:w-1/3 sm:h-full w-1/6 h-1/6 object-contain"/>
                   <p className="github">GITHUB</p>
                 </div>
                 <a href="https://github.com/Unknown-Squid">UnkownSquid</a>
               </div>
               <div className="gap-2 place-content-center">
                 <div className="socialLinkLogo flex items-center gap-2 p-1">
-                  <Image alt="email" src="email.png" className="lg:w-1/3 lg:h-full md:w-1/3 md:h-full sm:w-1/3 sm:h-full w-1/6 h-1/6 object-contain"/>
+                  <Image alt="email" src="/email.png" width={100} height={100} className="lg:w-1/3 lg:h-full md:w-1/3 md:h-full sm:w-1/3 sm:h-full w-1/6 h-1/6 object-contain"/>
                   <p className="email">E-MAIL</p>
                 </div>
                 <a href="gerald.fegalan@gmail.com">gerald.fegalan@gmail.com</a>
