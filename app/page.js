@@ -218,7 +218,7 @@ export default function Home() {
               <div id="header" className="h-full w-full text-neutral-200">
                 <div className="w-full lg:h-1/3 lg:justify-end md:h-1/3 md:justify-end sm:h-1/3 sm:justify-end h-1/4 font-bold flex flex-col items-center justify-center relative">
                   <h1 className="web absolute mt-10 lg:text-6xl md:text-6xl sm:text-6xl text-3xl flex justify-center">WEB</h1>
-                  <Image  width={100} height={100} alt="capture" src="/capture.png" className="capture"/>
+                  <Image  width={100} height={100} alt="capture" src="/Capture.PNG" className="capture"/>
                   <h1 className="developer absolute ml-2 lg:text-6xl md:text-6xl sm:text-6xl text-3xl flex justify-center">EVELOPER</h1>  
                 </div>
                 <div className="w-full h-1/2 flex flex-col ">
