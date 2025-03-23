@@ -245,6 +245,10 @@
   font-family: var(--urbanist-semi-bold);
 }
 
+.font-uregular {
+  font-family: var(--urbanist-regular);
+}
+
 
 body{
   background-color: #181818;

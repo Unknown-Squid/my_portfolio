@@ -41,7 +41,7 @@ const Navbar = () => {
   
   return (
     <nav
-      className={`flex h-[100px] items-center w-full text-neutral-200 flex-row`}
+      className={`flex h-[100px] items-center w-full text-neutral-200 flex-row sticky top-0 z-10`}
     >
       <div
         onClick={() => (window.location.href = "/")}
