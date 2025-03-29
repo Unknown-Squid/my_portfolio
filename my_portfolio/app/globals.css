@@ -365,3 +365,21 @@ body{
     border-color: transparent;
   }
 }
+
+
+circle{
+  transition: stroke-dashoffset 1.5s ease-in-out;
+}
+
+
+.techStackImage{
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0px 0px 20px 2px black;
+}
+.techStackImage:hover{
+  box-shadow: 0px 0px 20px 10px gold;
+}
+
+
+

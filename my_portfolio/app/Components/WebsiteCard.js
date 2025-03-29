@@ -20,7 +20,7 @@ const WebsiteCard = () => {
 
   return (
     <div
-      className="bg-black/[.2] w-[600px] h-[600px] mt-20 rounded-[25px] flex justify-center relative"
+      className="bg-black/[.2] w-[600px] h-full mt-20 rounded-[25px] flex justify-center relative"
       style={{ boxShadow: "-15px 20px 8px rgba(0, 0, 0, 0.5)" }}
     >
         <div className="bg-transparent w-full h-full rounded-[25px] flex justify-center overflow-hidden">
