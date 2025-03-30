@@ -4,9 +4,7 @@ import React, { useEffect, useState } from "react";
 const Navbar = () => {
   const [letterU, setLetterU] = useState(false);
   const [letterS, setLetterS] = useState(false);
-  const [about, setAbout] = useState(false);
-  const [projects, setProjects] = useState(false);
-  const [contacts, setContacts] = useState(false);
+  const [activePage, setActivePage] = useState("/");
 
   useEffect(() => {
     if (!letterU || !letterS) {
@@ -41,11 +39,12 @@ const Navbar = () => {
   
   return (
     <nav
-      className={`flex h-[100px] items-center w-full text-neutral-200 flex-row sticky top-0 z-10`}
+      className={`flex h-[100px] items-center w-full text-neutral-200 flex-row sticky top-0 z-20 bg-emerald-400`}
     >
-      <div
-        onClick={() => (window.location.href = "/")}
-        className="relative h-[35%] w-[10%] flex justify-center items-center rounded-[25px] px-2 hover:text-[#E89CAE] cursor-grab ml-64"
+      <a
+        href=""
+        onClick={() => setActivePage("/")}
+        className={`${activePage == "/" ? "opacity-1 navbarMenu" : "opacity-[.5] navbarMenuOut"} relative h-[35%] w-[10%] flex justify-center items-center rounded-[25px] px-2 hover:text-[#E89CAE] cursor-grab ml-64`}
       >
         <video
           className="h-full lg:w-full md:w-1/3 sm:w-1/2 h-3/4 object-cover rounded-[25px]"
@@ -67,32 +66,44 @@ const Navbar = () => {
           </div>
         </div>
 
-      </div>
+      </a>
 
       <div className="h-full w-1/2 text flex justify-start gap-20 items-center font-bold ml-32">
         <div
           id="about"
-          className={`${
-            !about ? "about" : "aboutActive"
-          } h-full flex justify-center items-center`}
+          className={`h-full flex justify-center items-center`}
         >
-          <a href="" className="text-2xl text-[#915e01]/[.5] font-bold">about</a>
+          <a 
+            href="#about-me" 
+            className={`text-2xl font-bold ${activePage == "about" ? "navBarMenu" : "navBarMenuOut"} hover:text-[#915e01]`}
+            onClick={() => setActivePage("about")}
+          >
+            about
+          </a>
         </div>
         <div
           id="projects"
-          className={`${
-            !projects ? "projects" : "projectsActive"
-          } h-full flex justify-center items-center`}
+          className={`h-full flex justify-center items-center`}
         >
-          <a href="" className="text-xl text-[#915e01]/[.5] font-bold">projects</a>
+          <a 
+            href="#my-projects" 
+            className={`text-xl ont-bold ${activePage == "project" ? "navBarMenu" : "navBarMenuOut"} hover:text-[#915e01]`}
+            onClick={() => setActivePage("project")}
+          >
+            projects
+          </a>
         </div>
         <div
           id="contacts"
-          className={`${
-            !contacts ? "contacts" : "contactsActive"
-          } h-full flex justify-center items-center`}
+          className={`h-full flex justify-center items-center`}
         >
-          <a href="" className="text-xl text-[#915e01]/[.5] font-bold">contacts</a>
+          <a 
+            href="#my-contacts" 
+            className={`text-xl ont-bold ${activePage == "contact" ? "navBarMenu" : "navBarMenuOut"} hover:text-[#915e01]`}
+            onClick={() => setActivePage("contact")}
+          >
+            contacts
+          </a>
         </div>
       </div>
     </nav>

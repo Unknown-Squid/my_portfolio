@@ -5,8 +5,8 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const MyProjects = () => {
 
-  const [activeProject, setActiveProject] = useState("project1");
-  const [gridColCount, setGridColCount] = useState(2);
+  const [activeProject, setActiveProject] = useState("");
+  const [gridColCount, setGridColCount] = useState("grid-cols-3");
 
   const videoRefs = {
     project1: useRef(null),
@@ -17,10 +17,10 @@ const MyProjects = () => {
   const handleProjectClick = (project) => {
     if (project != activeProject){
       setActiveProject(project);
-      setGridColCount(2);
+      setGridColCount("grid-cols-2");
     } else {
       setActiveProject("");
-      setGridColCount(3);
+      setGridColCount("grid-cols-3");
     }
   };
 
@@ -41,9 +41,9 @@ const MyProjects = () => {
   
 
   return (
-    <div className='flex w-full h-[100vh] bg-black/[.5] items-end pb-5'>
+    <div id="my-projects" className='flex w-full h-[100vh] bg-black/[.5] items-end pb-5'>
 
-      <div className={`h-[80%] flex-1 grid grid-cols-${gridColCount} px-5 gap-5 mt-20`}>
+      <div className={`h-[80%] flex-1 grid ${gridColCount} px-5 gap-5 mt-20`}>
 
         {/* Project 1 */}
         <div 
@@ -120,14 +120,14 @@ const MyProjects = () => {
       <div className="w-fit h-[80%] bg-black">
 
         <div className={`w-[1000px] h-full bg-black px-5 py-5 flex-col ${activeProject === "project1" ? "flex" : "hidden"}`}>
-          <button type="button" onClick={() => (setActiveProject(""), setGridColCount(3))} className='cursor-pointer w-full h-fit flex justify-end text-white mb-5 pr-2 pt-2 '>
+          <button type="button" onClick={() => (setActiveProject(""), setGridColCount("grid-cols-3"))} className='cursor-pointer w-full h-fit flex justify-end text-white mb-5 pr-2 pt-2 '>
             <FontAwesomeIcon icon={faTimes} className='w-[20px] h-[20px]'/>
           </button>
           <video ref={videoRefs.project1} className="h-[400px] w-full" autoPlay loop muted>
             <source src="/capstone.mp4" type="video/mp4" />
           </video>
 
-          <div className='flex flex-col w-full h-fit gap-3 text-white ml-5'>
+          <div className='flex flex-col w-full h-fit gap-3 text-white ml-5 overflow-auto'>
               <p className='w-full text-center mt-5'>
                 Attendance Checker (2.0)
                 <br/>
@@ -152,7 +152,7 @@ const MyProjects = () => {
         </div>
 
         <div className={`w-[1000px] h-full bg-black px-5 py-5 flex-col ${activeProject === "project2" ? "flex" : "hidden"}`}>
-         <button type="button" onClick={() => (setActiveProject(""), setGridColCount(3))} className='cursor-pointer w-full h-fit flex justify-end text-white mb-5 pr-2 pt-2 '>
+         <button type="button" onClick={() => (setActiveProject(""), setGridColCount("grid-cols-3"))} className='cursor-pointer w-full h-fit flex justify-end text-white mb-5 pr-2 pt-2 '>
             <FontAwesomeIcon icon={faTimes} className='w-[20px] h-[20px]'/>
           </button>
 
@@ -160,7 +160,7 @@ const MyProjects = () => {
             <Image alt="simpleAttendanceChecker" src="/simpleAttendanceChecker.PNG" fill />
           </div>
 
-          <div className='flex flex-col w-full h-fit gap-3 text-white ml-5'>
+          <div className='flex flex-col w-full h-fit gap-3 text-white ml-5 overflow-auto'>
               <p className='w-full text-center mt-5'>
                 Attendance Checker (1.0)
                 <br/>
@@ -181,14 +181,14 @@ const MyProjects = () => {
         </div>
 
         <div className={`w-[1000px] h-full bg-black px-5 py-5 flex-col ${activeProject === "project3" ? "flex" : "hidden"}`}>
-          <button type="button" onClick={() => (setActiveProject(""), setGridColCount(3))} className='cursor-pointer w-full h-fit flex justify-end text-white mb-5 pr-2 pt-2 '>
+          <button type="button" onClick={() => (setActiveProject(""), setGridColCount("grid-cols-3"))} className='cursor-pointer w-full h-fit flex justify-end text-white mb-5 pr-2 pt-2 '>
             <FontAwesomeIcon icon={faTimes} className='w-[20px] h-[20px]'/>
           </button>
           <video ref={videoRefs.project3} className="h-[400px] w-full bg-black" autoPlay loop muted>
             <source src="/moodTank.mp4" type="video/mp4" />
           </video>
 
-          <div className='flex flex-col w-full h-fit gap-3 text-white ml-5'>
+          <div className='flex flex-col w-full h-fit gap-3 text-white ml-5 overflow-auto'>
               <p className='w-full text-center mt-5'>
                 Mood Tank
                 <br/>
@@ -212,14 +212,14 @@ const MyProjects = () => {
         </div>
 
         <div className={`w-[1000px] h-full bg-black px-5 py-5 flex-col ${activeProject === "project4" ? "flex" : "hidden"}`}>
-          <button type="button" onClick={() => (setActiveProject(""), setGridColCount(3))} className='cursor-pointer w-full h-fit flex justify-end text-white mb-5 pr-2 pt-2 '>
+          <button type="button" onClick={() => (setActiveProject(""), setGridColCount("grid-cols-3"))} className='cursor-pointer w-full h-fit flex justify-end text-white mb-5 pr-2 pt-2 '>
             <FontAwesomeIcon icon={faTimes} className='w-[20px] h-[20px]'/>
           </button>
           <video ref={videoRefs.project4} className="h-[500px] w-full bg-black" autoPlay loop muted>
             <source src="/carGame.mp4" type="video/mp4" />
           </video>
 
-          <div className='flex flex-col w-full h-fit gap-3 text-white ml-5'>
+          <div className='flex flex-col w-full h-fit gap-3 text-white ml-5 overflow-auto'>
               <p className='w-full text-center mt-5'>
                 simple Car Game
                 <br/>

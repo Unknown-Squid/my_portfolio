@@ -4,9 +4,9 @@ import MySkills from './MySkills';
 
 const AboutMe = () => {
   return (
-    <div className='flex flex-col w-full h-[100vh] bg-transparent'>
+    <div id="about-me" className='flex flex-col w-full h-[100vh] bg-transparent'>
 
-      <div className='flex h-fit w-full gap-20'>
+      <div className='flex h-fit w-full gap-20 mt-10'>
 
         <div className='mt-20 bg-white w-[30%] h-[80%] flex flex-col items-start justify-center relative rounded-br-[80%] rounded-tl-[45%]'>
 
