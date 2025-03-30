@@ -4,6 +4,7 @@ import Navbar from './Components/Navbar';
 import Hero from './Components/Hero';
 import AboutMe from './Components/AboutMe';
 import MyProjects from './Components/MyProjects';
+import ContactMe from './Components/ContactMe';
 
 const Home = () => {
 
@@ -22,6 +23,11 @@ const Home = () => {
         </div>
 
         <MyProjects/>
+
+        <div className='w-full h-[400px] bg-black/[.5]'>
+        </div>
+
+        <ContactMe/>
 
     </main>
   )
