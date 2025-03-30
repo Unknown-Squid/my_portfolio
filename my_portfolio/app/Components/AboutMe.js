@@ -4,7 +4,7 @@ import MySkills from './MySkills';
 
 const AboutMe = () => {
   return (
-    <div className='flex flex-col w-full h-[1000px] bg-transparent'>
+    <div className='flex flex-col w-full h-[100vh] bg-transparent'>
 
       <div className='flex h-fit w-full gap-20'>
 
@@ -63,10 +63,6 @@ const AboutMe = () => {
             <MySkills/>
 
         </div>
-      </div>
-
-      <div className='bg-white w-full'>
-      
       </div>
       
     </div>
