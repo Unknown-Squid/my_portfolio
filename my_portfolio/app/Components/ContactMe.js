@@ -15,7 +15,7 @@ const ContactMe = () => {
         <div className='w-1/2 h-full flex flex-col justify-center'>
             <p className='ml-10 w-[70%] text-xl font-usbold text-[#00350b]/[.8] flex flex-col gap-5'>
                 <span className='font-ubold text-2xl'>Server Response: 404</span>
-                Contact this person if you'd like to learn more about his work or discuss potential projects. 
+                Contact this person if you&apos;d like to learn more about his work or discuss potential projects. 
                 He is always open to new opportunities and would be happy to connect.
             </p>
 
