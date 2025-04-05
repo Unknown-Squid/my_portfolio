@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { GitHub, MailOutline, LinkedIn } from '@mui/icons-material';
 import MySkills from './MySkills';
 
-const AboutMe = () => {
+const AboutMe = ({ setActivePage }) => {
+
   return (
     <div id="about-me" className='flex flex-col w-full h-[100vh] bg-transparent'>
 

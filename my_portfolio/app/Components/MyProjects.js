@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-const MyProjects = () => {
+const MyProjects = ({ setActivePage }) => {
 
   const [activeProject, setActiveProject] = useState("");
   const [gridColCount, setGridColCount] = useState("grid-cols-3");
@@ -23,6 +23,7 @@ const MyProjects = () => {
       setGridColCount("grid-cols-3");
     }
   };
+
 
   useEffect(() => {
     // Pause all videos

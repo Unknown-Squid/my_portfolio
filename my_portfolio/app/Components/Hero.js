@@ -6,9 +6,11 @@ import { faDatabase } from '@fortawesome/free-solid-svg-icons';
 const Hero = () => {
 
   const icons = [faDatabase, faDatabase, faDatabase];
+
+
   
   return (
-    <div className='w-full h-[855px] flex flex-row'>
+    <div id="hero" className='w-full h-[855px] flex flex-row'>
 
         <div className='w-[800px] h-[70%] flex justify-center'>
 

@@ -1,10 +1,9 @@
 "use  client";
 import React, { useEffect, useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({ activePage, setActivePage }) => {
   const [letterU, setLetterU] = useState(false);
   const [letterS, setLetterS] = useState(false);
-  const [activePage, setActivePage] = useState("/");
 
   useEffect(() => {
     if (!letterU || !letterS) {
