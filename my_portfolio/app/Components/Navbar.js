@@ -43,10 +43,10 @@ const Navbar = ({ activePage, setActivePage }) => {
       <a
         href=""
         onClick={() => setActivePage("/")}
-        className={`${activePage == "/" ? "opacity-1 navbarMenu" : "opacity-[.5] navbarMenuOut"} relative h-[35%] w-[10%] flex justify-center items-center rounded-[25px] px-2 hover:text-[#E89CAE] cursor-grab ml-64`}
+        className={`${activePage == "/" ? "opacity-1 navbarMenu" : "opacity-[.5] navbarMenuOut"} relative h-[35%] md:w-[15%] lg:w-[10%] w-[30%] flex justify-center items-center rounded-[25px] px-2 hover:text-[#E89CAE] cursor-grab ml-5 md:ml-24 lg:ml-32 xl:ml-64`}
       >
         <video
-          className="h-full lg:w-full md:w-1/3 sm:w-1/2 h-3/4 object-cover rounded-[25px]"
+          className="h-full w-full object-cover rounded-[25px]"
           autoPlay
           muted
           loop
@@ -54,7 +54,7 @@ const Navbar = ({ activePage, setActivePage }) => {
           <source src="/logo.mp4" type="video/mp4" />
         </video>
 
-        <div className="w-full flex justify-center items-center absolute gap-2 text-xs font-bold">
+        <div className="w-full flex justify-center items-center absolute gap-2 lg:text-[0.8vw] md:text-[1.2vw] text-[2.5vw] font-bold">
           <div className="flex font-usbold">
             {letterU ? <p id="U">U</p> : <p id="U"></p>}
             {letterU ? <p className="unknown">nknown</p> : null}
@@ -67,14 +67,14 @@ const Navbar = ({ activePage, setActivePage }) => {
 
       </a>
 
-      <div className="h-full w-1/2 text flex justify-start gap-20 items-center font-bold ml-32">
+      <div className="h-full w-1/2 text flex justify-start md:gap-20 gap-5 items-center font-bold md:ml-16 ml-5 lg:ml-32">
         <div
           id="about"
           className={`h-full flex justify-center items-center`}
         >
           <a 
             href="#about-me" 
-            className={`text-2xl font-bold ${activePage == "about" ? "navBarMenu" : "navBarMenuOut"} hover:text-[#915e01]`}
+            className={`lg:text-2xl md:text-[3vw] lg:text-[2vw] text-[4vw] font-bold ${activePage == "about" ? "navBarMenu" : "navBarMenuOut"} hover:text-[#915e01]`}
             onClick={() => setActivePage("about")}
           >
             about
@@ -86,7 +86,7 @@ const Navbar = ({ activePage, setActivePage }) => {
         >
           <a 
             href="#my-projects" 
-            className={`text-xl ont-bold ${activePage == "project" ? "navBarMenu" : "navBarMenuOut"} hover:text-[#915e01]`}
+            className={`lg:text-2xl md:text-[3vw] lg:text-[2vw] text-[4vw] ont-bold ${activePage == "project" ? "navBarMenu" : "navBarMenuOut"} hover:text-[#915e01]`}
             onClick={() => setActivePage("project")}
           >
             projects
@@ -98,7 +98,7 @@ const Navbar = ({ activePage, setActivePage }) => {
         >
           <a 
             href="#my-contacts" 
-            className={`text-xl ont-bold ${activePage == "contact" ? "navBarMenu" : "navBarMenuOut"} hover:text-[#915e01]`}
+            className={`lg:text-2xl md:text-[3vw] lg:text-[2vw] text-[4vw] ont-bold ${activePage == "contact" ? "navBarMenu" : "navBarMenuOut"} hover:text-[#915e01]`}
             onClick={() => setActivePage("contact")}
           >
             contacts

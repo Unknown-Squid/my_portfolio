@@ -39,7 +39,7 @@ const Home = () => {
   }, []);
 
   return (
-    <main className='bg-emerald-400 h-fit w-full flex flex-col relative'>
+    <main className='bg-emerald-400 h-fit w-full flex flex-col relative overflow-x-hidden'>
       <Navbar activePage={activePage} setActivePage={setActivePage} />
       <Hero />
 

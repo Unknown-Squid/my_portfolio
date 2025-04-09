@@ -22,16 +22,16 @@ const PortfolioView = () => {
     const positionsBottom = [118, 236, 354, 472 ]; 
 
     return (
-        <main className='bg-emerald-400 h-full w-full overflow-hidden flex flex-col'>
+        <main className='bg-emerald-400 h-full w-full overflow-hidden flex-col'>
     
             <NavbarView/>
     
-            <div className='w-full h-full flex flex-row mt-2'>
+            <div className='w-full h-full flex flex-row mt-2 justify-center'>
     
-              <div className='w-[50%] h-full flex justify-center ms-5'>
+              <div className='w-full lg:w-[50%] h-full hidden lg:flex justify-center ms-5'>
         
                 <div
-                    className="bg-black/[.2] w-[90%] h-[60%] mt-5 rounded-[25px] flex justify-center relative"
+                    className="bg-black/[.2] w-[80%] lg:w-[90%] h-[80%] lg:h-[60%] mt-5 rounded-[25px] flex justify-center relative"
                     style={{ boxShadow: "-15px 20px 8px rgba(0, 0, 0, 0.5)" }}
                 >
 
@@ -94,7 +94,7 @@ const PortfolioView = () => {
                                 />
                             </div>
 
-                            <div className='bg-black w-[5px] h-[12%] absolute top-[100%] left-[50%] rounded-bl-[10px] flex overflow-visible items-end'>
+                            <div className='bg-black w-[5px] h-[12%] absolute top-[100%] left-[50%] rounded-bl-[10px] hidden lg:flex overflow-visible items-end'>
 
                                 <div className='bg-black w-[15px] h-[18%] relative rounded-bl-[10px]'>
                                     <div className='bg-black w-[1600%] h-full absolute top-0 left-0 rounded-bl-[10px] rounded-tr-[10px] flex justify-end items-end'>
@@ -114,7 +114,9 @@ const PortfolioView = () => {
                         </div>
                     </div>
 
-                    <div className={`bg-black h-[1.8%] w-[5%] absolute bottom-[-0.5%] right-[3%] rounded-tl-[30px] rounded-br-[25px] rounded-bl-[10px] rounded-tr-[2px] rotate-[30deg] flex justify-end`}>
+                    
+
+                    <div className={`bg-black h-[1.8%] w-[5%] absolute bottom-[-0.5%] right-[3%] rounded-tl-[30px] rounded-br-[25px] rounded-bl-[10px] rounded-tr-[2px] rotate-[30deg] hidden lg:flex justify-end`}>
                         <div className="flex relative w-[50%] h-full">
                             <div className="bg-black h-[90%] w-[150%] absolute bottom-[26%] left-[50%] rounded-tl-[30px] rounded-bl-[5px] rounded-r-[10px] rotate-[-30deg] flex justify-end">
 
@@ -149,26 +151,26 @@ const PortfolioView = () => {
                 </div>
               </div>
     
-              <div className='flex-1 flex flex-col mt-24 gap-2'>
+              <div className='flex w-[80%] lg:w-fit flex-col md:mt-14 sm:mt-10 mt-5 lg:mt-32 gap-2'>
     
-                <div className='w-fit overflow-hidden ml-5'>
-                  <p className='text-[0.5rem] font-usbold text-[#00350b]/[.8] type-animation'>Welcome to my portfolio, I am Gerald</p>
+                <div className='w-fit overflow-hidden lg:ml-5'>
+                  <p className='text-[3vw] lg:text-[0.5rem] font-usbold text-[#00350b]/[.8] type-animation'>Welcome to my portfolio, I am Gerald</p>
                 </div>
     
-                <div className='flex flex-col ml-5 w-fit overflow-hidden'>
+                <div className='flex flex-col lg:ml-5 w-fit overflow-hidden'>
     
                     <div className='flex relative w-full top-text-container'>
-                      <p className='text-[1rem] text-[#915e01]/[.8] font-ubold'>FULL STACK</p>
-                      <p className="text-[1rem] text-[#915e01]/[.8] font-ubold">FULL STACK</p>
+                      <p className='text-[7vw] lg:text-[1rem] text-[#915e01]/[.8] font-ubold'>FULL STACK</p>
+                      <p className="text-[7vw] lg:text-[1rem] text-[#915e01]/[.8] font-ubold">FULL STACK</p>
                     </div>
                     <div className='flex relative w-full bottom-text-container'>
-                      <p className='text-[1rem] text-[#915e01]/[.8] font-ubold'>WEB DEVELOPER</p>
-                      <p className="text-[1rem] text-[#915e01]/[.8] font-ubold">WEB DEVELOPER</p>
+                      <p className='text-[7vw] lg:text-[1rem] text-[#915e01]/[.8] font-ubold'>WEB DEVELOPER</p>
+                      <p className="text-[7vw] lg:text-[1rem] text-[#915e01]/[.8] font-ubold">WEB DEVELOPER</p>
                     </div>
     
                 </div>
 
-                <div className='flex ml-5 border-y-[2px] border-emerald-200 w-fit'>
+                <div className='hidden lg:flex lg:ml-5 border-y-[2px] border-emerald-200 w-fit'>
                     {icons.map((icon, index) => (
                     <FontAwesomeIcon
                         key={index}
