@@ -74,7 +74,7 @@ const Navbar = ({ activePage, setActivePage }) => {
         >
           <a 
             href="#about-me" 
-            className={`lg:text-2xl md:text-[3vw] lg:text-[2vw] text-[4vw] font-bold ${activePage == "about" ? "navBarMenu" : "navBarMenuOut"} hover:text-[#915e01]`}
+            className={`lg:text-2xl md:text-[3vw] lg:text-[1.5vw] text-[4vw] font-bold ${activePage == "about" ? "navBarMenu" : "navBarMenuOut"} hover:text-[#915e01]`}
             onClick={() => setActivePage("about")}
           >
             about
@@ -86,7 +86,7 @@ const Navbar = ({ activePage, setActivePage }) => {
         >
           <a 
             href="#my-projects" 
-            className={`lg:text-2xl md:text-[3vw] lg:text-[2vw] text-[4vw] ont-bold ${activePage == "project" ? "navBarMenu" : "navBarMenuOut"} hover:text-[#915e01]`}
+            className={`lg:text-2xl md:text-[3vw] lg:text-[1.5vw] text-[4vw] ont-bold ${activePage == "project" ? "navBarMenu" : "navBarMenuOut"} hover:text-[#915e01]`}
             onClick={() => setActivePage("project")}
           >
             projects
@@ -98,7 +98,7 @@ const Navbar = ({ activePage, setActivePage }) => {
         >
           <a 
             href="#my-contacts" 
-            className={`lg:text-2xl md:text-[3vw] lg:text-[2vw] text-[4vw] ont-bold ${activePage == "contact" ? "navBarMenu" : "navBarMenuOut"} hover:text-[#915e01]`}
+            className={`lg:text-2xl md:text-[3vw] lg:text-[1.5vw] text-[4vw] ont-bold ${activePage == "contact" ? "navBarMenu" : "navBarMenuOut"} hover:text-[#915e01]`}
             onClick={() => setActivePage("contact")}
           >
             contacts

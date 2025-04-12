@@ -6,17 +6,18 @@ import { faPython } from '@fortawesome/free-brands-svg-icons';
 
 const MySkills = () => {
   return (
-    <fieldset  className="h-fit w-full flex text-center border border-white overflow-auto gap-2">
+    <fieldset  className="h-fit w-full flex lg:flex-row md:flex-row flex-col text-center border border-white overflow-auto gap-4 py-4">
         <legend className='font-ubold'>SKILLS</legend>
 
-        <div className="h-fit w-1/2 text-center pb-5">
-            <p className='font-ubold'>WEB DEVELOPMENT</p>
+        <div className="h-fit w-full pb-5 px-5 flex flex-col justify-center">
+            <p className='font-ubold w-full text-center'>WEB DEVELOPMENT</p>
             <div className="w-full flex justify-center gap-5">
-                <div className="w-1/2 flex flex-col text-start ml-10 lg:ml-20 gap-1">
-                    <div className="mb-6 px-16">
+                <div className="w-1/2 flex flex-col text-start gap-1">
+                
+                    <div className="mb-6 w-full flex justify-center">
                         <div className="w-[80px] h-[80px] p-[20px] relative">
                             <div 
-                                className="flex items-center justify-center w-[80px] h-[80px] rounded-[50%] bg-[#915e01]/[.4]"
+                                className="flex items-center justify-center w-[80px] h-[80px] rounded-[50%] bg-[#915e01]/[.4] absolute top-[22%] left-[0%]"
                                 style={{boxShadow: "0px 15px 10px rgba(0, 53, 11, 0.5)"}}
                             >
                                 <div 
@@ -27,7 +28,7 @@ const MySkills = () => {
                                     <h2 className='text-[#00350b]/[.8] text-[0.7vw] font-usbold'>100%</h2>
                                 </div>
                             </div>
-                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px" className='absolute top-[10%] left-[10%]'>
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px" className='absolute top-0 left-0'>
                                 <defs>
                                     <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                                         <stop offset="0%" stopColor="#d6e043"/>
@@ -36,7 +37,7 @@ const MySkills = () => {
                                     </linearGradient>
                                 </defs>
                                 <circle 
-                                    cx="52" cy="52" r="31" 
+                                    cx="40" cy="60" r="31" 
                                     strokeLinecap="round" 
                                     strokeDasharray="200" 
                                     strokeDashoffset="0" 
@@ -57,10 +58,10 @@ const MySkills = () => {
                 </div>
 
                 <div className="w-1/2 flex flex-col text-start gap-1">
-                    <div className="mb-6 px-16">
+                    <div className="mb-6 w-full flex justify-center">
                         <div className="w-[80px] h-[80px] p-[20px] relative">
                             <div 
-                                className="flex items-center justify-center w-[80px] h-[80px] rounded-[50%] bg-[#915e01]/[.4]"
+                                className="flex items-center justify-center w-[80px] h-[80px] rounded-[50%] bg-[#915e01]/[.4] absolute top-[22%] left-[0%]"
                                 style={{boxShadow: "0px 15px 10px rgba(0, 53, 11, 0.5)"}}
                             >
                                 <div 
@@ -71,7 +72,7 @@ const MySkills = () => {
                                     <h2 className='text-[#00350b]/[.8] text-[0.7vw] font-usbold'>100%</h2>
                                 </div>
                             </div>
-                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px" className='absolute top-[10%] left-[10%]'>
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px" className='absolute top-0 left-0'>
                                 <defs>
                                     <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                                         <stop offset="0%" stopColor="#d6e043"/>
@@ -80,7 +81,7 @@ const MySkills = () => {
                                     </linearGradient>
                                 </defs>
                                 <circle 
-                                    cx="52" cy="52" r="31" 
+                                    cx="40" cy="60" r="31" 
                                     strokeLinecap="round" 
                                     strokeDasharray="200" 
                                     strokeDashoffset="0" 
@@ -102,10 +103,10 @@ const MySkills = () => {
             </div>
         </div>
 
-        <div  className="h-full lg:w-1/2 md:w-1/2 sm:w-1/2 w-full flex flex-col justify-center items-center p-2">
+        <div  className="h-full w-full flex flex-col justify-center items-center p-2">
             <p className='font-ubold'>OTHERS</p>
             {/* <a href="https://www.flaticon.com/free-icons/coding" title="coding icons">Coding icons created by Freepik - Flaticon</a> */}
-            <div className="grid grid-cols-4 gap-10 w-[70%] mt-20">
+            <div className="flex flex-wrap gap-10 w-[80%] mt-10 items-center justify-center">
                 <Image alt="vbNet" src="/vbNet.png" width={500} height={500} className="w-[64px] h-[64px] object-contain p-2 techStackImage"/>
                 <Image alt="cSharp" src="/cSharp.png" width={500} height={500} className="w-[64px] h-[64px] object-contain p-2 techStackImage"/>
                 <Image alt="c++" src="/cPlusPlus.png" width={500} height={500} className="w-[64px] h-[64px] object-contain p-2 techStackImage"/>
