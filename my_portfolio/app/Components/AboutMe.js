@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { GitHub, MailOutline, LinkedIn } from '@mui/icons-material';
 import MySkills from './MySkills';
 
-const AboutMe = ({ setActivePage }) => {
+const AboutMe = () => {
 
   return (
     <div id="about-me" className='flex flex-col w-full min-h-[100vh] h-fit bg-transparent items-center'>
