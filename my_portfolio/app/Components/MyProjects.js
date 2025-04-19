@@ -3,9 +3,8 @@ import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-const MyProjects = ({ setActivePage }) => {
+const MyProjects = ({ activeProject, setActiveProject  }) => {
 
-  const [activeProject, setActiveProject] = useState("");
   const [gridColCount, setGridColCount] = useState("grid-cols-3");
 
   const videoRefs = {
@@ -17,10 +16,8 @@ const MyProjects = ({ setActivePage }) => {
   const handleProjectClick = (project) => {
     if (project != activeProject){
       setActiveProject(project);
-      setGridColCount("grid-cols-2");
     } else {
       setActiveProject("");
-      setGridColCount("grid-cols-3");
     }
   };
 
@@ -39,11 +36,33 @@ const MyProjects = ({ setActivePage }) => {
       videoRefs[activeProject].current.play();
     }
   }, [activeProject, videoRefs]); 
-  
+
+
+  useEffect(() => {
+
+    const handleResize = () => {
+      if (window.innerWidth <= 768){
+        setGridColCount("grid-cols-1")
+      } else if (window.innerWidth <= 1024){
+        setGridColCount("grid-cols-2")
+      } else {
+        setGridColCount("grid-cols-3")
+      }
+    };
+
+    // Run on mount
+    handleResize();
+
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+
+    // Clean up on unmount
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   
 
   return (
-    <div id="my-projects" className='flex w-full h-[100vh] bg-black/[.5] items-end pb-5'>
+    <div id="my-projects" className='flex w-full h-fit bg-black/[.5] items-end pb-5 relative'>
 
       <div className={`h-[80%] flex-1 grid ${gridColCount} px-5 gap-5 mt-20`}>
 
@@ -137,9 +156,9 @@ const MyProjects = ({ setActivePage }) => {
       </div>
 
       {/* Active Project Display */}
-      <div className="w-fit h-[80%] bg-black">
+      <div className={`w-full h-full bg-black/[.8] absolute top-0 left-0 z-[100] ${activeProject.length > 0 ? "flex" : "hidden"} justify-center lg:items-center items-start`}>
 
-        <div className={`w-[1000px] h-full bg-black px-5 py-5 flex-col ${activeProject === "project1" ? "flex" : "hidden"}`}>
+        <div className={`w-[1000px] lg:h-[80%] h-fit bg-black px-5 py-5 flex-col ${activeProject === "project1" ? "flex" : "hidden"}`}>
           <button type="button" onClick={() => (setActiveProject(""), setGridColCount("grid-cols-3"))} className='cursor-pointer w-full h-fit flex justify-end text-white mb-5 pr-2 pt-2 '>
             <FontAwesomeIcon icon={faTimes} className='w-[20px] h-[20px]'/>
           </button>
@@ -171,7 +190,7 @@ const MyProjects = ({ setActivePage }) => {
 
         </div>
 
-        <div className={`w-[1000px] h-full bg-black px-5 py-5 flex-col ${activeProject === "project2" ? "flex" : "hidden"}`}>
+        <div className={`lg:w-[1000px] w-[90%] h-[80%] bg-black px-5 py-5 flex-col ${activeProject === "project2" ? "flex" : "hidden"}`}>
          <button type="button" onClick={() => (setActiveProject(""), setGridColCount("grid-cols-3"))} className='cursor-pointer w-full h-fit flex justify-end text-white mb-5 pr-2 pt-2 '>
             <FontAwesomeIcon icon={faTimes} className='w-[20px] h-[20px]'/>
           </button>
@@ -200,7 +219,7 @@ const MyProjects = ({ setActivePage }) => {
           </div>
         </div>
 
-        <div className={`w-[1000px] h-full bg-black px-5 py-5 flex-col ${activeProject === "project3" ? "flex" : "hidden"}`}>
+        <div className={`lg:w-[1000px] w-[90%] h-[80%] bg-black px-5 py-5 flex-col ${activeProject === "project3" ? "flex" : "hidden"}`}>
           <button type="button" onClick={() => (setActiveProject(""), setGridColCount("grid-cols-3"))} className='cursor-pointer w-full h-fit flex justify-end text-white mb-5 pr-2 pt-2 '>
             <FontAwesomeIcon icon={faTimes} className='w-[20px] h-[20px]'/>
           </button>
@@ -231,7 +250,7 @@ const MyProjects = ({ setActivePage }) => {
           </div>
         </div>
 
-        <div className={`w-[1000px] h-full bg-black px-5 py-5 flex-col ${activeProject === "project4" ? "flex" : "hidden"}`}>
+        <div className={`lg:w-[1000px] w-[90%] h-[80%] bg-black px-5 py-5 flex-col ${activeProject === "project4" ? "flex" : "hidden"}`}>
           <button type="button" onClick={() => (setActiveProject(""), setGridColCount("grid-cols-3"))} className='cursor-pointer w-full h-fit flex justify-end text-white mb-5 pr-2 pt-2 '>
             <FontAwesomeIcon icon={faTimes} className='w-[20px] h-[20px]'/>
           </button>
@@ -263,7 +282,7 @@ const MyProjects = ({ setActivePage }) => {
         </div>
 
 
-        <div className={`w-[1000px] h-full bg-black px-5 py-5 flex-col ${activeProject === "project5" ? "flex" : "hidden"}`}>
+        <div className={`lg:w-[1000px] w-[90%] h-[80%] bg-black px-5 py-5 flex-col ${activeProject === "project5" ? "flex" : "hidden"}`}>
          <button type="button" onClick={() => (setActiveProject(""), setGridColCount("grid-cols-3"))} className='cursor-pointer w-full h-fit flex justify-end text-white mb-5 pr-2 pt-2 '>
             <FontAwesomeIcon icon={faTimes} className='w-[20px] h-[20px]'/>
           </button>

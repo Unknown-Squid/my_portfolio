@@ -8,6 +8,7 @@ import ContactMe from './Components/ContactMe';
 
 const Home = () => {
   const [activePage, setActivePage] = useState("/");
+  const [activeProject, setActiveProject] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,7 +16,7 @@ const Home = () => {
         { id: 'hero', page: '/' },
         { id: 'about-me', page: 'about' },
         { id: 'my-projects', page: 'project' },
-        { id: 'contact-me', page: 'contact' },
+        { id: 'my-contacts', page: 'contact' },
       ];
 
       for (const section of sections) {
@@ -24,6 +25,9 @@ const Home = () => {
           const rect = element.getBoundingClientRect();
           if (rect.top <= 100 && rect.bottom >= 100) {
             setActivePage(section.page);
+            if (section.page != 'project'){
+              setActiveProject("");
+            }
             break;
           }
         }
@@ -43,13 +47,13 @@ const Home = () => {
       <Navbar activePage={activePage} setActivePage={setActivePage} />
       <Hero />
 
-      <div id="about-me" className='w-full h-[400px] bg-transparent'></div>
+      <div className='w-full h-[400px] bg-transparent'></div>
       <AboutMe />
 
-      <div id="my-projects" className='w-full h-[400px] bg-transparent'></div>
-      <MyProjects />
+      <div className='w-full h-[400px] bg-transparent'></div>
+      <MyProjects activeProject={activeProject} setActiveProject={setActiveProject}/>
 
-      <div id="contact-me" className='w-full h-[400px] bg-black/[.5]'></div>
+      <div className='w-full h-[400px] bg-black/[.5]'></div>
       <ContactMe />
     </main>
   );
