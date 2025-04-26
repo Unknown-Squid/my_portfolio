@@ -45,7 +45,7 @@ const Home = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [visitedPages]);
 
   return (
     <main className='bg-emerald-400 h-fit w-full flex flex-col relative'>
