@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-const MyProjects = ({ activeProject, setActiveProject  }) => {
+const MyProjects = ({ activeProject, setActiveProject, visitedPages  }) => {
 
   const [gridColCount, setGridColCount] = useState("grid-cols-3");
 
@@ -62,7 +62,7 @@ const MyProjects = ({ activeProject, setActiveProject  }) => {
   
 
   return (
-    <div id="my-projects" className='flex w-full h-fit bg-black/[.5] items-end pb-5 relative'>
+    <div id="my-projects" className={`flex w-full h-fit bg-black/[.5] items-end pb-5 relative opacity-0 ${visitedPages.has("project") ? "grow-animation" : ""}`}>
 
       <div className={`h-[80%] flex-1 grid ${gridColCount} px-5 gap-5 mt-20`}>
 

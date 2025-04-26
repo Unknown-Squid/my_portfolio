@@ -9,6 +9,7 @@ import ContactMe from './Components/ContactMe';
 const Home = () => {
   const [activePage, setActivePage] = useState("/");
   const [activeProject, setActiveProject] = useState("");
+  const [visitedPages, setVisitedPages] = useState(new Set());
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +25,10 @@ const Home = () => {
         if (element) {
           const rect = element.getBoundingClientRect();
           if (rect.top <= 100 && rect.bottom >= 100) {
+            if (!visitedPages.has(section.page)) {
+              setVisitedPages(prev => new Set(prev).add(section.page));
+            }
+    
             setActivePage(section.page);
             if (section.page != 'project'){
               setActiveProject("");
@@ -48,13 +53,13 @@ const Home = () => {
       <Hero />
 
       <div className='w-full h-[400px] bg-transparent'></div>
-      <AboutMe />
+      <AboutMe visitedPages={visitedPages}/>
 
       <div className='w-full h-[400px] bg-transparent'></div>
-      <MyProjects activeProject={activeProject} setActiveProject={setActiveProject}/>
+      <MyProjects activeProject={activeProject} setActiveProject={setActiveProject} visitedPages={visitedPages}/>
 
       <div className='w-full h-[400px] bg-black/[.5]'></div>
-      <ContactMe />
+      <ContactMe visitedPages={visitedPages}/>
     </main>
   );
 }

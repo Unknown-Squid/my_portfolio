@@ -1,11 +1,12 @@
 import React from 'react'
 import { GitHub, MailOutline, LinkedIn, Call } from '@mui/icons-material';
 
-const ContactMe = () => {
+const ContactMe = ({ visitedPages }) => {
   return (
-    <div id="my-contacts" className='flex md:flex-row flex-col w-full h-[100vh] bg-transparent items-end'>
+    <div id="my-contacts" className={`flex md:flex-row flex-col w-full h-[100vh] bg-transparent items-end opacity-0 ${visitedPages.has("contact") ? "fade-in" : ""}`}>
 
-        <div className='md:w-1/2 w-full md:h-full h-fit flex items-center justify-center md:mt-0 mt-20'>
+        <div className={`md:w-1/2 w-full md:h-full h-fit flex items-center justify-center md:mt-0 mt-20 opacity-0
+                        ${visitedPages.has("contact") ? "slide-in-right" : ""}`}>
             <div className='flex relative w-fit page-not-found'>
                 <p className='md:text-[25vw] text-[30vw] text-[#915e01]/[.8] font-ubold'>404</p>
                 <p className="md:text-[25vw] text-[30vw] text-[#915e01]/[.8] font-ubold">404</p>
@@ -13,31 +14,31 @@ const ContactMe = () => {
         </div>
 
         <div className='md:w-1/2 w-full md:h-full h-fit flex flex-col justify-center'>
-            <p className='ml-10 md:w-[70%] w-full text-xl font-usbold text-[#00350b]/[.8] flex flex-col gap-5'>
+            <p className={`ml-10 md:w-[70%] w-full text-xl font-usbold text-[#00350b]/[.8] flex flex-col gap-5 opacity-0 ${visitedPages.has("contact") ? "slide-in-top" : ""}`}>
                 <span className='font-ubold text-2xl'>Server Response: 404</span>
                 Contact this person if you&apos;d like to learn more about his work or discuss potential projects. 
                 He is always open to new opportunities and would be happy to connect.
             </p>
 
             <div className='ml-10 w-fit h-fit flex gap-5 mt-10'>
-                <div className='h-[50px] rounded-[15px] h-[50px] px-4 flex items-center justify-center border cursor-pointer'>
+                <div className={`h-[50px] rounded-[15px] h-[50px] px-4 flex items-center justify-center border cursor-pointer opacity-0 ${visitedPages.has("contact") ? "slide-in-left" : ""}`}>
                     resume
                 </div>
-                <div className='h-[50px] w-[50px] flex items-center justify-center border rounded-[100%] cursor-pointer'>
+                <div className={`h-[50px] w-[50px] flex items-center justify-center border rounded-[100%] cursor-pointer opacity-0 ${visitedPages.has("contact") ? "slide-in-left" : ""}`}>
                     <GitHub/>
                 </div>
-                <div className='h-[50px] w-[50px] flex items-center justify-center border rounded-[100%] cursor-pointer'>
+                <div className={`h-[50px] w-[50px] flex items-center justify-center border rounded-[100%] cursor-pointer opacity-0 ${visitedPages.has("contact") ? "slide-in-left" : ""}`}>
                     <MailOutline/>
                 </div>
-                <div className='h-[50px] w-[50px] flex items-center justify-center border rounded-[100%] cursor-pointer'>
+                <div className={`h-[50px] w-[50px] flex items-center justify-center border rounded-[100%] cursor-pointer opacity-0 ${visitedPages.has("contact") ? "slide-in-left" : ""}`}>
                     <LinkedIn/>
                 </div>
             </div>
-            <div className='ml-10 mt-10 w-fit h-fit flex gap-2'>
+            <div className={`ml-10 mt-10 w-fit h-fit flex gap-2 opacity-0 ${visitedPages.has("contact") ? "slide-in-left" : ""}`}>
                 <p><Call sx={{width: '16px', height: '16px'}}/> 63+ </p>
                 <p className='hover:underline cursor-pointer'>9161915124</p>
             </div>
-            <div className='ml-10 mt-5 w-fit h-fit flex gap-2'>
+            <div className={`ml-10 mt-5 w-fit h-fit flex gap-2 opacity-0 ${visitedPages.has("contact") ? "slide-in-left" : ""}`}>
                 <p><Call sx={{width: '16px', height: '16px'}}/> 63+ </p>
                 <p className='hover:underline cursor-pointer'>9918847001</p>
             </div>

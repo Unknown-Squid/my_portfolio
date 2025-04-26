@@ -13,7 +13,7 @@ const Hero = () => {
   return (
     <div id="hero" className='w-full h-[855px] flex flex-row'>
 
-        <div className='md:w-full lg:w-[800px] md:h-[90%] lg:h-[70%] flex justify-center'>
+        <div className='md:w-full lg:w-[800px] md:h-[90%] lg:h-[70%] flex justify-center fade-in'>
 
             <WebsiteCard/>
 
@@ -25,20 +25,20 @@ const Hero = () => {
                 <p className='lg:text-[1vw] xl:text-[1.5vw] font-usbold text-[#00350b]/[.8] type-animation'>Welcome to my portfolio, I am Gerald</p>
             </div>
 
-            <div className='flex flex-col lg:ml-2 xl:ml-10 w-fit overflow-hidden'>
+            <div className='flex flex-col lg:ml-2 xl:ml-10 w-fit overflow-hidden fade-in'>
 
                 <div className='flex relative w-full top-text-container'>
                     <p className='lg:text-[2vw] xl:text-[2.8vw] 2xl:text-[3.5vw] text-[#915e01]/[.8] font-ubold'>FULL STACK</p>
                     <p className="lg:text-[2vw] xl:text-[2.8vw] 2xl:text-[3.5vw] text-[#915e01]/[.8] font-ubold">FULL STACK</p>
                 </div>
-                <div className='flex relative w-full bottom-text-container'>
+                <div className='flex relative w-full bottom-text-container fade-in delay'>
                     <p className='lg:text-[2vw] xl:text-[2.8vw] 2xl:text-[3.5vw] text-[#915e01]/[.8] font-ubold'>WEB DEVELOPER</p>
                     <p className="lg:text-[2vw] xl:text-[2.8vw] 2xl:text-[3.5vw] text-[#915e01]/[.8] font-ubold">WEB DEVELOPER</p>
                 </div>
 
             </div>
 
-            <div className='flex lg:ml-2 xl:ml-10 border-y-[2px] border-emerald-200  w-[60%] pl-2'>
+            <div className='flex lg:ml-2 xl:ml-10 border-y-[2px] border-emerald-200  w-[60%] pl-2 slide-in-right'>
                 {icons.map((icon, index) => (
                     <Image
                         key={index}
