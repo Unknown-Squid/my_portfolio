@@ -41,14 +41,14 @@ const NavbarView = () => {
   
   return (
     <nav
-      className={`flex h-[10%] items-center w-full text-neutral-200 flex-row`}
+      className={`flex h-[10%] items-center w-full text-neutral-200 flex-row mt-3`}
     >
       <div
         onClick={() => (window.location.href = "/")}
-        className="relative h-[35%] w-[20%] flex justify-center items-center rounded-[25px] px-2 hover:text-[#E89CAE] cursor-grab ml-10"
+        className="relative h-[55%] w-[20%] flex justify-center items-center rounded-[25px] px-2 hover:text-[#E89CAE] cursor-grab ml-10"
       >
         <video
-          className="h-full lg:w-full md:w-1/3 sm:w-1/2 h-3/4 object-cover rounded-[25px]"
+          className="h-[20px] lg:w-full w-[80%] object-cover rounded-[25px]"
           autoPlay
           muted
           loop
@@ -56,7 +56,7 @@ const NavbarView = () => {
           <source src="/logo.mp4" type="video/mp4" />
         </video>
 
-        <div className="w-full flex justify-center items-center absolute gap-1 text-[5px] font-bold">
+        <div className="w-full flex justify-center items-center absolute gap-1 lg:text-[5px] text-[0.8vw] font-bold">
           <div className="flex font-usbold">
             {letterU ? <p id="U">U</p> : <p id="U"></p>}
             {letterU ? <p className="unknown">nknown</p> : null}
@@ -76,7 +76,7 @@ const NavbarView = () => {
             !about ? "about" : "aboutActive"
           } h-full flex justify-center items-center`}
         >
-          <a href="" className="text-[5px] text-[#915e01]/[.5] font-bold">about</a>
+          <a href="" className="lg:text-[10px] text-[2vw] text-[#915e01]/[.5] font-bold">about</a>
         </div>
         <div
           id="projects"
@@ -84,7 +84,7 @@ const NavbarView = () => {
             !projects ? "projects" : "projectsActive"
           } h-full flex justify-center items-center`}
         >
-          <a href="" className="text-[5px] text-[#915e01]/[.5] font-bold">projects</a>
+          <a href="" className="lg:text-[10px] text-[2vw] text-[#915e01]/[.5] font-bold">projects</a>
         </div>
         <div
           id="contacts"
@@ -92,7 +92,7 @@ const NavbarView = () => {
             !contacts ? "contacts" : "contactsActive"
           } h-full flex justify-center items-center`}
         >
-          <a href="" className="text-[5px] text-[#915e01]/[.5] font-bold">contacts</a>
+          <a href="" className="lg:text-[10px] text-[2vw] text-[#915e01]/[.5] font-bold">contacts</a>
         </div>
       </div>
     </nav>

@@ -263,7 +263,7 @@ body{
 }
 
 
-.top-text-container p:nth-child(1), .bottom-text-container p:nth-child(1) {
+.top-text-container p:nth-child(1), .bottom-text-container p:nth-child(1), .page-not-found p:nth-child(1) {
   position: absolute;
 }
 
@@ -276,6 +276,12 @@ body{
   color: rgba(0, 53, 11, 0.8);
   animation: animate2 4s ease-in-out infinite;
 }
+
+.page-not-found p:nth-child(2) {
+  color: rgba(0, 0, 0, 0.8);
+  animation: animate3 4s ease-in-out infinite;
+}
+
 
 @keyframes animate {
   0%,
@@ -339,6 +345,36 @@ body{
   }
 }
 
+@keyframes animate3 {
+  0%,
+  100% {
+    clip-path: polygon(
+      0% 45%,
+      16% 44%,
+      33% 50%,
+      54% 60%,
+      70% 61%,
+      84% 59%,
+      100% 52%,
+      100% 100%,
+      0% 100%
+    );
+  }
+
+  50% {
+    clip-path: polygon(
+      0% 60%,
+      15% 65%,
+      34% 66%,
+      51% 62%,
+      67% 50%,
+      84% 45%,
+      100% 46%,
+      100% 100%,
+      0% 100%
+    );
+  }
+}
 
 .type-animation{
   white-space: nowrap;
@@ -371,7 +407,6 @@ circle{
   transition: stroke-dashoffset 1.5s ease-in-out;
 }
 
-
 .techStackImage{
   border-radius: 25px;
   cursor: pointer;
@@ -381,5 +416,30 @@ circle{
   box-shadow: 0px 0px 20px 10px gold;
 }
 
+.navBarMenu{
+  animation: navBarMenu 0.5s linear forwards;
+  color: #915e01;
+}
 
+.navBarMenuOut{
+  animation: navBarMenuOut 0.5s linear forwards;
+  color: #915e01cc;
+}
 
+@keyframes navBarMenu {
+  from { 
+    transform: translateY(0%);
+   } 
+  to { 
+    transform: translateY(50%);
+  } 
+}
+
+@keyframes navBarMenuOut {
+  from { 
+    transform: translateY(var(--start-position, 50%));
+  } 
+  to { 
+    transform: translateY(0%);
+  } 
+}

@@ -1,12 +1,9 @@
 "use  client";
 import React, { useEffect, useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({ activePage, setActivePage }) => {
   const [letterU, setLetterU] = useState(false);
   const [letterS, setLetterS] = useState(false);
-  const [about, setAbout] = useState(false);
-  const [projects, setProjects] = useState(false);
-  const [contacts, setContacts] = useState(false);
 
   useEffect(() => {
     if (!letterU || !letterS) {
@@ -41,14 +38,15 @@ const Navbar = () => {
   
   return (
     <nav
-      className={`flex h-[100px] items-center w-full text-neutral-200 flex-row sticky top-0 z-10`}
+      className={`flex h-[100px] items-center w-full text-neutral-200 flex-row sticky top-0 z-20 bg-emerald-400`}
     >
-      <div
-        onClick={() => (window.location.href = "/")}
-        className="relative h-[35%] w-[10%] flex justify-center items-center rounded-[25px] px-2 hover:text-[#E89CAE] cursor-grab ml-64"
+      <a
+        href=""
+        onClick={() => setActivePage("/")}
+        className={`${activePage == "/" ? "opacity-1 navbarMenu" : "opacity-[.5] navbarMenuOut"} relative h-[35%] md:w-[15%] lg:w-[10%] w-[30%] flex justify-center items-center rounded-[25px] px-2 hover:text-[#E89CAE] cursor-grab ml-5 md:ml-24 lg:ml-32 xl:ml-64`}
       >
         <video
-          className="h-full lg:w-full md:w-1/3 sm:w-1/2 h-3/4 object-cover rounded-[25px]"
+          className="h-full w-full object-cover rounded-[25px]"
           autoPlay
           muted
           loop
@@ -56,7 +54,7 @@ const Navbar = () => {
           <source src="/logo.mp4" type="video/mp4" />
         </video>
 
-        <div className="w-full flex justify-center items-center absolute gap-2 text-xs font-bold">
+        <div className="w-full flex justify-center items-center absolute gap-2 lg:text-[0.8vw] md:text-[1.2vw] text-[2.5vw] font-bold">
           <div className="flex font-usbold">
             {letterU ? <p id="U">U</p> : <p id="U"></p>}
             {letterU ? <p className="unknown">nknown</p> : null}
@@ -67,32 +65,44 @@ const Navbar = () => {
           </div>
         </div>
 
-      </div>
+      </a>
 
-      <div className="h-full w-1/2 text flex justify-start gap-20 items-center font-bold ml-32">
+      <div className="h-full w-1/2 text flex justify-start md:gap-20 gap-5 items-center font-bold md:ml-16 ml-5 lg:ml-32">
         <div
           id="about"
-          className={`${
-            !about ? "about" : "aboutActive"
-          } h-full flex justify-center items-center`}
+          className={`h-full flex justify-center items-center`}
         >
-          <a href="" className="text-2xl text-[#915e01]/[.5] font-bold">about</a>
+          <a 
+            href="#about-me" 
+            className={`lg:text-2xl md:text-[3vw] lg:text-[1.5vw] text-[4vw] font-bold ${activePage == "about" ? "navBarMenu" : "navBarMenuOut"} hover:text-[#915e01]`}
+            onClick={() => setActivePage("about")}
+          >
+            about
+          </a>
         </div>
         <div
           id="projects"
-          className={`${
-            !projects ? "projects" : "projectsActive"
-          } h-full flex justify-center items-center`}
+          className={`h-full flex justify-center items-center`}
         >
-          <a href="" className="text-xl text-[#915e01]/[.5] font-bold">projects</a>
+          <a 
+            href="#my-projects" 
+            className={`lg:text-2xl md:text-[3vw] lg:text-[1.5vw] text-[4vw] ont-bold ${activePage == "project" ? "navBarMenu" : "navBarMenuOut"} hover:text-[#915e01]`}
+            onClick={() => setActivePage("project")}
+          >
+            projects
+          </a>
         </div>
         <div
           id="contacts"
-          className={`${
-            !contacts ? "contacts" : "contactsActive"
-          } h-full flex justify-center items-center`}
+          className={`h-full flex justify-center items-center`}
         >
-          <a href="" className="text-xl text-[#915e01]/[.5] font-bold">contacts</a>
+          <a 
+            href="#my-contacts" 
+            className={`lg:text-2xl md:text-[3vw] lg:text-[1.5vw] text-[4vw] ont-bold ${activePage == "contact" ? "navBarMenu" : "navBarMenuOut"} hover:text-[#915e01]`}
+            onClick={() => setActivePage("contact")}
+          >
+            contacts
+          </a>
         </div>
       </div>
     </nav>
