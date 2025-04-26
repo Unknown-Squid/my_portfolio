@@ -40,7 +40,7 @@ const AboutMe = () => {
         <div className='w-[60%] h-full flex flex-col mt-44 px-10 gap-5'>
 
             <p className='text-[#00350b]/[.8] text-[22px] w-[70%] font-usbold'>
-              Hi, I'm Gerald, a Full-Stack Web Developer passionate about building fast, user-friendly, 
+              Hi, I&apos;m Gerald, a Full-Stack Web Developer passionate about building fast, user-friendly, 
               and scalable web applications. I love turning ideas into seamless digital experiences, 
               from sleek front-end designs to powerful back-end systems
             </p>
