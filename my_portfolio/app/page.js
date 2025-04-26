@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Navbar from './Components/Navbar';
 import Hero from './Components/Hero';
 import AboutMe from './Components/AboutMe';
