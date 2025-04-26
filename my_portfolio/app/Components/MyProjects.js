@@ -7,12 +7,12 @@ const MyProjects = ({ activeProject, setActiveProject  }) => {
 
   const [gridColCount, setGridColCount] = useState("grid-cols-3");
 
-  const videoRefs = {
-    project1: useRef(null),
-    project3: useRef(null),
-    project4: useRef(null),
-  };
-
+  const videoRefs = useMemo(() => ({
+    project1: React.createRef(),
+    project3: React.createRef(),
+    project4: React.createRef(),
+  }), []);
+  
   const handleProjectClick = (project) => {
     if (project != activeProject){
       setActiveProject(project);
