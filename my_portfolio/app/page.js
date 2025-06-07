@@ -5,10 +5,12 @@ import Hero from './Components/Hero';
 import AboutMe from './Components/AboutMe';
 import MyProjects from './Components/MyProjects';
 import ContactMe from './Components/ContactMe';
+import Loading from './Components/Loading';
 
 const Home = () => {
   const [activePage, setActivePage] = useState("/");
   const [activeProject, setActiveProject] = useState("");
+  const [loading, setLoading] = useState(true);
   const [visitedPages, setVisitedPages] = useState(new Set());
 
   useEffect(() => {
@@ -46,6 +48,18 @@ const Home = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [visitedPages]);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoading(false)
+    }, 2000);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  if (loading) {
+    return <Loading/>
+  }
 
   return (
     <main className='bg-emerald-400 h-fit w-full flex flex-col relative'>
