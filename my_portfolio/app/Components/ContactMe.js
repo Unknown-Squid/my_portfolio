@@ -1,7 +1,21 @@
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
 import { GitHub, MailOutline, LinkedIn, Call } from '@mui/icons-material';
+import Link from 'next/link';
 
 const ContactMe = ({ visitedPages }) => {
+
+  const [copied, setCopied] = useState(null);
+
+  const handleCopy = (number) => {
+    navigator.clipboard.writeText(number)
+      .then(() => {
+        setCopied(number);
+        setTimeout(() => setCopied(null), 2000); // Reset after 2 seconds
+      })
+      .catch((err) => console.error('Failed to copy!', err));
+  };
+
   return (
     <div id="my-contacts" className={`flex md:flex-row flex-col w-full h-[100vh] bg-transparent items-end opacity-0 ${visitedPages.has("contact") ? "fade-in" : ""}`}>
 
@@ -21,26 +35,72 @@ const ContactMe = ({ visitedPages }) => {
             </p>
 
             <div className='ml-10 w-fit h-fit flex gap-5 mt-10'>
-                <div className={`h-[50px] rounded-[15px] h-[50px] px-4 flex items-center justify-center border cursor-pointer opacity-0 ${visitedPages.has("contact") ? "slide-in-left" : ""}`}>
-                    resume
+                {/* Resume Download */}
+                <a
+                    href="/Gerald Fegalan.pdf" // Make sure this file is in the /public folder
+                    download="Gerald Fegalan Resume"
+                    className={`h-[50px] rounded-[15px] px-4 flex items-center justify-center border cursor-pointer transition-all duration-500 ${
+                    visitedPages.has("contact") ? "slide-in-left opacity-100" : "opacity-0"
+                    }`}
+                >
+                    Resume
+                </a>
+
+                {/* GitHub */}
+                <Link
+                    href="https://github.com/Unknown-Squid?tab=repositories"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`h-[50px] w-[50px] flex items-center justify-center border rounded-full cursor-pointer transition-all duration-500 ${
+                    visitedPages.has("contact") ? "slide-in-left opacity-100" : "opacity-0"
+                    }`}
+                >
+                    <GitHub />
+                </Link>
+
+                {/* Email */}
+                <a
+                    href="mailto:gerald.fegalan@gmail.com"
+                    className={`h-[50px] w-[50px] flex items-center justify-center border rounded-full cursor-pointer transition-all duration-500 ${
+                    visitedPages.has("contact") ? "slide-in-left opacity-100" : "opacity-0"
+                    }`}
+                >
+                    <MailOutline />
+                </a>
+
+                {/* LinkedIn */}
+                <Link
+                    href="https://www.linkedin.com/in/gerald-fegalan-674358178/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`h-[50px] w-[50px] flex items-center justify-center border rounded-full cursor-pointer transition-all duration-500 ${
+                    visitedPages.has("contact") ? "slide-in-left opacity-100" : "opacity-0"
+                    }`}
+                >
+                    <LinkedIn />
+                </Link>
                 </div>
-                <div className={`h-[50px] w-[50px] flex items-center justify-center border rounded-[100%] cursor-pointer opacity-0 ${visitedPages.has("contact") ? "slide-in-left" : ""}`}>
-                    <GitHub/>
-                </div>
-                <div className={`h-[50px] w-[50px] flex items-center justify-center border rounded-[100%] cursor-pointer opacity-0 ${visitedPages.has("contact") ? "slide-in-left" : ""}`}>
-                    <MailOutline/>
-                </div>
-                <div className={`h-[50px] w-[50px] flex items-center justify-center border rounded-[100%] cursor-pointer opacity-0 ${visitedPages.has("contact") ? "slide-in-left" : ""}`}>
-                    <LinkedIn/>
-                </div>
-            </div>
+
+            {/* First Number */}
             <div className={`ml-10 mt-10 w-fit h-fit flex gap-2 opacity-0 ${visitedPages.has("contact") ? "slide-in-left" : ""}`}>
-                <p><Call sx={{width: '16px', height: '16px'}}/> 63+ </p>
-                <p className='hover:underline cursor-pointer'>9161915124</p>
+                <p><Call sx={{ width: '16px', height: '16px' }} /> 63+</p>
+                <p
+                className='hover:underline cursor-pointer'
+                onClick={() => handleCopy('9161915124')}
+                >
+                9161915124 {copied === '9161915124' && <span className="text-green-600 text-sm ml-1">Copied!</span>}
+                </p>
             </div>
+
+            {/* Second Number */}
             <div className={`ml-10 mt-5 w-fit h-fit flex gap-2 opacity-0 ${visitedPages.has("contact") ? "slide-in-left" : ""}`}>
-                <p><Call sx={{width: '16px', height: '16px'}}/> 63+ </p>
-                <p className='hover:underline cursor-pointer'>9918847001</p>
+                <p><Call sx={{ width: '16px', height: '16px' }} /> 63+</p>
+                <p
+                className='hover:underline cursor-pointer'
+                onClick={() => handleCopy('9918847001')}
+                >
+                9918847001 {copied === '9918847001' && <span className="text-green-600 text-sm ml-1">Copied!</span>}
+                </p>
             </div>
         </div>
 

@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import { GitHub, MailOutline, LinkedIn } from '@mui/icons-material';
 import MySkills from './MySkills';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const AboutMe = ({ visitedPages }) => {
 
@@ -26,8 +28,14 @@ const AboutMe = ({ visitedPages }) => {
 
               </div>
 
-              <div className='flex bg-black xl:w-[350px] lg:w-[300px] md:w-[250px] w-[120%] h-[450%] xl:h-[350px] lg:h-[300px] md:h-[250px] rounded-[100%] absolute md:right-[-60%] right-[-50%]'>
-
+              <div className='flex bg-black xl:w-[350px] lg:w-[300px] md:w-[250px] w-[120%] h-[450%] xl:h-[350px] lg:h-[300px] md:h-[250px] rounded-[100%] absolute md:right-[-60%] right-[-50%] overflow-hidden'>
+                <Image
+                  src={"/profie-picture.jpg"}
+                  width={500}
+                  height={500}
+                  alt='my profile picture'
+                  className='w-full h-full rounded-[100%]'
+                />
               </div>
 
               <div className='bg-white h-[60px] xl:w-[100px] md:w-[80px] md:flex hidden rounded-l-[100%] absolute left-[10%] top-[100%] z-[2]'>
@@ -49,19 +57,52 @@ const AboutMe = ({ visitedPages }) => {
             </p>
 
             <div className='w-fit h-fit flex gap-5 lg:mt-10 mt-0'>
-              <div className={`rounded-[15px] xl:h-[50px] h-[40px] xl:px-4 px-2 xl:text-[16px] flex items-center justify-center border opcaity-0 ${visitedPages.has("about") ? "slide-in-left" : ""}`}>
-                resume
-              </div>
-              <div className={`xl:h-[50px] xl:w-[50px] h-[40px] w-[40px] flex items-center justify-center border rounded-[100%] opcaity-0 ${visitedPages.has("about") ? "slide-in-left" : ""}`}>
-                <GitHub/>
-              </div>
-              <div className={`xl:h-[50px] xl:w-[50px] h-[40px] w-[40px] flex items-center justify-center border rounded-[100%] opcaity-0 ${visitedPages.has("about") ? "slide-in-left" : ""}`}>
-                <MailOutline/>
-              </div>
-              <div className={`xl:h-[50px] xl:w-[50px] h-[40px] w-[40px] flex items-center justify-center border rounded-[100%] opcaity-0 ${visitedPages.has("about") ? "slide-in-left" : ""}`}>
-                <LinkedIn/>
-              </div>
+              {/* Resume Download */}
+              <a
+                href="/Gerald Fegalan.pdf" // Place your resume in /public/resume.pdf
+                download="Gerald Fegalan Resume"
+                className={`rounded-[15px] xl:h-[50px] h-[40px] xl:px-4 px-2 xl:text-[16px] flex items-center justify-center border opacity-100 transition-all duration-500 ${
+                  visitedPages.has("about") ? "slide-in-left" : ""
+                }`}
+              >
+                Resume
+              </a>
+
+              {/* GitHub */}
+              <Link
+                href="https://github.com/Unknown-Squid?tab=repositories"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`xl:h-[50px] xl:w-[50px] h-[40px] w-[40px] flex items-center justify-center border rounded-full opacity-100 transition-all duration-500 ${
+                  visitedPages.has("about") ? "slide-in-left" : ""
+                }`}
+              >
+                <GitHub />
+              </Link>
+
+              {/* Email */}
+              <a
+                href="mailto:gerald.fegalan@gmail.com"
+                className={`xl:h-[50px] xl:w-[50px] h-[40px] w-[40px] flex items-center justify-center border rounded-full opacity-100 transition-all duration-500 ${
+                  visitedPages.has("about") ? "slide-in-left" : ""
+                }`}
+              >
+                <MailOutline />
+              </a>
+
+              {/* LinkedIn */}
+              <Link
+                href="https://www.linkedin.com/in/gerald-fegalan-674358178/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`xl:h-[50px] xl:w-[50px] h-[40px] w-[40px] flex items-center justify-center border rounded-full opacity-100 transition-all duration-500 ${
+                  visitedPages.has("about") ? "slide-in-left" : ""
+                }`}
+              >
+                <LinkedIn />
+              </Link>
             </div>
+
         </div>
       </div>
 
