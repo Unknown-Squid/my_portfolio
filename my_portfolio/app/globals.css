@@ -389,7 +389,7 @@ body{
     width: 0;
   }
   1%, 99%{
-    border-right: 1px solid #915e01;
+    border-right: 1px solid rgba(16, 185, 129, 0.8);
   }
   100%{
     border-right: none;
@@ -399,6 +399,19 @@ body{
 @keyframes blink {
   50% {
     border-color: transparent;
+  }
+}
+
+@keyframes type-absolute {
+  0% {
+    width: 0;
+  }
+  1%, 99% {
+    border-right: 1px solid rgba(16, 185, 129, 0.8);
+  }
+  100% {
+    width: auto;
+    border-right: none;
   }
 }
 

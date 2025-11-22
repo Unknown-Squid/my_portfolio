@@ -63,14 +63,20 @@ const Home = () => {
 
   return (
     <main className='bg-emerald-400 h-fit w-full flex flex-col relative'>
-      <Navbar activePage={activePage} setActivePage={setActivePage} />
+      {/* <Navbar activePage={activePage} setActivePage={setActivePage} /> */}
       <Hero />
 
-      <div className='w-full h-[400px] bg-transparent'></div>
+      <div 
+        className='w-full h-[400px]'
+        style={{
+          background: 'radial-gradient(ellipse closest-side at center, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.1) 70%)'
+        }}
+      >
+      </div>
       <AboutMe visitedPages={visitedPages}/>
 
-      <div className='w-full h-[400px] bg-transparent'></div>
-      <MyProjects activeProject={activeProject} setActiveProject={setActiveProject} visitedPages={visitedPages}/>
+      {/* <div className='w-full h-[400px] bg-transparent'></div>
+      <MyProjects activeProject={activeProject} setActiveProject={setActiveProject} visitedPages={visitedPages}/> */}
 
       <div className='w-full h-[400px] bg-black/[.5]'></div>
       <ContactMe visitedPages={visitedPages}/>
