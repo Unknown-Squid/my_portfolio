@@ -171,7 +171,7 @@ const Hero = () => {
           <p 
             className='lg:text-[1.2vw] xl:text-[1.4vw] 2xl:text-[1.6vw] font-usbold text-emerald-400 absolute right-0 top-full mt-2'
           >
-            I'm <span className='italic'>Gerald Fegalan</span>
+            I&apos;m <span className='italic'>Gerald Fegalan</span>
           </p>
         </div>
 
