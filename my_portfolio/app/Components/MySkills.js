@@ -118,7 +118,7 @@ const skillVideos = {
   Python: '/projects/carGame.mp4',
   'HTML': '/projects/simpleNumberSystemConversion.mp4',
   'CSS': '/projects/simpleNumberSystemConversion.mp4',
-  'C#': '/projects/simpleAttendanceChecker.png',
+  'C#': '/projects/simpleAttendanceChecker.PNG',
   'C++': '/projects/moodTank.mp4',
   'JavaScript': '/projects/capstone.mp4',
   'React': '/projects/capstone.mp4',
