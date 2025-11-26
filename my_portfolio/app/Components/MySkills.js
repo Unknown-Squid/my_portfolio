@@ -78,7 +78,7 @@ const groups = [
         src: '/images/tech-stack/php.png',
         dateRange: '2024 – Current',
         description:
-        `PHP amazed me when I first tried it — a bit complex, but powerful and scalable. 
+        `PHP amazed me when I first tried it, it was a bit complex, but powerful and scalable. 
         With frameworks like Laravel, it helped me build backend features quickly 
         and more efficiently.`
       },
@@ -116,6 +116,9 @@ const groups = [
 // Optional background videos per skill (files should live in /public/videos)
 const skillVideos = {
   Python: '/projects/carGame.mp4',
+  'HTML': '/projects/simpleNumberSystemConversion.mp4',
+  'CSS': '/projects/simpleNumberSystemConversion.mp4',
+  'C#': '/projects/simpleAttendanceChecker.png',
   'C++': '/projects/moodTank.mp4',
   'JavaScript': '/projects/capstone.mp4',
   'React': '/projects/capstone.mp4',
@@ -161,10 +164,14 @@ const MySkills = () => {
   const containerFocus = getFocusForIndex(0);
   const containerScale = 0.8 + containerFocus * 0.2; // up to 1x
   const containerOpacity = 0.4 + containerFocus * 0.6;
-  const currentVideo =
+  const currentMedia =
     selectedSkill && skillVideos[selectedSkill.alt]
       ? skillVideos[selectedSkill.alt]
       : null;
+  
+  // Check if media is video or image based on file extension
+  const isVideo = currentMedia && /\.(mp4|webm|ogg|mov)$/i.test(currentMedia);
+  const isImage = currentMedia && /\.(png|jpg|jpeg|gif|webp|svg)$/i.test(currentMedia);
 
   return (
     <div
@@ -544,15 +551,24 @@ const MySkills = () => {
       </div>
 
       <div className="ms-16 relative flex justify-center items-center w-full h-full rounded-2xl overflow-hidden">
-        {currentVideo && (
+        {isVideo && (
           <video
-            key={currentVideo + (selectedSkill?.alt || '')}
+            key={currentMedia + (selectedSkill?.alt || '')}
             className="absolute inset-0 w-full h-full object-contain opacity-40"
-            src={currentVideo}
+            src={currentMedia}
             autoPlay
             loop
             muted
             playsInline
+          />
+        )}
+        {isImage && (
+          <Image
+            key={currentMedia + (selectedSkill?.alt || '')}
+            src={currentMedia}
+            alt={selectedSkill?.alt || 'Skill preview'}
+            fill
+            className="absolute inset-0 w-full h-full object-contain opacity-40"
           />
         )}
 

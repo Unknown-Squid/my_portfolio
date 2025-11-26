@@ -27,80 +27,109 @@ const ContactMe = ({ visitedPages }) => {
             </div>
         </div>
 
-        <div className='md:w-1/2 w-full md:h-full h-fit flex flex-col justify-center'>
-            <p className={`ml-10 md:w-[70%] w-full text-xl font-usbold text-neutral-200 flex flex-col gap-5 opacity-0 ${visitedPages.has("contact") ? "slide-in-top" : ""}`}>
-                <span className='font-ubold text-2xl text-emerald-300'>Server Response: 404</span>
-                Contact this person if you&apos;d like to learn more about his work or discuss potential projects. 
-                He is always open to new opportunities and would be happy to connect.
-            </p>
-
-            <div className='ml-10 w-fit h-fit flex gap-5 mt-10'>
-                {/* Resume Download */}
-                <a
-                    href="/Gerald Fegalan.pdf" // Make sure this file is in the /public folder
-                    download="Gerald Fegalan Resume"
-                  className={`h-[50px] rounded-[15px] px-4 flex items-center justify-center border cursor-pointer transition-all duration-500 text-white hover:bg-white/10 hover:border-white ${
-                    visitedPages.has("contact") ? "slide-in-left opacity-100" : "opacity-0"
-                    }`}
-                >
-                    Resume
-                </a>
-
-                {/* GitHub */}
-                <Link
-                    href="https://github.com/Unknown-Squid?tab=repositories"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  className={`h-[50px] w-[50px] flex items-center justify-center border rounded-full cursor-pointer transition-all duration-500 text-white hover:bg-white/10 hover:border-white ${
-                    visitedPages.has("contact") ? "slide-in-left opacity-100" : "opacity-0"
-                    }`}
-                >
-                  <GitHub sx={{ color: '#ffffff' }} />
-                </Link>
-
-                {/* Email */}
-                <a
-                    href="mailto:gerald.fegalan@gmail.com"
-                    className={`h-[50px] w-[50px] flex items-center justify-center border rounded-full cursor-pointer transition-all duration-500 text-white hover:bg-white/10 hover:border-white ${
-                    visitedPages.has("contact") ? "slide-in-left opacity-100" : "opacity-0"
-                    }`}
-                >
-                    <MailOutline sx={{ color: '#ffffff' }} />
-                </a>
-
-                {/* LinkedIn */}
-                <Link
-                    href="https://www.linkedin.com/in/gerald-fegalan-674358178/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`h-[50px] w-[50px] flex items-center justify-center border rounded-full cursor-pointer transition-all duration-500 text-white hover:bg-white/10 hover:border-white ${
-                    visitedPages.has("contact") ? "slide-in-left opacity-100" : "opacity-0"
-                    }`}
-                >
-                    <LinkedIn sx={{ color: '#ffffff' }} />
-                </Link>
-                </div>
-
-            {/* First Number */}
-            <div className={`text-neutral-200 ml-10 mt-10 w-fit h-fit flex gap-2 opacity-0 ${visitedPages.has("contact") ? "slide-in-left" : ""}`}>
-                <p><Call sx={{ width: '16px', height: '16px' }} /> 63+</p>
-                <p
-                className='hover:underline cursor-pointer'
-                onClick={() => handleCopy('9161915124')}
-                >
-                9161915124 {copied === '9161915124' && <span className="text-green-600 text-sm ml-1">Copied!</span>}
+        <div className='md:w-1/2 w-full md:h-full h-fit flex flex-col justify-center md:pr-10 pr-5'>
+            {/* Text Content Card */}
+            <div className={`ml-10 md:ml-10 md:w-[85%] w-full rounded-2xl border border-emerald-300/20 bg-black/40 backdrop-blur-md p-6 md:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.3)] opacity-0 ${visitedPages.has("contact") ? "slide-in-top" : ""}`}>
+                <span className='font-ubold text-2xl md:text-3xl text-emerald-300 mb-4 block'>Server Response: 404</span>
+                <p className='text-base md:text-lg font-usbold text-neutral-200 leading-relaxed'>
+                    Contact this person if you&apos;d like to learn more about his work or discuss potential projects. 
+                    He is always open to new opportunities and would be happy to connect.
                 </p>
             </div>
 
-            {/* Second Number */}
-            <div className={`text-neutral-200 ml-10 mt-5 w-fit h-fit flex gap-2 opacity-0 ${visitedPages.has("contact") ? "slide-in-left" : ""}`}>
-                <p><Call sx={{ width: '16px', height: '16px' }} /> 63+</p>
-                <p
-                className='hover:underline cursor-pointer'
-                onClick={() => handleCopy('9918847001')}
-                >
-                9918847001 {copied === '9918847001' && <span className="text-green-600 text-sm ml-1">Copied!</span>}
-                </p>
+            {/* Social Links Section */}
+            <div className={`ml-10 mt-8 w-fit opacity-0 ${visitedPages.has("contact") ? "slide-in-left" : ""}`}>
+                <p className='text-sm text-emerald-300/70 font-usbold mb-4'>Connect with me</p>
+                <div className='flex gap-4'>
+                    {/* Resume Download */}
+                    <a
+                        href="/Gerald Fegalan.pdf"
+                        download="Gerald Fegalan Resume"
+                        className={`group h-[56px] rounded-xl px-6 flex items-center justify-center border border-white/30 bg-white/5 backdrop-blur-sm cursor-pointer transition-all duration-300 text-white hover:bg-emerald-500/20 hover:border-emerald-400/60 hover:scale-105 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] ${
+                        visitedPages.has("contact") ? "opacity-100" : "opacity-0"
+                        }`}
+                    >
+                        <span className='font-usbold text-sm'>Resume</span>
+                    </a>
+
+                    {/* GitHub */}
+                    <Link
+                        href="https://github.com/Unknown-Squid?tab=repositories"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`group h-[56px] w-[56px] flex items-center justify-center border border-white/30 rounded-full cursor-pointer transition-all duration-300 text-white bg-white/5 backdrop-blur-sm hover:bg-emerald-500/20 hover:border-emerald-400/60 hover:scale-110 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] ${
+                        visitedPages.has("contact") ? "opacity-100" : "opacity-0"
+                        }`}
+                    >
+                        <GitHub sx={{ color: '#ffffff', fontSize: '24px' }} />
+                    </Link>
+
+                    {/* Email */}
+                    <a
+                        href="mailto:gerald.fegalan@gmail.com"
+                        className={`group h-[56px] w-[56px] flex items-center justify-center border border-white/30 rounded-full cursor-pointer transition-all duration-300 text-white bg-white/5 backdrop-blur-sm hover:bg-emerald-500/20 hover:border-emerald-400/60 hover:scale-110 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] ${
+                        visitedPages.has("contact") ? "opacity-100" : "opacity-0"
+                        }`}
+                    >
+                        <MailOutline sx={{ color: '#ffffff', fontSize: '24px' }} />
+                    </a>
+
+                    {/* LinkedIn */}
+                    <Link
+                        href="https://www.linkedin.com/in/gerald-fegalan-674358178/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`group h-[56px] w-[56px] flex items-center justify-center border border-white/30 rounded-full cursor-pointer transition-all duration-300 text-white bg-white/5 backdrop-blur-sm hover:bg-emerald-500/20 hover:border-emerald-400/60 hover:scale-110 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] ${
+                        visitedPages.has("contact") ? "opacity-100" : "opacity-0"
+                        }`}
+                    >
+                        <LinkedIn sx={{ color: '#ffffff', fontSize: '24px' }} />
+                    </Link>
+                </div>
+            </div>
+
+            {/* Phone Numbers Section */}
+            <div className={`ml-10 mt-8 opacity-0 ${visitedPages.has("contact") ? "slide-in-left" : ""}`}>
+                <p className='text-sm text-emerald-300/70 font-usbold mb-4'>Phone Numbers</p>
+                <div className='flex flex-col gap-4'>
+                    {/* First Number */}
+                    <div 
+                        className='group rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm px-5 py-3 flex items-center gap-3 cursor-pointer transition-all duration-300 hover:bg-emerald-500/10 hover:border-emerald-400/40 hover:scale-[1.02]'
+                        onClick={() => handleCopy('9161915124')}
+                    >
+                        <div className='flex items-center gap-2 text-emerald-300'>
+                            <Call sx={{ width: '18px', height: '18px' }} />
+                            <span className='text-sm font-usbold'>63+</span>
+                        </div>
+                        <p className='text-neutral-200 font-usbold text-base group-hover:text-emerald-200 transition-colors'>
+                            9161915124
+                        </p>
+                        {copied === '9161915124' && (
+                            <span className="ml-auto text-emerald-400 text-sm font-usbold animate-pulse">
+                                Copied!
+                            </span>
+                        )}
+                    </div>
+
+                    {/* Second Number */}
+                    <div 
+                        className='group rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm px-5 py-3 flex items-center gap-3 cursor-pointer transition-all duration-300 hover:bg-emerald-500/10 hover:border-emerald-400/40 hover:scale-[1.02]'
+                        onClick={() => handleCopy('9918847001')}
+                    >
+                        <div className='flex items-center gap-2 text-emerald-300'>
+                            <Call sx={{ width: '18px', height: '18px' }} />
+                            <span className='text-sm font-usbold'>63+</span>
+                        </div>
+                        <p className='text-neutral-200 font-usbold text-base group-hover:text-emerald-200 transition-colors'>
+                            9918847001
+                        </p>
+                        {copied === '9918847001' && (
+                            <span className="ml-auto text-emerald-400 text-sm font-usbold animate-pulse">
+                                Copied!
+                            </span>
+                        )}
+                    </div>
+                </div>
             </div>
         </div>
 
