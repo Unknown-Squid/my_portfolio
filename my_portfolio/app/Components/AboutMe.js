@@ -29,7 +29,7 @@ const AboutMe = ({ visitedPages, showOverMask = false }) => {
             {/* Profile Image */}
             <div className='w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-emerald-300/50 shadow-[0_0_30px_rgba(16,185,129,0.3)] flex-shrink-0'>
               <Image
-                src={'/profie-picture.jpg'}
+                src={'/images/profile/profie-picture.jpg'}
                 width={160}
                 height={160}
                 alt='my profile picture'
@@ -77,7 +77,7 @@ const AboutMe = ({ visitedPages, showOverMask = false }) => {
           <div className='bg-black/40 w-full h-full absolute top-0 left-0 rounded-2xl pointer-events-none'></div>
           <div className='relative z-10 flex flex-col gap-3'>
             <a
-              href="/Gerald Fegalan.pdf"
+              href="/resume/Gerald Fegalan Resume.pdf"
               download="Gerald Fegalan Resume"
               className='group rounded-xl h-[52px] px-4 flex items-center justify-center border border-white/30 bg-white/5 text-white font-usbold hover:bg-emerald-500/20 hover:border-emerald-400/60 hover:scale-105 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all duration-300'
             >

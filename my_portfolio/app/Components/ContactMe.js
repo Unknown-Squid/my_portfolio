@@ -43,7 +43,7 @@ const ContactMe = ({ visitedPages }) => {
                 <div className='flex gap-4'>
                     {/* Resume Download */}
                     <a
-                        href="/Gerald Fegalan.pdf"
+                        href="/resume/Gerald Fegalan Resume.pdf"
                         download="Gerald Fegalan Resume"
                         className={`group h-[56px] rounded-xl px-6 flex items-center justify-center border border-white/30 bg-white/5 backdrop-blur-sm cursor-pointer transition-all duration-300 text-white hover:bg-emerald-500/20 hover:border-emerald-400/60 hover:scale-105 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] ${
                         visitedPages.has("contact") ? "opacity-100" : "opacity-0"
