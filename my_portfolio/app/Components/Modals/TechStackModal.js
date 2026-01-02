@@ -1,0 +1,87 @@
+"use client"
+import React, { useEffect } from 'react'
+import { Close } from '@mui/icons-material'
+
+const TechStackModal = ({ isOpen, onClose }) => {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+  const allTechCategoriesForModal = [
+    {
+      title: 'Frontend',
+      technologies: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'CSS', 'Tailwind CSS', 'Bootstrap', 'Prettier']
+    },
+    {
+      title: 'Backend',
+      technologies: ['Node.js', 'Express', 'PHP', 'Laravel', 'Java', 'Sequelize', 'MySQL', 'MongoDB']
+    },
+    {
+      title: 'Languages',
+      technologies: ['JavaScript', 'Python', 'PHP', 'Java', 'C++', 'C#']
+    },
+    {
+      title: 'DevOps & Cloud',
+      technologies: ['Docker', 'AWS', 'GitHub Actions', 'CI/CD']
+    },
+    {
+      title: 'CMS',
+      technologies: ['Wix', 'Drupal']
+    },
+    {
+      title: 'Tools',
+      technologies: ['PyCharm', 'Arduino IDE', 'Visual Studio', 'Cursor', 'Android Studio', 'Visual Studio 2022', 'Postman', 'Notion', 'Jira', 'Git', 'GitHub', 'Google Meet']
+    }
+  ];
+
+  if (!isOpen) return null;
+
+  return (
+    <div 
+      className='fixed inset-0 bg-black/[.8] z-[100] flex items-center justify-center p-4'
+      onClick={onClose}
+    >
+      <div 
+        className='bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-lg'
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className='sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between z-10'>
+          <h2 className='text-black/[.9] font-ubold text-2xl md:text-3xl'>Tech Stack - Full List</h2>
+          <button
+            onClick={onClose}
+            className='p-2 hover:bg-black/[.05] rounded-lg transition-colors'
+          >
+            <Close className='text-black/[.7]' />
+          </button>
+        </div>
+        <div className='p-6 md:p-8 space-y-8'>
+          {allTechCategoriesForModal.map((category, index) => (
+            <div key={index} className='space-y-4'>
+              <h3 className='text-black/[.9] font-usbold text-sm'>{category.title}</h3>
+              <div className='flex flex-wrap gap-3'>
+                {category.technologies.map((tech, techIndex) => (
+                  <span
+                    key={techIndex}
+                    className='px-4 py-2 rounded-lg bg-black/[.05] text-black/[.8] font-medium text-sm border border-gray-200 hover:bg-black/[.1] transition-colors'
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default TechStackModal
+
