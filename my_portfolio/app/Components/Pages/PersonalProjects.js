@@ -65,11 +65,11 @@ const PersonalProjects = ({ visitedPages }) => {
     <div className='w-full px-4 md:px-8 lg:px-12'>
       <div 
         id="personal-projects"
-        className={`w-[1250px] rounded-2xl overflow-hidden relative border border-gray-200 bg-white shadow-sm ${visitedPages.has("projects") ? "fade-in" : ""}`}
+        className={`w-full max-w-[1250px] mx-auto rounded-2xl overflow-hidden relative border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm ${visitedPages.has("projects") ? "fade-in" : ""}`}
       >
-        <div className='relative z-10 p-6 md:p-8'>
-          <h2 className='text-black/[.9] font-ubold text-2xl md:text-3xl mb-8'>Personal Projects</h2>
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+        <div className='relative z-10 p-4 md:p-6 lg:p-8'>
+          <h2 className='text-black/[.9] dark:text-white/[.9] font-ubold text-xl md:text-2xl lg:text-3xl mb-6 md:mb-8'>Personal Projects</h2>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6'>
             {projects.map((project, index) => (
               <ProjectCard
                 key={index}

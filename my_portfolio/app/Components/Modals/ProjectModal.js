@@ -27,24 +27,24 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
       onClick={onClose}
     >
       <div 
-        className='bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-lg'
+        className='bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-lg transition-colors duration-300'
         onClick={(e) => e.stopPropagation()}
       >
-        <div className='sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between z-10'>
+        <div className='sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4 flex items-center justify-between z-10 transition-colors duration-300'>
           <div>
             {project.category && (
-              <p className='text-black/[.5] font-medium text-xs uppercase tracking-wide'>{project.category}</p>
+              <p className='text-black/[.5] dark:text-white/[.5] font-medium text-xs uppercase tracking-wide'>{project.category}</p>
             )}
-            <h2 className='text-black/[.9] font-ubold text-2xl md:text-3xl'>{project.title}</h2>
+            <h2 className='text-black/[.9] dark:text-white/[.9] font-ubold text-2xl md:text-3xl'>{project.title}</h2>
             {project.subtitle && (
-              <p className='text-black/[.6] font-medium text-sm'>{project.subtitle}</p>
+              <p className='text-black/[.6] dark:text-white/[.6] font-medium text-sm'>{project.subtitle}</p>
             )}
           </div>
           <button
             onClick={onClose}
-            className='p-2 hover:bg-black/[.05] rounded-lg transition-colors'
+            className='p-2 hover:bg-black/[.05] dark:hover:bg-white/[.05] rounded-lg transition-colors'
           >
-            <Close className='text-black/[.7]' />
+            <Close className='text-black/[.7] dark:text-white/[.7]' />
           </button>
         </div>
         
@@ -113,18 +113,18 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
 
           <div className='space-y-6'>
             <div>
-              <h3 className='text-black/[.9] font-usbold text-lg mb-3'>Description</h3>
-              <p className='text-black/[.8] text-sm leading-relaxed'>{project.description}</p>
+              <h3 className='text-black/[.9] dark:text-white/[.9] font-usbold text-lg mb-3'>Description</h3>
+              <p className='text-black/[.8] dark:text-white/[.8] text-sm leading-relaxed'>{project.description}</p>
             </div>
 
             {project.technologies && project.technologies.length > 0 && (
               <div>
-                <h3 className='text-black/[.9] font-usbold text-lg mb-3'>Technologies Used</h3>
+                <h3 className='text-black/[.9] dark:text-white/[.9] font-usbold text-lg mb-3'>Technologies Used</h3>
                 <div className='flex flex-wrap gap-3'>
                   {project.technologies.map((tech, index) => (
                     <span
                       key={index}
-                      className='px-4 py-2 rounded-lg bg-black/[.05] text-black/[.8] font-medium text-sm border border-gray-200'
+                      className='px-4 py-2 rounded-lg bg-black/[.05] dark:bg-white/[.05] text-black/[.8] dark:text-white/[.8] font-medium text-sm border border-gray-200 dark:border-gray-700'
                     >
                       {tech}
                     </span>
@@ -135,12 +135,12 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
 
             {project.components && project.components.length > 0 && (
               <div>
-                <h3 className='text-black/[.9] font-usbold text-lg mb-3'>Components Used</h3>
+                <h3 className='text-black/[.9] dark:text-white/[.9] font-usbold text-lg mb-3'>Components Used</h3>
                 <div className='flex flex-wrap gap-3'>
                   {project.components.map((component, index) => (
                     <span
                       key={index}
-                      className='px-4 py-2 rounded-lg bg-black/[.05] text-black/[.8] font-medium text-sm border border-gray-200'
+                      className='px-4 py-2 rounded-lg bg-black/[.05] dark:bg-white/[.05] text-black/[.8] dark:text-white/[.8] font-medium text-sm border border-gray-200 dark:border-gray-700'
                     >
                       {component}
                     </span>
@@ -151,12 +151,12 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
 
             {project.tools && project.tools.length > 0 && (
               <div>
-                <h3 className='text-black/[.9] font-usbold text-lg mb-3'>Development Tools</h3>
+                <h3 className='text-black/[.9] dark:text-white/[.9] font-usbold text-lg mb-3'>Development Tools</h3>
                 <div className='flex flex-wrap gap-3'>
                   {project.tools.map((tool, index) => (
                     <span
                       key={index}
-                      className='px-4 py-2 rounded-lg bg-black/[.05] text-black/[.8] font-medium text-sm border border-gray-200'
+                      className='px-4 py-2 rounded-lg bg-black/[.05] dark:bg-white/[.05] text-black/[.8] dark:text-white/[.8] font-medium text-sm border border-gray-200 dark:border-gray-700'
                     >
                       {tool}
                     </span>
