@@ -255,6 +255,7 @@ circle{
 .fade-in {
   opacity: 0;
   animation: fadeIn 1s ease-out forwards;
+  will-change: opacity;
 }
 
 .delay {
@@ -271,6 +272,7 @@ circle{
   opacity: 0;
   transform: translateX(100px);
   animation: slideInRight 1s ease-out forwards;
+  will-change: opacity, transform;
 }
 
 @keyframes slideInRight {
@@ -289,6 +291,7 @@ circle{
   opacity: 0;
   transform: translateX(-50px);
   animation: slideInLeft 1s ease-out forwards;
+  will-change: opacity, transform;
 }
 
 @keyframes slideInLeft {
@@ -335,4 +338,12 @@ circle{
     transform: scale(1);
     opacity: 1;
   }
+}
+
+.theme-toggle {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-toggle:hover {
+  transform: rotate(180deg);
 }

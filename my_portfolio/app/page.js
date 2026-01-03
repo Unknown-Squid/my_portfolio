@@ -28,6 +28,22 @@ const Home = () => {
 
       const viewportTop = window.scrollY;
       const viewportCenter = viewportTop + window.innerHeight / 2;
+      const viewportBottom = viewportTop + window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const isNearBottom = viewportBottom >= documentHeight - 100; // Within 100px of bottom
+
+      // If at bottom, set Gallery as active
+      if (isNearBottom) {
+        const gallerySection = sections.find(s => s.page === 'gallery');
+        if (gallerySection) {
+          if (!visitedPages.has(gallerySection.page)) {
+            setVisitedPages(prev => new Set(prev).add(gallerySection.page));
+          }
+          setActivePage(gallerySection.page);
+          setActiveProject("");
+          return;
+        }
+      }
 
       let currentSection = null;
 
@@ -38,6 +54,7 @@ const Home = () => {
           const elementTop = window.scrollY + rect.top;
           const elementBottom = elementTop + rect.height;
           
+          // Check if viewport center is within section bounds
           if (viewportCenter >= elementTop && viewportCenter <= elementBottom) {
             currentSection = section;
             break;
@@ -54,11 +71,18 @@ const Home = () => {
           const element = document.getElementById(section.id);
           if (element) {
             const rect = element.getBoundingClientRect();
-            if (rect.top <= 200 && rect.bottom >= 0) {
-              const distance = Math.abs(rect.top - 150);
-              if (distance < closestDistance) {
-                closestDistance = distance;
-                closestSection = section;
+            const elementTop = window.scrollY + rect.top;
+            const elementBottom = elementTop + rect.height;
+            
+            // Check if section is visible in viewport (at least partially)
+            if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+              // For sections at the bottom, check if we're scrolled past them
+              if (viewportBottom >= elementTop && viewportTop <= elementBottom) {
+                const distance = Math.abs(rect.top - 150);
+                if (distance < closestDistance) {
+                  closestDistance = distance;
+                  closestSection = section;
+                }
               }
             }
           }
@@ -96,7 +120,9 @@ const Home = () => {
 
   useEffect(() => {
     if (!loading) {
-      setVisitedPages(prev => new Set(prev).add("about"));
+      // Preload all animations - add all pages to visitedPages so animations are ready
+      // This ensures animations are preloaded and will play smoothly when scrolling
+      setVisitedPages(new Set(["about", "experience", "skills", "tech-stack", "projects", "gallery"]));
       const aboutSection = document.getElementById('about-me');
       if (aboutSection) {
         aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -109,11 +135,11 @@ const Home = () => {
   }
 
   return (
-    <main className='bg-[#f4f2ee] h-fit w-full flex flex-col relative'>
+    <main className='bg-[#f4f2ee] dark:bg-gray-900 h-fit w-full flex flex-col relative transition-colors duration-300'>
       {/* <Navbar activePage={activePage} setActivePage={setActivePage} /> */}
       <Sidebar activePage={activePage} setActivePage={setActivePage} />
 
-      <div className='md:ml-[280px] lg:ml-[320px] flex flex-col gap-8'>
+      <div className='w-full lg:w-[calc(100%-280px)] lg:ml-[280px] flex flex-col gap-6 md:gap-8'>
         <AboutMe visitedPages={visitedPages}/>
         <Experience visitedPages={visitedPages}/>
         <Skills visitedPages={visitedPages}/>
