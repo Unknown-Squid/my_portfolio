@@ -30,7 +30,7 @@ const Experience = ({ visitedPages }) => {
 
                 <div>
                   <h4 className='text-black/[.9] dark:text-white/[.9] font-usbold text-sm md:text-base mb-2'>Mobile Parking System</h4>
-                  <p className='text-black/[.8] dark:text-white/[.8] text-xs md:text-sm leading-relaxed'>
+                  <p className='text-black/[.8] dark:text-white/[.8] text-xs md:text-sm lg:text-base leading-relaxed'>
                     Developed a mobile parking system along with a companion web application
                     for about 2 1/2 months, leading a team and handling both front-end and back-end development. Integrated core functionalities such
                     as user registration, parking slot management, and real-time updates, ensuring seamless
