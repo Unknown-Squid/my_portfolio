@@ -14,7 +14,8 @@ const PersonalProjects = ({ visitedPages }) => {
       technologies: ['React', 'Next.js', 'Node.js', 'Express', 'MySQL', 'Redis', 'Java', 'Kotlin'],
       components: [],
       tools: ['Cursor', 'Android Studio'],
-      media: '/projects/mdm-project.mp4'
+      media: '/projects/mdm-project.mp4',
+      link: 'https://kippr.ph/'
     },
     {
       category: 'Booking System',
@@ -23,7 +24,8 @@ const PersonalProjects = ({ visitedPages }) => {
       technologies: ['React', 'Next.js', 'Node.js', 'Express', 'MySQL'],
       components: [],
       tools: ['Cursor'],
-      media: '/projects/uncle-drew-sports-center-project.mp4'
+      media: '/projects/uncle-drew-sports-center-project.mp4',
+      link: 'https://www.uncledrewsportscenter.com/'
     },
     {
       category: 'Handicrafts Website',

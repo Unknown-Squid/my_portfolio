@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect } from 'react'
-import { Close } from '@mui/icons-material'
+import { Close, OpenInNew } from '@mui/icons-material'
 import Image from 'next/image'
 
 const ProjectModal = ({ isOpen, onClose, project }) => {
@@ -116,6 +116,21 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
               <h3 className='text-black/[.9] dark:text-white/[.9] font-usbold text-lg mb-3'>Description</h3>
               <p className='text-black/[.8] dark:text-white/[.8] text-sm leading-relaxed'>{project.description}</p>
             </div>
+
+            {project.link && (
+              <div>
+                <h3 className='text-black/[.9] dark:text-white/[.9] font-usbold text-lg mb-3'>Project Link</h3>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className='inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 text-white font-medium text-sm transition-colors'
+                >
+                  Visit Project
+                  <OpenInNew className='text-sm' />
+                </a>
+              </div>
+            )}
 
             {project.technologies && project.technologies.length > 0 && (
               <div>
