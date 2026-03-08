@@ -11,7 +11,7 @@ const Sidebar = ({ activePage, setActivePage }) => {
     { id: 'experience', label: 'Experience', href: '#experience' },
     { id: 'skills', label: 'Skills', href: '#skills' },
     { id: 'tech-stack', label: 'Tech Stack', href: '#tech-stack' },
-    { id: 'projects', label: 'Personal Projects', href: '#personal-projects' },
+    { id: 'projects', label: 'Projects', href: '#projects' },
     { id: 'gallery', label: 'Gallery', href: '#gallery' },
   ];
   

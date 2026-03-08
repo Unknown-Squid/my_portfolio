@@ -8,6 +8,33 @@ const PersonalProjects = ({ visitedPages }) => {
 
   const projects = [
     {
+      category: 'Mobile Device Management System',
+      title: 'Kippr',
+      description: 'A comprehensive Mobile Device Management (MDM) system designed to manage and monitor mobile devices across an organization. The platform provides device enrollment, remote configuration, application management, security policies, and real-time device monitoring. Built with a modern full-stack architecture supporting both web and mobile platforms.',
+      technologies: ['React', 'Next.js', 'Node.js', 'Express', 'MySQL', 'Redis', 'Java', 'Kotlin'],
+      components: [],
+      tools: ['Cursor', 'Android Studio'],
+      media: '/projects/mdm-project.mp4'
+    },
+    {
+      category: 'Booking System',
+      title: 'Uncle Drew Sports Center',
+      description: 'A comprehensive booking system for Uncle Drew Sports Center with admin panel. The platform enables customers to easily book sports facilities and venues for various events such as basketball games, tournaments, training sessions, and other sporting activities. Features include real-time availability checking, event scheduling, booking management, admin dashboard for managing bookings and facilities, and a user-friendly interface for seamless reservation experience.',
+      technologies: ['React', 'Next.js', 'Node.js', 'Express', 'MySQL'],
+      components: [],
+      tools: ['Cursor'],
+      media: '/projects/uncle-drew-sports-center-project.mp4'
+    },
+    {
+      category: 'Handicrafts Website',
+      title: 'SJ Handicrafts',
+      description: 'An e-commerce website showcasing the exquisite handmade products crafted by SJ Handicrafts, a company based in Albay. The platform features a beautiful product catalog, shopping cart functionality, and seamless user experience to highlight the unique craftsmanship and artistry of their locally-made handicrafts. Built with modern web technologies to provide an elegant online presence for the business.',
+      technologies: ['React', 'Next.js'],
+      components: [],
+      tools: ['Cursor'],
+      media: '/projects/sj-handicrafts-project.mp4'
+    },
+    {
       category: 'Arduino-Based Project',
       title: 'Mood Tank',
       description: 'A robotics project developed using Arduino IDE and C++ programming. This project demonstrates hands-on experience with hardware integration and embedded systems programming, showcasing the ability to work with physical devices and sensors.',
@@ -42,11 +69,11 @@ const PersonalProjects = ({ visitedPages }) => {
     },
     {
       category: 'Web-Based Project',
-      title: 'Simple Number System Conversion',
-      description: 'A web-based utility application that converts numbers between different number systems (binary, decimal, hexadecimal, octal). This project focuses on logical problem-solving and algorithmic thinking, demonstrating the ability to implement complex conversion logic with precision and accuracy.',
-      technologies: ['HTML', 'CSS', 'JavaScript'],
-      tools: ['Notepad++'],
-      media: '/projects/simpleNumberSystemConversion.mp4'
+      title: 'Number System Converter',
+      description: 'A web-based utility application that converts numbers between different number systems (binary, decimal, hexadecimal, octal). It features a user-friendly interface with input validation, conversion logic, and error handling to ensure accurate and efficient number system conversions.',
+      technologies: ['Vue 3, Vite'],
+      tools: ['Cursor'],
+      media: '/projects/number-system-convertion.mp4'
     },
     {
       category: 'Web-Based Project',
@@ -64,11 +91,11 @@ const PersonalProjects = ({ visitedPages }) => {
   return (
     <div className='w-full px-4 md:px-8 lg:px-12'>
       <div 
-        id="personal-projects"
+        id="projects"
         className={`w-full max-w-[1250px] mx-auto rounded-2xl overflow-hidden relative border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm ${visitedPages.has("projects") ? "fade-in" : ""}`}
       >
         <div className='relative z-10 p-4 md:p-6 lg:p-8'>
-          <h2 className='text-black/[.9] dark:text-white/[.9] font-ubold text-xl md:text-2xl lg:text-3xl mb-6 md:mb-8'>Personal Projects</h2>
+          <h2 className='text-black/[.9] dark:text-white/[.9] font-ubold text-xl md:text-2xl lg:text-3xl mb-6 md:mb-8'>Projects</h2>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6'>
             {projects.map((project, index) => (
               <ProjectCard
