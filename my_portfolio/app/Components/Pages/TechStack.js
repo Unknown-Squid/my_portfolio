@@ -1,87 +1,93 @@
 "use client"
-import React, { useState } from 'react'
+import React from 'react'
 import TechStackModal from '../Modals/TechStackModal'
 
-const TechStack = ({ visitedPages }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+const TechStack = ({ visitedPages, isModalOpen, onModalClose }) => {
 
-  const techCategories = [
-    {
-      title: 'Languages',
-      technologies: ['JavaScript', 'Python', 'PHP', 'Java', 'C++', 'C#']
-    },
-    {
-      title: 'Frontend',
-      technologies: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'CSS', 'Tailwind CSS']
-    },
-    {
-      title: 'Backend',
-      technologies: ['Node.js', 'Express', 'PHP', 'Laravel', 'Java']
-    },
-    {
-      title: 'DevOps & Cloud',
-      technologies: ['Docker', 'AWS', 'GitHub Actions', 'CI/CD']
-    }
-  ];
+  const frontendTech = ['JavaScript', 'TypeScript', 'React', 'Next.js', 'Vue.js', 'Tailwind CSS'];
+  const backendTech = ['Node.js', 'Python', 'PHP', 'Laravel', 'PostgreSQL', 'MongoDB'];
+  const devopsTech = ['AWS', 'Docker', 'Kubernetes', 'GitHub Actions'];
+
+  const [opacity, setOpacity] = React.useState(0.3);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const element = document.getElementById('tech-stack');
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const elementTop = rect.top;
+        
+        if (elementTop < windowHeight && elementTop > -rect.height) {
+          const scrollProgress = Math.max(0, Math.min(1, (windowHeight - elementTop) / (windowHeight + rect.height)));
+          setOpacity(0.3 + (scrollProgress * 0.7));
+        } else if (elementTop <= -rect.height) {
+          setOpacity(1);
+        } else {
+          setOpacity(0.3);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
-      <div className='w-full px-4 md:px-8 lg:px-12'>
-        <div 
-          id="tech-stack"
-          className={`w-full max-w-[1250px] mx-auto rounded-2xl overflow-hidden relative border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm ${visitedPages.has("tech-stack") ? "fade-in" : ""}`}
-        >
-          <div className='relative z-10 p-4 md:p-6 lg:p-8'>
-            <div className='flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-4 md:mb-6'>
-              <h2 className='text-black/[.9] dark:text-white/[.9] font-ubold text-xl md:text-2xl lg:text-3xl'>Tech Stack</h2>
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className='px-3 py-1 text-xs md:text-sm text-black/[.7] dark:text-white/[.7] border border-black/[.3] dark:border-white/[.3] rounded-lg hover:bg-black/[.05] dark:hover:bg-white/[.05] transition-colors font-medium'
-              >
-                View More
-              </button>
-            </div>
-            <div className='flex flex-col lg:flex-row lg:justify-between gap-6 lg:gap-8'>
-              <div className='space-y-6 md:space-y-8 flex-1'>
-                  {techCategories.filter(category => category.title !== 'Languages' && category.title !== 'DevOps & Cloud').map((category, index) => (
-                  <div key={index} className='space-y-3 md:space-y-4'>
-                      <h3 className='text-black/[.9] dark:text-white/[.9] font-usbold text-xs md:text-sm'>{category.title}</h3>
-                      <div className='flex flex-wrap gap-2 md:gap-3'>
-                      {category.technologies.map((tech, techIndex) => (
-                          <span
-                          key={techIndex}
-                          className='px-3 md:px-4 py-1.5 md:py-2 rounded-lg bg-black/[.05] dark:bg-white/[.05] text-black/[.8] dark:text-white/[.8] font-medium text-xs md:text-sm border border-gray-200 dark:border-gray-700 hover:bg-black/[.1] dark:hover:bg-white/[.1] transition-colors'
-                          >
-                          {tech}
-                          </span>
-                      ))}
-                      </div>
-                  </div>
-                  ))}
+      <div 
+        id="tech-stack"
+        className={`transition-opacity duration-500 ${visitedPages.has("tech-stack") ? "fade-in" : ""}`}
+        style={{ opacity }}
+      >
+        <div className='space-y-6'>
+            <div>
+              <h3 className='text-base md:text-lg font-usbold text-black dark:text-white mb-3'>Frontend</h3>
+              <div className='flex flex-wrap gap-2 md:gap-3'>
+                {frontendTech.map((tech, index) => (
+                  <span
+                    key={index}
+                    className='px-3 md:px-4 py-1.5 md:py-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-black dark:text-white font-medium text-sm border border-gray-200 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors'
+                  >
+                    {tech}
+                  </span>
+                ))}
               </div>
-              <div className='space-y-6 md:space-y-8 flex-1'>
-                {techCategories.filter(category => category.title === 'Languages' || category.title === 'DevOps & Cloud').map((category, index) => (
-                  <div key={index} className='space-y-3 md:space-y-4'>
-                    <h3 className='text-black/[.9] dark:text-white/[.9] font-usbold text-xs md:text-sm'>{category.title}</h3>
-                    <div className='flex flex-wrap gap-2 md:gap-3'>
-                      {category.technologies.map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className='px-3 md:px-4 py-1.5 md:py-2 rounded-lg bg-black/[.05] dark:bg-white/[.05] text-black/[.8] dark:text-white/[.8] font-medium text-xs md:text-sm border border-gray-200 dark:border-gray-700 hover:bg-black/[.1] dark:hover:bg-white/[.1] transition-colors'
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+            </div>
+
+            <div>
+              <h3 className='text-base md:text-lg font-usbold text-black dark:text-white mb-3'>Backend</h3>
+              <div className='flex flex-wrap gap-2 md:gap-3'>
+                {backendTech.map((tech, index) => (
+                  <span
+                    key={index}
+                    className='px-3 md:px-4 py-1.5 md:py-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-black dark:text-white font-medium text-sm border border-gray-200 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors'
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className='text-base md:text-lg font-usbold text-black dark:text-white mb-3'>DevOps & Cloud</h3>
+              <div className='flex flex-wrap gap-2 md:gap-3'>
+                {devopsTech.map((tech, index) => (
+                  <span
+                    key={index}
+                    className='px-3 md:px-4 py-1.5 md:py-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-black dark:text-white font-medium text-sm border border-gray-200 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors'
+                  >
+                    {tech}
+                  </span>
                 ))}
               </div>
             </div>
           </div>
-        </div>
       </div>
 
-      <TechStackModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <TechStackModal isOpen={isModalOpen} onClose={onModalClose} />
     </>
   )
 }

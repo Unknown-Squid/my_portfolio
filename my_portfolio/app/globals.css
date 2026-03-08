@@ -45,12 +45,18 @@
 
 
 body{
-  background-color: #181818;
+  background-color: #ffffff;
   scroll-behavior: smooth;
   margin: 0px;
   padding: 0px;
   width: 100vw;
   height: 100vh;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #111827;
+  }
 }
 ::-webkit-scrollbar {
   display: none;

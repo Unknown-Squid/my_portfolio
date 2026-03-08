@@ -1,12 +1,23 @@
 "use client"
 import React from 'react'
+import Image from 'next/image'
 
-const ProjectCard = ({ title, subtitle, category, description, technologies, onClick }) => {
+const ProjectCard = ({ title, subtitle, category, description, technologies, thumbnail, onClick }) => {
   return (
     <div 
       onClick={onClick}
       className='p-4 md:p-6 rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-shadow relative cursor-pointer'
     >
+      {thumbnail && (
+        <div className='relative w-full h-48 mb-4 rounded-xl overflow-hidden'>
+          <Image
+            src={thumbnail}
+            alt={title}
+            fill
+            className='object-cover'
+          />
+        </div>
+      )}
       {category && (
         <p className='text-black/[.5] dark:text-white/[.5] font-medium text-xs mb-2 uppercase tracking-wide'>{category}</p>
       )}

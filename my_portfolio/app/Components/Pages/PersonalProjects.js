@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ProjectCard from '../Cards/ProjectCard'
 import ProjectModal from '../Modals/ProjectModal'
 
@@ -15,6 +15,7 @@ const PersonalProjects = ({ visitedPages }) => {
       components: [],
       tools: ['Cursor', 'Android Studio'],
       media: '/projects/mdm-project.mp4',
+      thumbnail: '/projects/thumbnail/mdm-thumbnail.png',
       link: 'https://kippr.ph/'
     },
     {
@@ -25,6 +26,7 @@ const PersonalProjects = ({ visitedPages }) => {
       components: [],
       tools: ['Cursor'],
       media: '/projects/uncle-drew-sports-center-project.mp4',
+      thumbnail: '/projects/thumbnail/uncle-drew-sports-center-thumbnail.png',
       link: 'https://www.uncledrewsportscenter.com/'
     },
     {
@@ -34,7 +36,19 @@ const PersonalProjects = ({ visitedPages }) => {
       technologies: ['React', 'Next.js'],
       components: [],
       tools: ['Cursor'],
-      media: '/projects/sj-handicrafts-project.mp4'
+      media: '/projects/sj-handicrafts-project.mp4',
+      thumbnail: '/projects/thumbnail/sj-handicrafts-thumbnail.png',
+      link: 'https://sjhandicrafts.vercel.app/'
+    },
+    {
+      category: 'Web-Based Project',
+      title: 'Number System Converter',
+      description: 'A web-based utility application that converts numbers between different number systems (binary, decimal, hexadecimal, octal). It features a user-friendly interface with input validation, conversion logic, and error handling to ensure accurate and efficient number system conversions.',
+      technologies: ['Vue 3, Vite'],
+      tools: ['Cursor'],
+      media: '/projects/number-system-convertion.mp4',
+      thumbnail: '/projects/thumbnail/number-system-convertion-thumbnail.png',
+      link: 'https://number-system-convertion-version-2.vercel.app/'
     },
     {
       category: 'Arduino-Based Project',
@@ -71,14 +85,6 @@ const PersonalProjects = ({ visitedPages }) => {
     },
     {
       category: 'Web-Based Project',
-      title: 'Number System Converter',
-      description: 'A web-based utility application that converts numbers between different number systems (binary, decimal, hexadecimal, octal). It features a user-friendly interface with input validation, conversion logic, and error handling to ensure accurate and efficient number system conversions.',
-      technologies: ['Vue 3, Vite'],
-      tools: ['Cursor'],
-      media: '/projects/number-system-convertion.mp4'
-    },
-    {
-      category: 'Web-Based Project',
       title: 'SQUID LIB',
       subtitle: 'My Personalized Library',
       description: 'A project showcase and management system currently under development. This project aims to showcase all my projects from smallest to largest, providing a comprehensive solution for organizing and managing my portfolio of work with modern web technologies.',
@@ -90,15 +96,41 @@ const PersonalProjects = ({ visitedPages }) => {
     }
   ];
 
+  const [opacity, setOpacity] = useState(0.3);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const element = document.getElementById('projects');
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const elementTop = rect.top;
+        
+        if (elementTop < windowHeight && elementTop > -rect.height) {
+          const scrollProgress = Math.max(0, Math.min(1, (windowHeight - elementTop) / (windowHeight + rect.height)));
+          setOpacity(0.3 + (scrollProgress * 0.7));
+        } else if (elementTop <= -rect.height) {
+          setOpacity(1);
+        } else {
+          setOpacity(0.3);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className='w-full px-4 md:px-8 lg:px-12'>
+    <>
       <div 
         id="projects"
-        className={`w-full max-w-[1250px] mx-auto rounded-2xl overflow-hidden relative border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm ${visitedPages.has("projects") ? "fade-in" : ""}`}
+        className={`transition-opacity duration-500 ${visitedPages.has("projects") ? "fade-in" : ""}`}
+        style={{ opacity }}
       >
-        <div className='relative z-10 p-4 md:p-6 lg:p-8'>
-          <h2 className='text-black/[.9] dark:text-white/[.9] font-ubold text-xl md:text-2xl lg:text-3xl mb-6 md:mb-8'>Projects</h2>
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6'>
             {projects.map((project, index) => (
               <ProjectCard
                 key={index}
@@ -107,10 +139,10 @@ const PersonalProjects = ({ visitedPages }) => {
                 subtitle={project.subtitle}
                 description={project.description}
                 technologies={project.technologies}
+                thumbnail={project.thumbnail}
                 onClick={() => setSelectedProject(project)}
               />
             ))}
-          </div>
         </div>
       </div>
 
@@ -119,7 +151,7 @@ const PersonalProjects = ({ visitedPages }) => {
         onClose={() => setSelectedProject(null)}
         project={selectedProject}
       />
-    </div>
+    </>
   )
 }
 

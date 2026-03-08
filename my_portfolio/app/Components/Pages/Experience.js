@@ -1,16 +1,25 @@
 "use client"
 import React from 'react'
+import GalleryCard from '../Cards/GalleryCard'
 
 const Experience = ({ visitedPages }) => {
+  const galleryImages = [
+    {
+      src: '/images/gallery/cdo-deployment.jpg',
+      alt: 'CDO Deployment'
+    },
+    {
+      src: '/images/gallery/car-emp-tech-expo.jpg',
+      alt: 'CAR EMP Tech Expo'
+    }
+  ];
+
   return (
-    <div className='w-full px-4 md:px-8 lg:px-12'>
-      <div 
-        id="experience"
-        className={`w-full max-w-[1250px] mx-auto rounded-2xl overflow-hidden relative border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm ${visitedPages.has("experience") ? "fade-in" : ""}`}
-      >
-        <div className='relative z-10 p-4 md:p-6 lg:p-8'>
-          <h2 className='text-black/[.9] dark:text-white/[.9] font-ubold text-xl md:text-2xl lg:text-3xl mb-4 md:mb-6'>Experience</h2>
-          <div className='space-y-6'>
+    <div
+      id="experience"
+      className={`transition-opacity duration-500 ${visitedPages.has("experience") ? "fade-in" : ""}`}
+    >
+      <div className='space-y-6 mb-8'>
             {/* Experience items will go here */}
             <div className='border-b border-gray-200 dark:border-gray-700 pb-6 last:border-b-0 last:pb-0'>
               <p className='text-black/[.7] dark:text-white/[.7] text-xs md:text-sm mb-2 font-ubold'>YouCode Technologies Corporation</p>
@@ -70,6 +79,18 @@ const Experience = ({ visitedPages }) => {
               </div>
             </div>
           </div>
+
+      {/* Gallery Section */}
+      <div className='mt-12'>
+        <h3 className='text-xl md:text-2xl font-ubold text-black dark:text-white mb-6'>Gallery</h3>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6'>
+          {galleryImages.map((image, index) => (
+            <GalleryCard
+              key={index}
+              image={image.src}
+              alt={image.alt}
+            />
+          ))}
         </div>
       </div>
     </div>
