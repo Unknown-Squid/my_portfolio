@@ -1,10 +1,12 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useTheme } from '../../context/ThemeContext'
 import { AccountTree, Security, Code } from '@mui/icons-material'
 
 const SoftwareEngineer = ({ visitedPages }) => {
-  const [opacity, setOpacity] = useState(0.3);
+  const [isVisible, setIsVisible] = useState(false);
+  const elementRef = useRef(null);
+  const hasBeenVisible = useRef(false);
   const { isDark } = useTheme();
 
   // System Architecture Visual Component - Big Icon
@@ -47,35 +49,32 @@ const SoftwareEngineer = ({ visitedPages }) => {
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      const element = document.getElementById('software-engineer');
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        const elementTop = rect.top;
-        
-        if (elementTop < windowHeight && elementTop > -rect.height) {
-          const scrollProgress = Math.max(0, Math.min(1, (windowHeight - elementTop) / (windowHeight + rect.height)));
-          setOpacity(0.3 + (scrollProgress * 0.7));
-        } else if (elementTop <= -rect.height) {
-          setOpacity(1);
-        } else {
-          setOpacity(0.3);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasBeenVisible.current) {
+          setIsVisible(true);
+          hasBeenVisible.current = true;
         }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => {
+      if (elementRef.current) {
+        observer.unobserve(elementRef.current);
       }
     };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <div
       id="software-engineer"
-      className={`transition-opacity duration-500 ${visitedPages.has("software-engineer") ? "fade-in" : ""}`}
-      style={{ opacity }}
+      ref={elementRef}
+      className={`transition-opacity duration-700 ease-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}
     >
       <div className='grid grid-cols-1 md:grid-cols-3 gap-4 overflow-visible'>
         {skills.map((skill, index) => {

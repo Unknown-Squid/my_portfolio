@@ -132,6 +132,17 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
               </div>
             )}
 
+            {project.deployed && project.deployment && (
+              <div>
+                <h3 className='text-black/[.9] dark:text-white/[.9] font-usbold text-lg mb-3'>Deployment</h3>
+                <div className='flex items-center gap-2'>
+                  <span className='px-4 py-2 rounded-lg bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 font-medium text-sm border border-green-200 dark:border-green-800'>
+                    ✓ Deployed on {project.deployment}
+                  </span>
+                </div>
+              </div>
+            )}
+
             {project.technologies && project.technologies.length > 0 && (
               <div>
                 <h3 className='text-black/[.9] dark:text-white/[.9] font-usbold text-lg mb-3'>Technologies Used</h3>

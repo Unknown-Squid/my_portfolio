@@ -1,9 +1,10 @@
 "use client"
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import ProjectCard from '../Cards/ProjectCard'
 import ProjectModal from '../Modals/ProjectModal'
+import AllProjectsModal from '../Modals/AllProjectsModal'
 
-const PersonalProjects = ({ visitedPages }) => {
+const PersonalProjects = ({ visitedPages, allProjectsModalOpen, onAllProjectsModalClose }) => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   const projects = [
@@ -16,7 +17,9 @@ const PersonalProjects = ({ visitedPages }) => {
       tools: ['Cursor', 'Android Studio'],
       media: '/projects/mdm-project.mp4',
       thumbnail: '/projects/thumbnail/mdm-thumbnail.png',
-      link: 'https://kippr.ph/'
+      link: 'https://kippr.ph/',
+      deployed: true,
+      deployment: 'AWS'
     },
     {
       category: 'Booking System',
@@ -27,7 +30,9 @@ const PersonalProjects = ({ visitedPages }) => {
       tools: ['Cursor'],
       media: '/projects/uncle-drew-sports-center-project.mp4',
       thumbnail: '/projects/thumbnail/uncle-drew-sports-center-thumbnail.png',
-      link: 'https://www.uncledrewsportscenter.com/'
+      link: 'https://www.uncledrewsportscenter.com/',
+      deployed: true,
+      deployment: 'Vercel'
     },
     {
       category: 'Handicrafts Website',
@@ -38,7 +43,21 @@ const PersonalProjects = ({ visitedPages }) => {
       tools: ['Cursor'],
       media: '/projects/sj-handicrafts-project.mp4',
       thumbnail: '/projects/thumbnail/sj-handicrafts-thumbnail.png',
-      link: 'https://sjhandicrafts.vercel.app/'
+      link: 'https://sjhandicrafts.vercel.app/',
+      deployed: true,
+      deployment: 'Vercel'
+    },
+    {
+      category: 'Budgeting System Tool',
+      title: 'BudgetWise',
+      description: 'A comprehensive budgeting system tool that helps users manage their finances by creating budgets and tracking expenses. Features include interactive graphs and analytics for visualizing spending patterns, income trends, and budget performance. The system includes robust input validation, conversion logic, and error handling to ensure accurate financial management. Users can generate detailed reports in multiple formats including CSV and DOC files for record-keeping and analysis.',
+      technologies: ['React', 'Next.js', 'Node.js', 'Express', 'MySQL', 'Tailwind CSS'],
+      tools: ['Cursor'],
+      media: '/projects/budget-wise-project.mp4',
+      thumbnail: '/projects/thumbnail/budget-wise-thumbnail.png',
+      link: 'https://budget-wise.duckdns.org/',
+      deployed: true,
+      deployment: 'AWS'
     },
     {
       category: 'Web-Based Project',
@@ -48,7 +67,9 @@ const PersonalProjects = ({ visitedPages }) => {
       tools: ['Cursor'],
       media: '/projects/number-system-convertion.mp4',
       thumbnail: '/projects/thumbnail/number-system-convertion-thumbnail.png',
-      link: 'https://number-system-convertion-version-2.vercel.app/'
+      link: 'https://number-system-convertion-version-2.vercel.app/',
+      deployed: true,
+      deployment: 'Vercel'
     },
     {
       category: 'Arduino-Based Project',
@@ -92,56 +113,68 @@ const PersonalProjects = ({ visitedPages }) => {
       tools: ['Cursor'],
       media: '/animation/squid-lib-bg-animation.mp4',
       animationGif: '/animation/squid-lib-animation.gif',
-      isDeveloping: true
+      isDeveloping: true,
+      thumbnail: '/projects/thumbnail/squid-lib-thumbnail.png'
     }
   ];
 
-  const [opacity, setOpacity] = useState(0.3);
+  // Filter projects with thumbnails
+  const projectsWithThumbnails = projects.filter(project => project.thumbnail);
+
+  const [isVisible, setIsVisible] = useState(false);
+  const elementRef = useRef(null);
+  const hasBeenVisible = useRef(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const element = document.getElementById('projects');
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        const elementTop = rect.top;
-        
-        if (elementTop < windowHeight && elementTop > -rect.height) {
-          const scrollProgress = Math.max(0, Math.min(1, (windowHeight - elementTop) / (windowHeight + rect.height)));
-          setOpacity(0.3 + (scrollProgress * 0.7));
-        } else if (elementTop <= -rect.height) {
-          setOpacity(1);
-        } else {
-          setOpacity(0.3);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasBeenVisible.current) {
+          setIsVisible(true);
+          hasBeenVisible.current = true;
         }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => {
+      if (elementRef.current) {
+        observer.unobserve(elementRef.current);
       }
     };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <>
       <div 
         id="projects"
-        className={`transition-opacity duration-500 ${visitedPages.has("projects") ? "fade-in" : ""}`}
-        style={{ opacity }}
+        ref={elementRef}
+        className={`transition-opacity duration-700 ease-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}
       >
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6'>
-            {projects.map((project, index) => (
-              <ProjectCard
+            {projectsWithThumbnails.map((project, index) => (
+              <div
                 key={index}
-                category={project.category}
-                title={project.title}
-                subtitle={project.subtitle}
-                description={project.description}
-                technologies={project.technologies}
-                thumbnail={project.thumbnail}
-                onClick={() => setSelectedProject(project)}
-              />
+                className={`transition-all duration-700 ease-out h-full ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                style={{
+                  transitionDelay: `${index * 100}ms`
+                }}
+              >
+                <ProjectCard
+                  category={project.category}
+                  title={project.title}
+                  subtitle={project.subtitle}
+                  description={project.description}
+                  technologies={project.technologies}
+                  thumbnail={project.thumbnail}
+                  deployed={project.deployed}
+                  deployment={project.deployment}
+                  onClick={() => setSelectedProject(project)}
+                />
+              </div>
             ))}
         </div>
       </div>
@@ -150,6 +183,12 @@ const PersonalProjects = ({ visitedPages }) => {
         isOpen={selectedProject !== null}
         onClose={() => setSelectedProject(null)}
         project={selectedProject}
+      />
+
+      <AllProjectsModal
+        isOpen={allProjectsModalOpen}
+        onClose={onAllProjectsModalClose}
+        allProjects={projects}
       />
     </>
   )

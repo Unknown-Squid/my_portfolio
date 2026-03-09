@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useRef } from 'react'
 import TechStackModal from '../Modals/TechStackModal'
 
 const TechStack = ({ visitedPages, isModalOpen, onModalClose }) => {
@@ -8,39 +8,38 @@ const TechStack = ({ visitedPages, isModalOpen, onModalClose }) => {
   const backendTech = ['Node.js', 'Python', 'PHP', 'Laravel', 'PostgreSQL', 'MongoDB'];
   const devopsTech = ['AWS', 'Docker', 'Kubernetes', 'GitHub Actions'];
 
-  const [opacity, setOpacity] = React.useState(0.3);
+  const [isVisible, setIsVisible] = React.useState(false);
+  const elementRef = React.useRef(null);
+  const hasBeenVisible = React.useRef(false);
 
   React.useEffect(() => {
-    const handleScroll = () => {
-      const element = document.getElementById('tech-stack');
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        const elementTop = rect.top;
-        
-        if (elementTop < windowHeight && elementTop > -rect.height) {
-          const scrollProgress = Math.max(0, Math.min(1, (windowHeight - elementTop) / (windowHeight + rect.height)));
-          setOpacity(0.3 + (scrollProgress * 0.7));
-        } else if (elementTop <= -rect.height) {
-          setOpacity(1);
-        } else {
-          setOpacity(0.3);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasBeenVisible.current) {
+          setIsVisible(true);
+          hasBeenVisible.current = true;
         }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => {
+      if (elementRef.current) {
+        observer.unobserve(elementRef.current);
       }
     };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <>
       <div 
         id="tech-stack"
-        className={`transition-opacity duration-500 ${visitedPages.has("tech-stack") ? "fade-in" : ""}`}
-        style={{ opacity }}
+        ref={elementRef}
+        className={`transition-opacity duration-700 ease-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}
       >
         <div className='space-y-6'>
             <div>

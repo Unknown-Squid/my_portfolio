@@ -44,6 +44,10 @@
 }
 
 
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 body{
   background-color: #ffffff;
   scroll-behavior: smooth;
@@ -51,6 +55,7 @@ body{
   padding: 0px;
   width: 100vw;
   height: 100vh;
+  transition: background-color 0.3s ease;
 }
 
 @media (prefers-color-scheme: dark) {

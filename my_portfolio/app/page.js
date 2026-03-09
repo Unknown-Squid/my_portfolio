@@ -8,11 +8,13 @@ import TechStack from './Components/Pages/TechStack';
 import PersonalProjects from './Components/Pages/PersonalProjects';
 import Loading from './Components/Loader/Loading';
 import TechStackHeader from './Components/Pages/TechStackHeader';
+import ProjectsHeader from './Components/Pages/ProjectsHeader';
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
   const [visitedPages, setVisitedPages] = useState(new Set());
   const [techStackModalOpen, setTechStackModalOpen] = useState(false);
+  const [allProjectsModalOpen, setAllProjectsModalOpen] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -36,7 +38,7 @@ const Home = () => {
     <main className='bg-white dark:bg-gray-900 min-h-screen w-full transition-colors duration-300'>
       <div className='relative'>
         {/* Profile - Sticky at top */}
-        <div className='sticky top-0 z-50 bg-white dark:bg-gray-900 pt-8'>
+        <div className='sticky top-0 z-50 bg-white dark:bg-gray-900 pt-8 transition-colors duration-300'>
           <div className='max-w-4xl mx-auto px-4 md:px-6 lg:px-8'>
             <Profile visitedPages={visitedPages}/>
           </div>
@@ -44,9 +46,9 @@ const Home = () => {
 
         {/* Experience with sticky header */}
         <div className='relative'>
-          <div className='sticky top-[205px] z-40 bg-white dark:bg-gray-900 py-4'>
+          <div className='sticky top-[205px] z-40 bg-white dark:bg-gray-900 py-4 transition-colors duration-300'>
             <div className='max-w-4xl mx-auto px-4 md:px-6 lg:px-8'>
-              <h2 className='text-2xl md:text-3xl font-ubold text-black dark:text-white'>Experience</h2>
+              <h2 className='text-2xl md:text-3xl font-ubold text-black dark:text-white transition-colors duration-300'>Experience</h2>
             </div>
           </div>
           <div className='pt-4'>
@@ -59,9 +61,9 @@ const Home = () => {
 
         {/* About Section with sticky header */}
         <div className='relative'>
-          <div className='sticky top-[200px] z-40 bg-white dark:bg-gray-900 py-4'>
+          <div className='sticky top-[200px] z-40 bg-white dark:bg-gray-900 py-4 transition-colors duration-300'>
             <div className='max-w-4xl mx-auto px-4 md:px-6 lg:px-8'>
-              <h2 className='text-2xl md:text-3xl font-ubold text-black dark:text-white'>About</h2>
+              <h2 className='text-2xl md:text-3xl font-ubold text-black dark:text-white transition-colors duration-300'>About</h2>
             </div>
           </div>
           <div className='pt-4'>
@@ -73,7 +75,7 @@ const Home = () => {
 
         {/* Tech Stack with sticky header */}
         <div className='relative'>
-          <div className='sticky top-[200px] z-40 bg-white dark:bg-gray-900 py-4'>
+          <div className='sticky top-[200px] z-40 bg-white dark:bg-gray-900 py-4 transition-colors duration-300'>
             <div className='max-w-4xl mx-auto px-4 md:px-6 lg:px-8'>
               <TechStackHeader onViewAllClick={() => setTechStackModalOpen(true)} />
             </div>
@@ -87,14 +89,14 @@ const Home = () => {
 
         {/* Projects with sticky header */}
         <div className='relative'>
-          <div className='sticky top-[200px] z-40 bg-white dark:bg-gray-900 py-4'>
+          <div className='sticky top-[200px] z-40 bg-white dark:bg-gray-900 py-4 transition-colors duration-300'>
             <div className='max-w-4xl mx-auto px-4 md:px-6 lg:px-8'>
-              <h2 className='text-2xl md:text-3xl font-ubold text-black dark:text-white'>Projects</h2>
+              <ProjectsHeader onSeeAllClick={() => setAllProjectsModalOpen(true)} />
             </div>
           </div>
           <div className='pt-4 pb-8'>
             <div className='max-w-4xl mx-auto px-4 md:px-6 lg:px-8'>
-              <PersonalProjects visitedPages={visitedPages}/>
+              <PersonalProjects visitedPages={visitedPages} allProjectsModalOpen={allProjectsModalOpen} onAllProjectsModalClose={() => setAllProjectsModalOpen(false)} />
             </div>
           </div>
         </div>
