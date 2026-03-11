@@ -19,7 +19,7 @@ const Home = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setLoading(false)
-    }, 2000);
+    }, 3000);
 
     return () => clearTimeout(timeout);
   }, []);
@@ -46,7 +46,7 @@ const Home = () => {
 
         {/* Experience with sticky header */}
         <div className='relative'>
-          <div className='sticky top-[243px] min-[844px]:top-[208px] lg:top-[205px] z-40 bg-white dark:bg-gray-900 py-4 transition-colors duration-300'>
+          <div className='sticky top-[388px] min-[457px]:top-[358px] min-[768px]:top-[243px] min-[844px]:top-[208px] lg:top-[205px] z-40 bg-white dark:bg-gray-900 py-4 transition-colors duration-300'>
             <div className='max-w-4xl mx-auto px-4 md:px-6 lg:px-8'>
               <h2 className='text-2xl md:text-3xl font-ubold text-black dark:text-white transition-colors duration-300'>Experience</h2>
             </div>
@@ -61,7 +61,7 @@ const Home = () => {
 
         {/* About Section with sticky header */}
         <div className='relative'>
-          <div className='sticky top-[243px] min-[844px]:top-[208px] lg:top-[205px] z-40 bg-white dark:bg-gray-900 py-4 transition-colors duration-300'>
+          <div className='sticky top-[388px] min-[457px]:top-[358px] min-[768px]:top-[243px] min-[844px]:top-[208px] lg:top-[205px] z-40 bg-white dark:bg-gray-900 py-4 transition-colors duration-300'>
             <div className='max-w-4xl mx-auto px-4 md:px-6 lg:px-8'>
               <h2 className='text-2xl md:text-3xl font-ubold text-black dark:text-white transition-colors duration-300'>About</h2>
             </div>
@@ -75,7 +75,7 @@ const Home = () => {
 
         {/* Tech Stack with sticky header */}
         <div className='relative'>
-          <div className='sticky top-[243px] min-[844px]:top-[208px] lg:top-[205px] z-40 bg-white dark:bg-gray-900 py-4 transition-colors duration-300'>
+          <div className='sticky top-[388px] min-[457px]:top-[358px] min-[768px]:top-[243px] min-[844px]:top-[208px] lg:top-[205px] z-40 bg-white dark:bg-gray-900 py-4 transition-colors duration-300'>
             <div className='max-w-4xl mx-auto px-4 md:px-6 lg:px-8'>
               <TechStackHeader onViewAllClick={() => setTechStackModalOpen(true)} />
             </div>
@@ -89,7 +89,7 @@ const Home = () => {
 
         {/* Projects with sticky header */}
         <div className='relative'>
-          <div className='sticky top-[243px] min-[844px]:top-[208px] lg:top-[205px] z-40 bg-white dark:bg-gray-900 py-4 transition-colors duration-300'>
+          <div className='sticky top-[388px] min-[457px]:top-[358px] min-[768px]:top-[243px] min-[844px]:top-[208px] lg:top-[205px] z-40 bg-white dark:bg-gray-900 py-4 transition-colors duration-300'>
             <div className='max-w-4xl mx-auto px-4 md:px-6 lg:px-8'>
               <ProjectsHeader onSeeAllClick={() => setAllProjectsModalOpen(true)} />
             </div>
