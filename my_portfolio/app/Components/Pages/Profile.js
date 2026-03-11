@@ -62,7 +62,7 @@ const Profile = ({ visitedPages }) => {
 
   return (
     <div className='flex justify-center transition-colors duration-300'>
-      <div className={`w-full max-w-4xl flex flex-col md:flex-row gap-4 items-stretch transition-colors duration-300 ${visitedPages.has("about") ? "fade-in" : ""}`}>
+      <div className={`w-full max-w-4xl flex flex-col md:flex-row gap-4 items-stretch transition-colors duration-300 min-w-0 ${visitedPages.has("about") ? "fade-in" : ""}`}>
         {/* Box 1 & 2: Profile Picture and Title in 1 row on mobile */}
         <div className='flex flex-row gap-4 order-1 md:order-none md:contents'>
           {/* Box 1: Profile Picture */}
@@ -114,7 +114,7 @@ const Profile = ({ visitedPages }) => {
         </div>
 
         {/* Box 3: Socials - Below Box 2 on mobile, with timeline beside it */}
-        <div className='h-full flex flex-row justify-between gap-4 order-3 md:order-none md:flex-col'>
+        <div className='h-full flex flex-row justify-between gap-4 order-3 md:order-none md:flex-col min-w-0 overflow-x-hidden'>
           <div className='h-full bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm p-4 md:p-6 flex-shrink-0 w-fit transition-colors duration-300'>
             <h3 className='text-base md:text-lg font-ubold text-black dark:text-white mb-3 transition-colors duration-300'>Socials</h3>
             <div className='grid grid-cols-2 gap-2'>
