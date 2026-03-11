@@ -16,13 +16,13 @@ const Home = () => {
   const [techStackModalOpen, setTechStackModalOpen] = useState(false);
   const [allProjectsModalOpen, setAllProjectsModalOpen] = useState(false);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setLoading(false)
-    }, 3000);
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => {
+  //     setLoading(false)
+  //   }, 3000);
 
-    return () => clearTimeout(timeout);
-  }, []);
+  //   return () => clearTimeout(timeout);
+  // }, []);
 
   useEffect(() => {
     if (!loading) {
