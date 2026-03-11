@@ -16,28 +16,40 @@ const TechStackModal = ({ isOpen, onClose }) => {
   }, [isOpen]);
   const allTechCategoriesForModal = [
     {
-      title: 'Frontend',
-      technologies: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'CSS', 'Tailwind CSS', 'Bootstrap', 'Prettier']
+      title: 'Programming Languages',
+      technologies: ['JavaScript', 'PHP', 'Python', 'C#', 'Java', 'Kotlin']
     },
     {
-      title: 'Backend',
-      technologies: ['Node.js', 'Express', 'PHP', 'Laravel', 'Java', 'Sequelize', 'MySQL', 'MongoDB']
+      title: 'Frameworks & Libraries',
+      technologies: ['React', 'Next.js', 'Vue', 'React Native', 'Laravel', 'Express.js', 'Sequelize', 'Expo', 'Drupal Webform']
     },
     {
-      title: 'Languages',
-      technologies: ['JavaScript', 'Python', 'PHP', 'Java', 'C++', 'C#']
+      title: 'CSS Frameworks',
+      technologies: ['Tailwind CSS', 'Bootstrap']
     },
     {
-      title: 'DevOps & Cloud',
-      technologies: ['Docker', 'AWS', 'GitHub Actions', 'CI/CD']
+      title: 'Runtime Environment',
+      technologies: ['Node.js']
     },
     {
-      title: 'CMS',
-      technologies: ['Wix', 'Drupal']
+      title: 'Databases',
+      technologies: ['MySQL', 'MongoDB']
     },
     {
-      title: 'Tools',
-      technologies: ['PyCharm', 'Arduino IDE', 'Visual Studio', 'Cursor', 'Android Studio', 'Visual Studio 2022', 'Postman', 'Notion', 'Jira', 'Git', 'GitHub', 'Google Meet']
+      title: 'DevOps & Version Control',
+      technologies: ['Git', 'GitHub', 'Docker', 'AWS']
+    },
+    {
+      title: 'Tools & Platforms',
+      technologies: ['Postman', 'Laragon', 'XAMPP', 'Vite', 'MySQL Workbench', 'MongoDB Compass']
+    },
+    {
+      title: 'IDEs & Development Environments',
+      technologies: ['Visual Studio 2022', 'Visual Studio Code', 'Cursor', 'Android Studio', 'PyCharm', 'Arduino IDE']
+    },
+    {
+      title: 'Collaboration & Productivity Tools',
+      technologies: ['Jira', 'Trello', 'Notion', 'Figma', 'Google Meet']
     }
   ];
 

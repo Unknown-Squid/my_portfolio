@@ -79,7 +79,7 @@ const Profile = ({ visitedPages }) => {
               <span className='text-xs md:text-sm font-medium text-black dark:text-white whitespace-nowrap transition-colors duration-300'>Email</span>
             </a>
             <Link 
-              href="https://www.linkedin.com/in/gerald-fegalan-674358178/" 
+              href="https://www.linkedin.com/in/fritz-gerald-fegalan-674358178/" 
               target="_blank" 
               rel="noopener noreferrer"
               className='flex items-center gap-2 p-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700/50 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300'

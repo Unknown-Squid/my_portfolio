@@ -9,12 +9,12 @@ const ProjectCard = ({ title, subtitle, category, description, technologies, thu
       className='h-full p-4 md:p-6 rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-shadow relative cursor-pointer flex flex-col'
     >
       {thumbnail && (
-        <div className='relative w-full h-48 mb-4 rounded-xl overflow-hidden flex-shrink-0'>
+        <div className='relative w-full h-48 mb-4 rounded-xl overflow-hidden flex-shrink-0 bg-white'>
           <Image
             src={thumbnail}
             alt={title}
             fill
-            className='object-cover'
+            className='object-contain'
           />
         </div>
       )}

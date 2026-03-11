@@ -4,9 +4,9 @@ import TechStackModal from '../Modals/TechStackModal'
 
 const TechStack = ({ visitedPages, isModalOpen, onModalClose }) => {
 
-  const frontendTech = ['JavaScript', 'TypeScript', 'React', 'Next.js', 'Vue.js', 'Tailwind CSS'];
-  const backendTech = ['Node.js', 'Python', 'PHP', 'Laravel', 'PostgreSQL', 'MongoDB'];
-  const devopsTech = ['AWS', 'Docker', 'Kubernetes', 'GitHub Actions'];
+  const frontendTech = ['React', 'Next.js', 'Vue', 'React Native', 'Expo', 'Tailwind CSS', 'Bootstrap'];
+  const backendTech = ['Node.js', 'Express.js', 'Laravel', 'Sequelize', 'MySQL', 'MongoDB'];
+  const languagesTech = ['JavaScript', 'PHP', 'Python', 'C#', 'Java'];
 
   const [isVisible, setIsVisible] = React.useState(false);
   const elementRef = React.useRef(null);
@@ -71,9 +71,9 @@ const TechStack = ({ visitedPages, isModalOpen, onModalClose }) => {
             </div>
 
             <div>
-              <h3 className='text-base md:text-lg font-usbold text-black dark:text-white mb-3'>DevOps & Cloud</h3>
+              <h3 className='text-base md:text-lg font-usbold text-black dark:text-white mb-3'>Programming Languages</h3>
               <div className='flex flex-wrap gap-2 md:gap-3'>
-                {devopsTech.map((tech, index) => (
+                {languagesTech.map((tech, index) => (
                   <span
                     key={index}
                     className='px-3 md:px-4 py-1.5 md:py-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-black dark:text-white font-medium text-sm border border-gray-200 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors'

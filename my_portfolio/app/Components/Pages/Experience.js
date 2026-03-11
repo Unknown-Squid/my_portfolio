@@ -90,7 +90,7 @@ const Experience = ({ visitedPages }) => {
       ref={experienceRef}
       className={`transition-opacity duration-700 ease-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}
     >
-      <div className='flex flex-col lg:flex-row gap-8 lg:gap-12'>
+      <div className='flex flex-row gap-8 lg:gap-12'>
         {/* Experience Content */}
         <div className='flex-1 space-y-6 mb-8 max-w-2xl'>
           <div className='border-b border-gray-200 dark:border-gray-700 pb-6 last:border-b-0 last:pb-0'>
@@ -153,7 +153,7 @@ const Experience = ({ visitedPages }) => {
         </div>
 
         {/* Timeline on Right Side */}
-        <div className='lg:w-64 lg:flex-shrink-0'>
+        <div className='w-64 flex-shrink-0'>
           <div className='sticky top-[250px]'>
             <div className='border-l-2 border-gray-200 dark:border-gray-700 pl-6 space-y-6'>
               {roles.map((role, index) => (

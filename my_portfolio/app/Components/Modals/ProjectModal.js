@@ -98,13 +98,13 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
                   <source src={project.media} type="video/mp4" />
                 </video>
               ) : isImage ? (
-                <div className='relative w-full h-auto max-h-[500px]'>
+                <div className='relative w-full h-[500px] bg-white flex items-center justify-center'>
                   <Image
                     src={project.media}
                     alt={project.title}
                     width={1200}
                     height={800}
-                    className='w-full h-auto object-contain'
+                    className='w-full h-full object-contain'
                   />
                 </div>
               ) : null}
