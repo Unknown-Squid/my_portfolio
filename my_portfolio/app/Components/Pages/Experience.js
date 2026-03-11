@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useState, useRef } from 'react'
 import GalleryCard from '../Cards/GalleryCard'
+import Timeline from '../Timeline/Timeline'
 
 const Experience = ({ visitedPages }) => {
   const [activeRole, setActiveRole] = useState('Full-Stack Web Developer');
@@ -43,6 +44,7 @@ const Experience = ({ visitedPages }) => {
       }
     };
   }, []);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -99,7 +101,7 @@ const Experience = ({ visitedPages }) => {
             <p className='text-black/[.6] dark:text-white/[.6] text-xs mb-3'>2024 - 2026</p>
             
             <div className='space-y-3 md:space-y-4'>
-              <div ref={drupalRef}>
+              <div ref={drupalRef} data-ref="drupal">
                 <h4 className='text-black/[.9] dark:text-white/[.9] font-usbold text-sm md:text-base mb-2'>Initial Drupal Project</h4>
                 <p className='text-black/[.8] dark:text-white/[.8] text-xs md:text-sm leading-relaxed'>
                   Joined as a System Developer with no prior experience in Drupal, 
@@ -119,7 +121,7 @@ const Experience = ({ visitedPages }) => {
                 </p>
               </div>
 
-              <div ref={mdmRef}>
+              <div ref={mdmRef} data-ref="mdm">
                 <h4 className='text-black/[.9] dark:text-white/[.9] font-usbold text-sm md:text-base mb-2'>Mobile Device Management System</h4>
                 <p className='text-black/[.8] dark:text-white/[.8] text-xs md:text-sm leading-relaxed'>
                   Led a team in developing a mobile device management system for 7 months, implementing all core functionalities and additional features. 
@@ -139,7 +141,7 @@ const Experience = ({ visitedPages }) => {
                 </p>
               </div>
 
-              <div ref={overallRef}>
+              <div ref={overallRef} data-ref="overall">
                 <h4 className='text-black/[.9] dark:text-white/[.9] font-usbold text-sm md:text-base mb-2'>Overall Responsibilities</h4>
                 <p className='text-black/[.8] dark:text-white/[.8] text-xs md:text-sm leading-relaxed'>
                   Throughout the year of my experience, I have been included in all projects and led a team in system architecture design. 
@@ -152,29 +154,13 @@ const Experience = ({ visitedPages }) => {
           </div>
         </div>
 
-        {/* Timeline on Right Side */}
-        <div className='w-64 flex-shrink-0'>
-          <div className='sticky top-[250px]'>
-            <div className='border-l-2 border-gray-200 dark:border-gray-700 pl-6 space-y-6'>
-              {roles.map((role, index) => (
-                <div key={index} className='relative'>
-                  <div className={`absolute -left-[29px] top-1 w-4 h-4 rounded-full border-2 transition-all duration-300 ${
-                    role.isActive 
-                      ? 'bg-black dark:bg-white border-black dark:border-white scale-125' 
-                      : 'bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600'
-                  }`}></div>
-                  <div className={`transition-all duration-300 ${
-                    role.isActive 
-                      ? 'text-black dark:text-white font-ubold text-base' 
-                      : 'text-gray-400 dark:text-gray-600 text-sm'
-                  }`}>
-                    {role.name}
-                  </div>
-                </div>
-              ))}
-            </div>
+        {/* Timeline on Right Side - Hidden on mobile (768px and below) */}
+        <div className='w-64 flex-shrink-0 hidden min-[769px]:block'>
+          <div className='sticky top-[270px] lg:top-[250px]'>
+            <Timeline roles={roles} />
           </div>
         </div>
+        
       </div>
 
       {/* Gallery Section */}

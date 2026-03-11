@@ -1,15 +1,33 @@
 'use client'; 
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 const Loading = () => {
+  const videoRef = useRef(null);
+  const hasStarted = useRef(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video && !hasStarted.current) {
+      hasStarted.current = true;
+      video.currentTime = 0;
+      video.play().catch(() => {
+        // Handle autoplay restrictions silently
+      });
+    }
+  }, []);
+
   return (
-    <div className='w-screen h-screen'>
-        <iframe 
-            className='w-full h-full'
-            src="https://lottie.host/embed/01624c0f-0a04-4b99-a310-412ca578d585/I6i74YUzA3.lottie"
-        >
-            
-        </iframe>
+    <div className='fixed inset-0 w-screen h-screen bg-black flex items-center justify-center overflow-hidden z-[9999]'>
+      <video 
+        ref={videoRef}
+        className='w-full h-full object-contain'
+        loop
+        muted
+        playsInline
+        preload="auto"
+      >
+        <source src="/animation/big-screen-loader.mp4" type="video/mp4" />
+      </video>
     </div>
   )
 }
