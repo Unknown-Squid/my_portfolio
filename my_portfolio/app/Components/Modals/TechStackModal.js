@@ -4,84 +4,157 @@ import { Close } from '@mui/icons-material'
 
 const TechStackModal = ({ isOpen, onClose }) => {
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+    document.body.style.overflow = isOpen ? 'hidden' : 'unset'
+    return () => (document.body.style.overflow = 'unset')
+  }, [isOpen])
 
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isOpen]);
-  const allTechCategoriesForModal = [
+  const categories = [
     {
       title: 'Programming Languages',
-      technologies: ['JavaScript', 'PHP', 'Python', 'C#', 'Java', 'Kotlin']
+      technologies: [
+        'JavaScript / TypeScript',
+        'PHP',
+        'C# / VB.NET',
+        'Java',
+        'Kotlin',
+        'Python'
+      ]
     },
     {
-      title: 'Frameworks & Libraries',
-      technologies: ['React', 'Next.js', 'Vue', 'React Native', 'Laravel', 'Express.js', 'Sequelize', 'Expo', 'Drupal Webform']
+      title: 'Frontend',
+      technologies: [
+        'React',
+        'Next.js',
+        'Vue',
+        'React Native',
+        'Expo'
+      ]
     },
     {
-      title: 'CSS Frameworks',
-      technologies: ['Tailwind CSS', 'Bootstrap']
-    },
-    {
-      title: 'Runtime Environment',
-      technologies: ['Node.js']
+      title: 'Backend',
+      technologies: [
+        'Node.js',
+        'Express.js',
+        'Laravel',
+        'Django',
+        'Flask',
+        'FastAPI'
+      ]
     },
     {
       title: 'Databases',
-      technologies: ['MySQL', 'MongoDB']
+      technologies: [
+        'MySQL',
+        'PostgreSQL',
+        'MongoDB'
+      ]
     },
     {
-      title: 'DevOps & Version Control',
-      technologies: ['Git', 'GitHub', 'Docker', 'AWS']
+      title: 'Cloud & DevOps',
+      technologies: [
+        'AWS',
+        'GCP',
+        'Docker',
+        'CI/CD',
+        'Git',
+        'GitHub Actions'
+      ]
     },
     {
-      title: 'Tools & Platforms',
-      technologies: ['Postman', 'Laragon', 'XAMPP', 'Vite', 'MySQL Workbench', 'MongoDB Compass']
+      title: 'CMS & Enterprise Platforms',
+      technologies: [
+        'WordPress',
+        'Drupal',
+        'Drupal Webform'
+      ]
     },
     {
-      title: 'IDEs & Development Environments',
-      technologies: ['Visual Studio 2022', 'Visual Studio Code', 'Cursor', 'Android Studio', 'PyCharm', 'Arduino IDE']
+      title: 'APIs & Integrations',
+      technologies: [
+        'Google Maps API',
+        'Tesseract OCR',
+        'Payment Gateways',
+        'SMS Gateways',
+        'REST / GraphQL APIs'
+      ]
     },
     {
-      title: 'Collaboration & Productivity Tools',
-      technologies: ['Jira', 'Trello', 'Notion', 'Figma', 'Google Meet']
+      title: 'AI-Assisted Development',
+      technologies: [
+        'Cursor AI',
+        'GitHub Copilot',
+        'ChatGPT',
+        'Claude AI'
+      ]
+    },
+    {
+      title: 'Development Tools',
+      technologies: [
+        'Postman',
+        'MySQL Workbench',
+        'MongoDB Compass',
+        'Vite',
+        'Figma',
+        'Notion',
+        'Jira',
+        'Trello'
+      ]
+    },
+    {
+      title: 'IDEs',
+      technologies: [
+        'VS Code',
+        'Visual Studio 2022',
+        'Android Studio',
+        'PyCharm'
+      ]
     }
-  ];
+  ]
 
-  if (!isOpen) return null;
+  if (!isOpen) return null
 
   return (
-    <div 
+    <div
       className='fixed inset-0 bg-black/[.8] z-[100] flex items-center justify-center p-4'
       onClick={onClose}
     >
-      <div 
-        className='bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-lg transition-colors duration-300'
+      <div
+        className='bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-lg'
         onClick={(e) => e.stopPropagation()}
       >
-        <div className='sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4 flex items-center justify-between z-10 transition-colors duration-300'>
-          <h2 className='text-black/[.9] dark:text-white/[.9] font-ubold text-2xl md:text-3xl'>Tech Stack - Full List</h2>
+        {/* HEADER */}
+        <div className='sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4 flex items-center justify-between'>
+          <h2 className='text-black dark:text-white font-ubold text-2xl md:text-3xl'>
+            Tech Stack — Full Architecture Overview
+          </h2>
+
           <button
             onClick={onClose}
             className='p-2 hover:bg-black/[.05] dark:hover:bg-white/[.05] rounded-lg transition-colors'
           >
-            <Close className='text-black/[.7] dark:text-white/[.7]' />
+            <Close className='text-black dark:text-white' />
           </button>
         </div>
+
+        {/* CONTENT */}
         <div className='p-6 md:p-8 space-y-8'>
-          {allTechCategoriesForModal.map((category, index) => (
+          {categories.map((category, index) => (
             <div key={index} className='space-y-4'>
-              <h3 className='text-black/[.9] dark:text-white/[.9] font-usbold text-sm'>{category.title}</h3>
+              <h3 className='text-black dark:text-white font-usbold text-sm md:text-base'>
+                {category.title}
+              </h3>
+
               <div className='flex flex-wrap gap-3'>
                 {category.technologies.map((tech, techIndex) => (
                   <span
                     key={techIndex}
-                    className='px-4 py-2 rounded-lg bg-black/[.05] dark:bg-white/[.05] text-black/[.8] dark:text-white/[.8] font-medium text-sm border border-gray-200 dark:border-gray-700 hover:bg-black/[.1] dark:hover:bg-white/[.1] transition-colors'
+                    className='px-4 py-2 rounded-lg
+                    bg-black/[.05] dark:bg-white/[.05]
+                    text-black dark:text-white
+                    font-medium text-sm
+                    border border-gray-200 dark:border-gray-700
+                    hover:bg-black/[.1] dark:hover:bg-white/[.1]
+                    transition-colors'
                   >
                     {tech}
                   </span>
@@ -96,4 +169,3 @@ const TechStackModal = ({ isOpen, onClose }) => {
 }
 
 export default TechStackModal
-

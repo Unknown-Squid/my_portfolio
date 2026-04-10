@@ -1,178 +1,194 @@
 "use client"
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import GalleryCard from '../Cards/GalleryCard'
 import Timeline from '../Timeline/Timeline'
 
-const Experience = ({ visitedPages }) => {
-  const [activeRole, setActiveRole] = useState('Full-Stack Web Developer');
-  const [isVisible, setIsVisible] = useState(false);
-  const experienceRef = useRef(null);
-  const drupalRef = useRef(null);
-  const mdmRef = useRef(null);
-  const overallRef = useRef(null);
-  const hasBeenVisible = useRef(false);
+const freelanceSections = [
+  {
+    id: 'freelance-overview',
+    role: 'Full-Stack Software Engineer',
+    title: 'Freelance Full-Stack Software Engineer (Local & International Clients)',
+    description: `Delivered 15+ full-cycle web applications using React, Next.js, Laravel, Node.js, Python, C#, and WordPress, covering e-commerce, LMS, booking, and analytics systems. End-to-end delivery including API integrations, authentication systems, database architecture, and CI/CD-based deployments.`
+  } // Full-Stack Software Engineer
+]
+
+const youcodeSections = [
+  {
+    id: 'cms',
+    role: 'System Developer',
+    title: 'Enterprise Content Management System (Drupal)',
+    description: `Architected a Drupal CMS using PHP, Twig, Bootstrap, and Webform module with custom theme development for structured educational content workflows.`
+  },  // System Developer
+  {
+    id: 'parking',
+    role: 'Lead System Developer',
+    title: 'Parking Management System (Mobile + Web)',
+    description: `Built a React Native + Node.js parking system with Google Maps API and OCR-based plate recognition for real-time vehicle registration and monitoring.`
+  }, // lead System Developer
+  {
+    id: 'mdm',
+    role: 'Lead System Developer',
+    title: 'Mobile Device Management Platform (1000+ Devices)',
+    description: `Architected a large-scale MDM system using React, Next.js, Node.js, MongoDB, MySQL, Java/Kotlin with GCP integrations and AWS deployment, supporting 1000+ Android devices.`
+  },
+  {
+    id: 'smis',
+    role: 'Lead System Developer',
+    title: 'School Management Information System',
+    description: `Developed a Laravel + React system integrated with turnstile hardware APIs for real-time attendance and access control, deployed in production with on-site training.`
+  },
+  {
+    id: 'leadership',
+    role: 'Lead System Developer',
+    title: 'Leadership & Enterprise Delivery',
+    description: `Led system architecture, code reviews, CI/CD workflows, Git-based collaboration, technical hiring, and C-level stakeholder engagements across enterprise systems.`
+  }
+]
+
+const rolesOrder = [
+  'Full-Stack Developer',
+  'System Developer',
+  'Lead System Developer',
+  'Full-Stack Software Engineer'
+]
+
+/** After first CMS block crosses trigger: last section whose top passed trigger wins */
+const timelineScrollChain = [
+  ...youcodeSections.map(s => ({ id: s.id, role: s.role })),
+  { id: 'freelance-phase', role: 'Full-Stack Software Engineer' }
+]
+
+const Experience = () => {
+  const containerRef = useRef(null)
+  const [activeRole, setActiveRole] = useState(rolesOrder[0])
+  const [isVisible, setIsVisible] = useState(false)
 
   const galleryImages = [
-    {
-      src: '/images/gallery/cdo-deployment.jpg',
-      alt: 'CDO Deployment'
-    },
-    {
-      src: '/images/gallery/car-emp-tech-expo.jpg',
-      alt: 'CAR EMP Tech Expo'
-    }
-  ];
+    { src: '/images/gallery/cdo-deployment.jpg', alt: 'Cagayan De Oro Deployment' },
+    { src: '/images/gallery/car-emp-tech-expo.jpg', alt: 'Tech Expo Presentation' }
+  ]
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasBeenVisible.current) {
-          setIsVisible(true);
-          hasBeenVisible.current = true;
-        }
-      },
+      ([entry]) => entry.isIntersecting && setIsVisible(true),
       { threshold: 0.1 }
-    );
-
-    if (experienceRef.current) {
-      observer.observe(experienceRef.current);
-    }
-
-    return () => {
-      if (experienceRef.current) {
-        observer.unobserve(experienceRef.current);
-      }
-    };
-  }, []);
-
+    )
+    if (containerRef.current) observer.observe(containerRef.current)
+    return () => observer.disconnect()
+  }, [])
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (!experienceRef.current) return;
+    const triggerY = () => window.innerHeight * 0.35
 
-      // Sticky header is at top-[205px], so check when sections reach ~250px from top
-      const headerThreshold = 250;
-      const scrollPosition = window.scrollY;
-      const experienceTop = experienceRef.current.offsetTop;
-      
-      // Check if we're past the experience section start
-      if (scrollPosition < experienceTop - 100) {
-        setActiveRole('Full-Stack Web Developer');
-        return;
+    const updateActive = () => {
+      const root = containerRef.current
+      if (!root) return
+      const y = triggerY()
+      let role = rolesOrder[0]
+      const rect = root.getBoundingClientRect()
+      if (rect.bottom < 0 || rect.top > window.innerHeight) return
+
+      const cmsEl = document.getElementById('cms')
+      if (cmsEl && cmsEl.getBoundingClientRect().top <= y) {
+        role = timelineScrollChain[0].role
+        for (const { id, role: r } of timelineScrollChain) {
+          const el = document.getElementById(id)
+          if (!el) continue
+          const top = el.getBoundingClientRect().top
+          if (top <= y) role = r
+        }
       }
+      setActiveRole(role)
+    }
 
-      // Check each section - when it reaches the top (near header)
-      if (overallRef.current && overallRef.current.offsetTop - scrollPosition <= headerThreshold) {
-        setActiveRole('Software Engineer');
-      } else if (mdmRef.current && mdmRef.current.offsetTop - scrollPosition <= headerThreshold) {
-        setActiveRole('Lead System Developer');
-      } else if (drupalRef.current && drupalRef.current.offsetTop - scrollPosition <= headerThreshold) {
-        setActiveRole('System Developer');
-      } else {
-        setActiveRole('Full-Stack Web Developer');
-      }
-    };
+    updateActive()
+    window.addEventListener('scroll', updateActive, { passive: true })
+    window.addEventListener('resize', updateActive, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', updateActive)
+      window.removeEventListener('resize', updateActive)
+    }
+  }, [])
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial call
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const roles = [
-    { name: 'Full-Stack Web Developer', isActive: activeRole === 'Full-Stack Web Developer' },
-    { name: 'System Developer', isActive: activeRole === 'System Developer' },
-    { name: 'Lead System Developer', isActive: activeRole === 'Lead System Developer' },
-    { name: 'Software Engineer', isActive: activeRole === 'Software Engineer' }
-  ];
+  const roles = rolesOrder.map(role => ({
+    name: role,
+    isActive: role === activeRole
+  }))
 
   return (
     <div
       id="experience"
-      ref={experienceRef}
-      className={`transition-opacity duration-700 ease-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+      ref={containerRef}
+      className={`transition-opacity duration-700 ease-out ${
+        isVisible ? 'opacity-100' : 'opacity-0'
+      }`}
     >
       <div className='flex flex-row gap-8 lg:gap-12'>
-        {/* Experience Content */}
-        <div className='flex-1 space-y-6 mb-8 max-w-2xl'>
-          <div className='border-b border-gray-200 dark:border-gray-700 pb-6 last:border-b-0 last:pb-0'>
-            <p className='text-black/[.7] dark:text-white/[.7] text-xs md:text-sm mb-2 font-ubold'>YouCode Technologies Corporation</p>
-            <p className='text-black/[.7] dark:text-white/[.7] text-xs md:text-sm mb-2'>Location</p>
-            <p className='text-black/[.6] dark:text-white/[.6] text-xs mb-3'>2024 - 2026</p>
-            
-            <div className='space-y-3 md:space-y-4'>
-              <div ref={drupalRef} data-ref="drupal">
-                <h4 className='text-black/[.9] dark:text-white/[.9] font-usbold text-sm md:text-base mb-2'>Initial Drupal Project</h4>
-                <p className='text-black/[.8] dark:text-white/[.8] text-xs md:text-sm leading-relaxed'>
-                  Joined as a System Developer with no prior experience in Drupal, 
-                  quickly learning the platform to collaborate with clients and review 
-                  Figma prototypes. Within three months, built a fully functional system,
-                  implementing all core features in both UI and backend, successfully meeting project timelines.
-                </p>
-              </div>
 
-              <div>
-                <h4 className='text-black/[.9] dark:text-white/[.9] font-usbold text-sm md:text-base mb-2'>Mobile Parking System</h4>
-                <p className='text-black/[.8] dark:text-white/[.8] text-xs md:text-sm lg:text-base leading-relaxed'>
-                  Developed a mobile parking system along with a companion web application
-                  for about 2 1/2 months, leading a team and handling both front-end and back-end development. Integrated core functionalities such
-                  as user registration, parking slot management, and real-time updates, ensuring seamless
-                  interaction between the mobile and web platforms.
-                </p>
-              </div>
+        {/* CONTENT */}
+        <div className='flex-1 space-y-12 max-w-2xl'>
 
-              <div ref={mdmRef} data-ref="mdm">
-                <h4 className='text-black/[.9] dark:text-white/[.9] font-usbold text-sm md:text-base mb-2'>Mobile Device Management System</h4>
-                <p className='text-black/[.8] dark:text-white/[.8] text-xs md:text-sm leading-relaxed'>
-                  Led a team in developing a mobile device management system for 7 months, implementing all core functionalities and additional features. 
-                  Oversaw the entire development lifecycle, from planning and architecture design to deployment, ensuring high-quality deliverables 
-                  and timely project completion. Coordinated team efforts across front-end and back-end development, managing code reviews, 
-                  feature implementations, and system integrations.
-                </p>
-              </div>
+            {/* YOUCODE */}
+            <div>
+              <p className='text-black/[.7] dark:text-white/[.7] text-sm font-ubold mb-1'>
+                YouCode Technologies Corporation
+              </p>
+              <p className='text-black/[.6] dark:text-white/[.6] text-xs mb-4'>
+                Makati City, Philippines • July 2024 – Present
+              </p>
 
-              <div>
-                <h4 className='text-black/[.9] dark:text-white/[.9] font-usbold text-sm md:text-base mb-2'>School Management Information System</h4>
-                <p className='text-black/[.8] dark:text-white/[.8] text-xs md:text-sm leading-relaxed'>
-                  While leading the team, also joined the second development project for a school management information system. 
-                  Embedded the system to hardware turnstile via provided API, integrating the software with physical access control devices. 
-                  Eventually took the lead in the development and successfully deployed the system in Cagayan de Oro City, ensuring seamless 
-                  integration between the management system and turnstile hardware for efficient school operations.
-                </p>
-              </div>
-
-              <div ref={overallRef} data-ref="overall">
-                <h4 className='text-black/[.9] dark:text-white/[.9] font-usbold text-sm md:text-base mb-2'>Overall Responsibilities</h4>
-                <p className='text-black/[.8] dark:text-white/[.8] text-xs md:text-sm leading-relaxed'>
-                  Throughout the year of my experience, I have been included in all projects and led a team in system architecture design. 
-                  Additionally, performed technical interviews for potential team members, conducted training sessions for developers, 
-                  and attended various meetings with clients and conventions to discuss project requirements, gather feedback, and stay 
-                  updated with industry trends and best practices.
-                </p>
-              </div>
+              {youcodeSections.map(section => (
+                <div key={section.id} id={section.id} className='space-y-3 mb-8 scroll-mt-32'>
+                  <h4 className='text-black/[.9] dark:text-white/[.9] font-usbold text-base'>
+                    {section.title}
+                  </h4>
+                  <p className='text-black/[.8] dark:text-white/[.8] text-sm leading-relaxed'>
+                    {section.description}
+                  </p>
+                </div>
+              ))}
             </div>
-          </div>
+            {/* FREELANCE */}
+            <div id='freelance-phase' className='scroll-mt-32'>
+              <p className='text-black/[.7] dark:text-white/[.7] text-sm font-ubold mb-1'>
+                Freelance Full-Stack Software Engineer
+              </p>
+              <p className='text-black/[.6] dark:text-white/[.6] text-xs mb-4'>
+                2020 – 2024 • Remote (Local & International Clients)
+              </p>
+
+              {freelanceSections.map(section => (
+                <div key={section.id} id={section.id} className='space-y-3 mb-8 scroll-mt-32'>
+                  <h4 className='text-black/[.9] dark:text-white/[.9] font-usbold text-base'>
+                    {section.title}
+                  </h4>
+                  <p className='text-black/[.8] dark:text-white/[.8] text-sm leading-relaxed'>
+                    {section.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+
         </div>
 
-        {/* Timeline on Right Side - Hidden on mobile (768px and below) */}
+        {/* TIMELINE */}
         <div className='w-64 flex-shrink-0 hidden min-[769px]:block'>
-          <div className='sticky top-[270px] lg:top-[250px]'>
+          <div className='sticky top-[250px]'>
             <Timeline roles={roles} />
           </div>
         </div>
-        
+
       </div>
 
-      {/* Gallery Section */}
-      <div className='mt-12'>
-        <h3 className='text-xl md:text-2xl font-ubold text-black dark:text-white mb-6'>Gallery</h3>
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6'>
+      {/* GALLERY */}
+      <div className='mt-14'>
+        <h3 className='text-black dark:text-white text-2xl font-ubold mb-6'>
+          Deployment & Engagements
+        </h3>
+
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
           {galleryImages.map((image, index) => (
-            <GalleryCard
-              key={index}
-              image={image.src}
-              alt={image.alt}
-            />
+            <GalleryCard key={index} image={image.src} alt={image.alt} />
           ))}
         </div>
       </div>
@@ -181,4 +197,3 @@ const Experience = ({ visitedPages }) => {
 }
 
 export default Experience
-
