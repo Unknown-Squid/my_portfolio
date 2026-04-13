@@ -154,7 +154,7 @@ const Experience = () => {
                 Freelance Full-Stack Software Engineer
               </p>
               <p className='text-black/[.6] dark:text-white/[.6] text-xs mb-4'>
-                2020 – 2024 • Remote (Local & International Clients)
+                2022 – Present • Remote (Local & International Clients)
               </p>
 
               {freelanceSections.map(section => (
