@@ -8,7 +8,7 @@ const freelanceSections = [
     id: 'freelance-overview',
     role: 'Full-Stack Software Engineer',
     title: 'Freelance Full-Stack Software Engineer (Local & International Clients)',
-    description: `Delivered 15+ full-cycle web applications using React, Next.js, Laravel, Node.js, Python, C#, and WordPress, covering e-commerce, LMS, booking, and analytics systems. End-to-end delivery including API integrations, authentication systems, database architecture, and CI/CD-based deployments.`
+    description: `Delivered 15+ full-cycle web applications using React, Typescript, Next.js, Laravel, Node.js, Python, C#, and WordPress, covering e-commerce, LMS, booking, and analytics systems. End-to-end delivery including API integrations, authentication systems, database architecture, and CI/CD-based deployments.`
   } // Full-Stack Software Engineer
 ]
 
@@ -23,19 +23,19 @@ const youcodeSections = [
     id: 'parking',
     role: 'Lead System Developer',
     title: 'Parking Management System (Mobile + Web)',
-    description: `Built a React Native + Node.js parking system with Google Maps API and OCR-based plate recognition for real-time vehicle registration and monitoring.`
+    description: `Built a React Native, Typescript, Node.js parking system with Google Maps API and OCR-based plate recognition for real-time vehicle registration and monitoring.`
   }, // lead System Developer
   {
     id: 'mdm',
     role: 'Lead System Developer',
     title: 'Mobile Device Management Platform (1000+ Devices)',
-    description: `Architected a large-scale MDM system using React, Next.js, Node.js, MongoDB, MySQL, Java/Kotlin with GCP integrations and AWS deployment, supporting 1000+ Android devices.`
+    description: `Architected a large-scale MDM system using React, Typescript, Next.js, Node.js, MongoDB, MySQL, Java/Kotlin with GCP integrations and AWS deployment, supporting 1000+ Android devices.`
   },
   {
     id: 'smis',
     role: 'Lead System Developer',
     title: 'School Management Information System',
-    description: `Developed a Laravel + React system integrated with turnstile hardware APIs for real-time attendance and access control, deployed in production with on-site training.`
+    description: `Developed a Laravel, React, Typescript, Next.js, Node.js system integrated with turnstile hardware APIs for real-time attendance and access control, deployed in production with on-site training.`
   },
   {
     id: 'leadership',
@@ -154,7 +154,7 @@ const Experience = () => {
                 Freelance Full-Stack Software Engineer
               </p>
               <p className='text-black/[.6] dark:text-white/[.6] text-xs mb-4'>
-                2022 – Present • Remote (Local & International Clients)
+                2022 – March 2026 • Remote (Local & International Clients)
               </p>
 
               {freelanceSections.map(section => (

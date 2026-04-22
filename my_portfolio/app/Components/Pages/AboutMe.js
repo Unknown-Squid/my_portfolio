@@ -28,7 +28,12 @@ const AboutMe = () => {
       }`}
     >
       <p className="text-gray-700 dark:text-gray-300 text-base md:text-lg leading-relaxed">
-        Lead Software Engineer with 4+ years of experience building enterprise systems across education and operations-heavy environments. My most recent and impactful work includes a Mobile Device Management platform supporting 1000+ Android devices and a School Management Information System with hardware-integrated attendance and access control, both deployed in real production environments. I specialize in education-focused systems where reliability, scale, and operational accuracy are critical. I work across React, Next.js, Node.js, Laravel, React Native, and .NET with AWS, GCP, Docker, and CI/CD pipelines. I regularly engage in technical discussions and architecture reviews with CTO and CEO-level stakeholders, translating business requirements into scalable engineering solutions from design through deployment.
+      Currently serving as Lead System Developer for the past 2 years, architecting and leading the development of MDM, 
+      School Management, and other enterprise level system. Results-driven Software Engineer with over 4 years of full-stack 
+      development experience across freelance and production systems, specializing in building scalable applications with a 
+      strong focus on performance, maintainability, and system integration. Skilled in React, TypeScript, Next.js, Laravel, 
+      Node.js, React Native, C#/.NET, WordPress, and Drupal, with experience in OCR automation, hardware integrations, and 
+      cloud deployments (AWS, GCP), and a strong track record in technical leadership and system architecture delivery. 
       </p>
     </div>
   )
