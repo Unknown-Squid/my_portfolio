@@ -1,0 +1,113 @@
+export const projects = [
+  {
+    id: 'kippr',
+    category: 'Enterprise Mobile Device Management System',
+    title: 'Kippr',
+    type: 'Full-Stack + Mobile + Cloud System',
+    description:
+      'Enterprise MDM platform to enroll, configure, and monitor 1,000+ Android devices with security policies, app management, and real-time telemetry. Full-stack web console plus native Android integration, deployed on AWS with high-availability targets.',
+    impact: [
+      'Device enrollment and remote management for enterprise fleets',
+      'Real-time monitoring and policy enforcement across production devices',
+      '99.9% platform uptime on AWS/GCP-backed infrastructure',
+    ],
+    technologies: [
+      'React',
+      'TypeScript',
+      'Next.js',
+      'Node.js',
+      'Express',
+      'MySQL',
+      'MongoDB',
+      'Redis',
+      'Java',
+      'Kotlin',
+      'Docker',
+    ],
+    tools: ['Cursor', 'Android Studio'],
+    media: '/projects/mdm-project.mp4',
+    thumbnail: '/projects/thumbnail/mdm-thumbnail.png',
+    link: 'https://kippr.ph/',
+    deployed: true,
+    deployment: 'AWS',
+  },
+  {
+    id: 'uncle-drew',
+    category: 'Booking & Reservation System',
+    title: 'Uncle Drew Sports Center',
+    type: 'Full-Stack Web Application',
+    description:
+      'End-to-end booking platform for sports facility reservations, real-time availability, event scheduling, customer bookings, and an admin dashboard for facility and reservation management.',
+    impact: [
+      'Real-time booking and availability for sports venues',
+      'Admin dashboard for operations, schedules, and booking oversight',
+      'Streamlined customer reservation flow for tournaments and training sessions',
+    ],
+    technologies: ['React', 'TypeScript', 'Next.js', 'Node.js', 'Express', 'MySQL'],
+    tools: ['Cursor'],
+    media: '/projects/uncle-drew-sports-center-project.mp4',
+    thumbnail: '/projects/thumbnail/uncle-drew-sports-center-thumbnail.png',
+    link: 'https://www.uncledrewsportscenter.com/',
+    deployed: true,
+    deployment: 'Vercel',
+  },
+  {
+    id: 'cars2go',
+    category: 'Car Rental Booking System',
+    title: 'Cars2Go',
+    type: 'WordPress Website',
+    description:
+      'Car rental booking website for Metro Manila, vehicle fleet showcase, service pages, quote requests, and customer contact flows for self-drive and with-driver rentals. Built on WordPress for fast content updates and marketing pages.',
+    impact: [
+      'Online presence for lowest-price car rental positioning in Metro Manila',
+      'Fleet, services, and booking inquiry flows for multiple vehicle categories',
+      'Multi-language support and SEO-friendly structure for local and tourist customers',
+    ],
+    technologies: ['WordPress', 'PHP', 'HTML', 'CSS', 'JavaScript'],
+    tools: ['WordPress'],
+    media: '/projects/cars2go-project.mp4',
+    thumbnail: '/projects/thumbnail/cars2go-thumbnail.png',
+    link: 'https://cars2goph.com/',
+    deployed: true,
+    deployment: 'IONOS',
+  },
+  {
+    id: 'sj-handicrafts',
+    category: 'E-Commerce Website',
+    title: 'SJ Handicrafts',
+    type: 'Frontend + E-commerce',
+    description:
+      'E-commerce storefront for Albay-based handmade products, product catalog, cart flow, and a polished brand experience highlighting local craftsmanship.',
+    impact: [
+      'Online catalog and purchase flow for handmade product lines',
+      'Brand-forward UI tailored for artisan retail',
+    ],
+    technologies: ['React', 'TypeScript', 'Next.js'],
+    tools: ['Cursor'],
+    media: '/projects/sj-handicrafts-project.mp4',
+    thumbnail: '/projects/thumbnail/sj-handicrafts-thumbnail.png',
+    link: 'https://sjhandicrafts.vercel.app/',
+    deployed: true,
+    deployment: 'Vercel',
+  },
+  {
+    id: 'mood-tank',
+    category: 'Embedded Systems Project',
+    title: 'Mood Tank',
+    type: 'Arduino / IoT Prototype',
+    description:
+      'Arduino-based robotics prototype using sensors and C++ firmware — demonstrates hardware integration, sensor input processing, and embedded control logic.',
+    impact: [
+      'Sensor-driven behavior with sound and IR inputs',
+      'Hands-on embedded systems and physical computing workflow',
+    ],
+    technologies: ['Arduino', 'C++', 'Embedded Systems'],
+    hardware: ['Arduino Uno', 'Sound Sensor', 'IR Sensor', 'LED', 'Buttons', 'Jumper Wires'],
+    tools: ['Arduino IDE'],
+    media: '/projects/moodTank.mp4',
+    deployed: false,
+  },
+];
+
+/** @deprecated alias */
+export const allProjects = projects;
