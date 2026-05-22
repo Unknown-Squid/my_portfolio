@@ -12,7 +12,7 @@ const infoRows = [
     external: true,
   },
   { label: 'GitHub', value: 'Unknown-Squid', href: 'https://github.com/Unknown-Squid?tab=repositories', external: true },
-  { label: 'Portfolio', value: 'gerald-portfolio-beryl.vercel.app', href: contact.portfolio, external: true },
+  { label: 'Portfolio', value: 'geraldfegalan.online', href: contact.portfolio, external: true },
   { label: 'Resume', value: 'Download PDF', href: '/resume/Gerald Fegalan Resume.pdf', download: true },
   { label: 'Role', value: contact.role, highlight: true },
 ];

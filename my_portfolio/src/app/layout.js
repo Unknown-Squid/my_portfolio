@@ -2,7 +2,7 @@ import { Syne, DM_Sans } from "next/font/google";
 import { contact, metaDescription } from "@/constants/resume";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://gerald-portfolio-beryl.vercel.app/";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.geraldfegalan.online/";
 
 const syne = Syne({
   subsets: ["latin"],

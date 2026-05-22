@@ -6,7 +6,7 @@ export const contact = {
   phone: '+63 991 884 7001',
   email: 'geraldfegalan@gmail.com',
   linkedIn: 'https://www.linkedin.com/in/fritz-gerald-fegalan-674358178/',
-  portfolio: 'https://gerald-portfolio-beryl.vercel.app/',
+  portfolio: 'https://www.geraldfegalan.online/',
   role: 'Lead System Developer',
   headline: 'Software Engineer (Full-Stack Developer)',
 };
