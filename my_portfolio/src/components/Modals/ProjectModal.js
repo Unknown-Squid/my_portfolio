@@ -67,7 +67,7 @@ export default function ProjectModal({ isOpen, onClose, project }) {
                     src={project.animationGif}
                     width={500}
                     height={500}
-                    alt="squid-lib-animation"
+                    alt={`${project.title} animation`}
                     className="absolute inset-[20%] h-[60%] w-[60%] object-contain opacity-85"
                   />
                 </div>
@@ -141,10 +141,10 @@ export default function ProjectModal({ isOpen, onClose, project }) {
               </DetailBlock>
             )}
 
-            {project.tools?.length > 0 && (
+            {((project.tools ?? []).length > 0 || (project.ciCd ?? []).length > 0) && (
               <DetailBlock title="Development Tools">
                 <div className="flex flex-wrap gap-1.5">
-                  {project.tools.map((t) => (
+                  {[...new Set([...(project.tools ?? []), ...(project.ciCd ?? [])])].map((t) => (
                     <span key={t} className={pill}>
                       {t}
                     </span>

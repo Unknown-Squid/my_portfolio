@@ -9,8 +9,7 @@ const links = [
   { id: 'gallery', label: 'Gallery' },
   { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
-  { id: 'education', label: 'Education' },
-  { id: 'contact', label: 'Contact' },
+  { id: 'education', label: 'Education' }
 ];
 
 function linkClass(isActive) {

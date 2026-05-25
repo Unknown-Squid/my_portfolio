@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Fritz Gerald Fegalan — Portfolio
 
-## Getting Started
+This repository is the source for my personal portfolio website. It showcases a curated selection of projects, key achievements, work experience, and contact information so potential employers and collaborators can quickly understand my skills and background.
 
-First, run the development server:
+## Purpose
+
+- Public showcase of selected projects and case studies
+- Share a concise professional resume and contact details
+- Demonstrate technical skills (Next.js, React, Tailwind, Node, cloud)
+
+## What's Inside
+
+- Home / Hero section with profile summary
+- Projects — project cards, details, galleries and modal previews
+- Experience & Achievements — highlights from professional work
+- Skills, Education, and Resume download
+- Contact / Social links
+
+## Tech Stack
+
+- Next.js (App Router)
+- React 18
+- Tailwind CSS
+- Node.js, Vite (dev toolchain via Next)
+
+## Run locally
+
+Install dependencies and run the dev server (uses port 3002 in this project):
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Build for production:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Profile Summary
 
-## Learn More
+Fritz Gerald Fegalan — Lead System Developer based in Dasmariñas City, Philippines.
 
-To learn more about Next.js, take a look at the following resources:
+- 4+ years of full‑stack development experience building web and mobile applications
+- Delivered 10+ end‑to‑end web applications for local and international clients
+- Notable work: production MDM platform (99.9% uptime) managing 1,000+ Android devices
+- Core skills: React, Next.js, Node.js, MySQL, MongoDB, Docker, CI/CD, AWS/GCP
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+This site is ready for deployment on Vercel or any hosting that supports Next.js.
 
-## Deploy on Vercel
+## Contact
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Email: geraldfegalan@gmail.com
+- LinkedIn: https://www.linkedin.com/in/fritz-gerald-fegalan-674358178/
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
+
+If you'd like, I can expand this README with badge links, build status, or a short changelog.

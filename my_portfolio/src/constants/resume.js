@@ -12,7 +12,7 @@ export const contact = {
 };
 
 export const professionalSummary = [
-  'Software Engineer (Full-Stack Developer) with 2+ years of experience delivering enterprise-grade web and mobile applications across education, mobility, CMS, and device management systems.',
+  'Software Engineer (Full-Stack Developer) with 4+ years of experience delivering enterprise-grade web and mobile applications across education, mobility, CMS, and device management systems.',
   'Experienced in building end-to-end solutions using modern JavaScript, PHP, and cloud technologies within Agile, cross-functional teams. Open to relocation and international opportunities.',
 ];
 
@@ -93,7 +93,7 @@ export const experienceEntries = [
     title: 'Freelance Full-Stack Developer',
     note: 'Clients acquired via Upwork, Fiverr, OnlineJobs.ph, and direct referrals',
     bullets: [
-      'Delivered 6+ end-to-end web applications for local and international clients across e-commerce, learning management, booking, and analytics platforms, improving business operations and digital presence.',
+      'Delivered 10+ end-to-end web applications for local and international clients across e-commerce, learning management, booking, and analytics platforms, improving business operations and digital presence.',
       'Automated manual business workflows such as booking, scheduling, and client management by designing and implementing custom web-based systems and admin dashboards.',
       'Built real-time analytics dashboards and reporting tools to help clients monitor performance metrics, user activity, and business operations for data-driven decision making.',
       'Optimized web applications for high performance and SEO, improving page load speed, search visibility, and overall marketing effectiveness for client platforms.',

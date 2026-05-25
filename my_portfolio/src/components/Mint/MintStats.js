@@ -4,7 +4,7 @@ export default function MintStats() {
   const stats = [
     ['2+', 'Years Experience'],
     ['6+', 'Client Projects'],
-    ['95+', 'SEO Score'],
+    ['1+', 'Year Leading a Small Team']
   ];
 
   return (

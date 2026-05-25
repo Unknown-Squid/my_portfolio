@@ -1,14 +1,16 @@
 'use client';
 
+import { memo } from 'react';
 import Image from 'next/image';
 import { badge, pill } from '@/lib/mint-styles';
 
-export default function MintProjectCard({ project, onClick, className = '' }) {
+function MintProjectCard({ project, onClick, className = '' }) {
   return (
     <button
       type="button"
       onClick={onClick}
-      className={`flex h-full w-full flex-col rounded-2xl border border-mp-g3 bg-mp-g1 p-5 text-left transition hover:-translate-y-0.5 hover:border-mp-mint/30 ${className}`.trim()}
+      style={{ willChange: 'transform' }}
+      className={`flex h-full w-full flex-col rounded-2xl border border-mp-g3 bg-mp-g1 p-5 text-left transition-transform transition-colors duration-200 ease-out hover:-translate-y-0.5 hover:border-mp-mint/30 ${className}`.trim()}
     >
       {project.thumbnail && (
         <div className="relative mb-4 h-[200px] overflow-hidden rounded-xl bg-mp-g2">
@@ -37,3 +39,5 @@ export default function MintProjectCard({ project, onClick, className = '' }) {
     </button>
   );
 }
+
+export default memo(MintProjectCard);

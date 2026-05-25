@@ -4,12 +4,12 @@ export const achievements = [
     text: 'Production uptime for an MDM platform supporting 1,000+ Android devices.',
   },
   {
-    number: '8K+',
+    number: '8,000+',
     text: 'Daily attendance records processed through hardware-based integrations.',
   },
   {
-    number: '90%',
-    text: 'Reduction in vehicle registration processing time via OCR-based parking automation.',
+    number: '2+',
+    text: 'Years of full-stack development experience across freelance and professional projects.',
   },
   {
     number: '70%',
@@ -20,7 +20,7 @@ export const achievements = [
     text: 'End-to-end freelance applications delivered for local and international clients.',
   },
   {
-    number: '95+',
-    text: 'Consistent SEO performance scores across client-facing and production web applications.',
+    number: '95/100',
+    text: 'Average Lighthouse SEO score across client-facing and production web applications.',
   },
 ];

@@ -23,6 +23,11 @@ export const metadata = {
   metadataBase: new URL(siteUrl),
   title: `${contact.name} — ${contact.headline}`,
   description: metaDescription,
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
   openGraph: {
     title: `${contact.name} — ${contact.headline}`,
     description: metaDescription,
