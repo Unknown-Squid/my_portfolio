@@ -1,6 +1,5 @@
 import { contact, professionalSummary } from '@/constants/resume';
 import { btnGhost, btnPrimary } from '@/lib/mint-styles';
-import SocialConnect from '@/components/Mint/SocialConnect';
 
 export default function MintHero() {
   const summaryLead = professionalSummary[0].slice(contact.headline.length);
@@ -9,7 +8,7 @@ export default function MintHero() {
     <div className="hero-wrap">
       <div className="hero">
         <div className="hero-deco" aria-hidden>
-          2+
+          4+
         </div>
 
         <div className="hero-tag">Open to relocation · International opportunities</div>
@@ -35,12 +34,7 @@ export default function MintHero() {
           <a href={contact.linkedIn} target="_blank" rel="noopener noreferrer" className={btnGhost}>
             LinkedIn
           </a>
-          <a href={contact.portfolio} target="_blank" rel="noopener noreferrer" className={btnGhost}>
-            Portfolio ↗
-          </a>
         </div>
-
-        <SocialConnect variant="hero" />
       </div>
     </div>
   );

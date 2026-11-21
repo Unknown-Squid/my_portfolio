@@ -143,23 +143,6 @@ export const projects = [
     link: 'https://number-system-convertion-version-2.vercel.app/',
   },
   {
-    id: 'valentines-website',
-    category: 'Special Occasion Website',
-    title: 'Valentines Website',
-    type: 'Frontend Web Experience',
-    description:
-      'Simple Next.js website created as a heartfelt Valentine’s tribute with a clean layout, affectionate messaging, and a memorable digital keepsake.',
-    impact: [
-      'Personalized experience built to celebrate a meaningful relationship',
-      'Lightweight, responsive design optimized for a romantic message',
-    ],
-    technologies: ['Next.js', 'JavaScript', 'HTML', 'CSS'],
-    tools: ['Vercel', 'VS Code'],
-    deployed: true,
-    deployment: 'Vercel',
-    link: 'https://valentines-project-git-main-unknownsquids-projects.vercel.app/',
-  },
-  {
     id: 'mood-tank',
     category: 'Embedded Systems Project',
     title: 'Mood Tank',

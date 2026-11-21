@@ -5,7 +5,6 @@ import Loading from "@/components/Loader/Loading";
 import MintFadeInObserver from "@/components/Mint/MintFadeInObserver";
 import MintNav from "@/components/Mint/MintNav";
 import MintHero from "@/components/Mint/MintHero";
-import MintStats from "@/components/Mint/MintStats";
 import MintAboutSection from "@/components/Mint/MintAboutSection";
 import MintExperienceSection from "@/components/Mint/MintExperienceSection";
 import MintGallerySection from "@/components/Mint/MintGallerySection";
@@ -35,7 +34,6 @@ const Home = () => {
         <MintNav />
         <MintHero />
 
-        <MintStats />
         <div className={divider} />
         <MintAboutSection />
         <div className={divider} />

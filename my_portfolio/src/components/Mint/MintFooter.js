@@ -14,7 +14,7 @@ export default function MintFooter() {
 
       <div className="flex flex-col items-center gap-3 md:flex-row md:items-center">
         <SocialConnect variant="footer" />
-        <span className="text-[0.78rem] text-mp-mint">Built with care · Dasmariñas, Cavite 🇵🇭</span>
+        <span className="text-[0.78rem] text-mp-mint">Built with care · Philippines 🇵🇭</span>
       </div>
     </footer>
   );

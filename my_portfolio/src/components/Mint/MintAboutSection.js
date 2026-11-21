@@ -1,4 +1,6 @@
 import { contact, professionalSummary } from '@/constants/resume';
+import MintStats from '@/components/Mint/MintStats';
+import SocialConnect from '@/components/Mint/SocialConnect';
 import { fade, heading, label, section, sectionHeader, wrap } from '@/lib/mint-styles';
 
 const infoRows = [
@@ -21,10 +23,14 @@ export default function MintAboutSection() {
   return (
     <section id="about" className={section}>
       <div className={wrap}>
-        <div className={`${sectionHeader} ${fade}`}>
+        <div className={`${fade} mb-12 border-b border-mp-g3 pb-8`}>
           <div>
             <div className={label}>Who I am</div>
             <h2 className={heading}>Profile</h2>
+          </div>
+          <MintStats />
+          <div className="[&_.hero-connect]:mt-8 [&_.hero-connect]:border-t-0 [&_.hero-connect]:pt-0">
+            <SocialConnect variant="hero" />
           </div>
         </div>
 
